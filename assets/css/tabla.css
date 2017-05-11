@@ -1,0 +1,38 @@
+table {
+	max-width: 100%;
+	background-color: transparent;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+#program td, #program td *{
+	vertical-align: top;
+	
+}
+
+.borde{
+	border-top: 1px solid black; 
+	border-bottom: 1px solid black; 
+}
+
+.tabla-interior td{
+	border-right: 1px solid black;
+	padding:5px;
+}
+
+.tabla-interior td:last-child{
+	border-right: 0px;
+}
+
+hr{
+	border: 1px dashed black;
+	margin: 0;
+	margin-bottom:5px;
+}
+
+.hora{
+	font-size:12px;
+}
