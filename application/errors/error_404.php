@@ -17,7 +17,7 @@ body {
 
 a {
 	color: #003399;
-	background-color: transparent;
+	background-color: #000000;
 	font-weight: normal;
 }
 

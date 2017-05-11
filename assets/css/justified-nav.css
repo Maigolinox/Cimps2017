@@ -11,7 +11,7 @@ body {
 
 /* Main marketing message and sign up button */
 .jumbotron {
-  background : #f5f5f5 url('../img/contenido.png');
+  background : url('../img/contenido.png');
 }
 .jumbotron .btn {
   font-size: 21px;

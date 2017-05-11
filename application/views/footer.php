@@ -1,8 +1,9 @@
+
       </div>
 
       <!-- Site footer -->
       <!-- div class="footer" -->
-	  <p style="color:#ffffff;;font-family:Verdana,Tahoma,Arial;">CIMPS 2016 - October 12-14, Copyright © 2016 CIMAT - Zacatecas, México
+	  <p style="color:#ffffff;;font-family:Verdana,Tahoma,Arial;">CIMPS 2017 - October 18-20, Copyright © 2017 CIMAT - Zacatecas, México
 	  <br/>Av. Universidad No. 222. Zacatecas. México. conferencecimps@cimat.mx</p>
       <!-- /div -->
 

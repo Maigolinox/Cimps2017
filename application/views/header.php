@@ -1,15 +1,16 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head><meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+  <head>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo base_url() ?>ico/favicon.png">
     <link rel="shortcut icon" href="<?php echo base_url() ?>ico/favicon.png">
 
-    <title>CIMPS 2016</title>
+    <title>CIMPS 2017</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url() ?>assets/css/bootstrap.css" rel="stylesheet">
@@ -18,6 +19,7 @@
     <link href="<?php echo base_url() ?>assets/css/justified-nav.css" rel="stylesheet">
 	<link href="<?php echo base_url() ?>assets/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/estilos.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/csslogin2017.css" rel="stylesheet">
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -30,6 +32,8 @@
       <script src="<?php echo base_url() ?>assets/js/html5shiv.js"></script>
       <script src="<?php echo base_url() ?>assets/js/respond.min.js"></script>
     <![endif]-->
+
+
   </head>
 
   <body>
@@ -38,11 +42,12 @@
 
       <div class="masthead">
         <div class="row">
+			  <!--Secambio por el diseño 2017
 			  <div class="col-xs-12 col-sm-6 col-md-8">
-			     <!-- div class="masthead"-->
-				<a href="http://cimps.ingsoft.info/"><img src="<?php echo base_url() ?>assets/img/logo-cimps.png"/></a>
-			     <!-- /div -->
-			  </div>
+			     <div class="masthead"> linea comentada
+				<a href="http://cimps.ingsoft.info/"><img src="<?php //echo base_url() ?>assets/img/logo-cimps.png"/></a>
+			     </div>linea comentada
+			  </div>-->
 			  <div class="col-xs-6 col-sm-6 col-md-4">
 			  
 			  <?php if(get_userdata('language') != "spanish") { ?><br/><br/>
@@ -66,5 +71,3 @@
 			  <br/><br/><br/><br/>
 		</div>
 	  
-      <!-- Jumbotron -->  
-      <div class="jumbotron">
