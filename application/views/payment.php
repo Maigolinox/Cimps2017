@@ -9,50 +9,114 @@
           <li><a href="http://cimps.ingsoft.info/contact-information" target="_blank"><?php echo lang("cimps_MenuContact"); ?></a></li>
 		  <li><a href="<?php echo site_url('auth/logout') ?>"><?php echo lang("cimps_MenuLogout"); ?></a></li>
         </ul>
-
 <br/><div style="margin:20px;"></div>
 		<div class="row">
 		  <div class="col-md-8">
-			<h3><strong><?php echo lang("cimps_PagPayment"); ?></strong></h3>
+			<h2 style="text-align: center"><?php echo lang("cimps_PagPayment"); ?></h2>
+
+
 			<?php echo (!empty($suc)) ? '<div class="alert alert-success">'.$suc.'</div>' : ''?>
-			<table class="table table-condensed">
-			<tr>
-						<td style="padding-right:3em"><b><?php echo lang("cimps_PagRegistro"); ?></b></td>
-						<td style="padding-right:3em"><b><?php echo lang("cimps_PagAmountPesos"); ?></b></td>
-						<td><b><?php echo lang("cimps_PagAmountEuros"); ?></b></td>
-				   <tr>
-			<?php $total = 0; $totalEuro = 0; ?>
-			<?php foreach($costs as $cost): ?>
-			<?php $total += $cost->total; $totalEuro += $cost->euro;?>
-				<tr>
-					<td><?php echo $cost->name ?></td>
-					<td>$<span class="cost"><?php echo $cost->total ?></span></td>
-					<td><span class="cost"><?php echo $cost->euro ?></span>€</td>
-				</tr>
-			<?php endforeach; ?>
-				<tr>
-					<td><b>Total</b></td>
-					<td><b>$<span class="cost"><?php echo $total ?></span></b></td>
-					<td><b><span class="cost"><?php echo $totalEuro  ?></span>€</b></td>
-				</tr>
-				<?php if ($discounts->discount != 0  ||  $discounts->discount_euros != 0) :?>
-				<tr>
-					<td><b>Discount</b></td>
-					<td><b>$<span class="cost"><?php echo $discounts->discount ?></span></b></td>
-					<td><b><span class="cost"><?php echo $discounts->discount_euros ?></span>€</b></td>
-				</tr>
-				<tr class="success">
-					<td><b>Grand Total</b></td>
-					<td><b>$<span class="cost"><?php echo $total - $discounts->discount ?></span></b></td>
-					<td><b><span class="cost"><?php echo $totalEuro - $discounts->discount_euros ?></span>€</b></td>
-				</tr>
-				<?php endif ?>
-			</table>
+			<div style="border:2px solid #610303; border-radius: 25px; background-color : #FFFFFF;">
+				<div style="margin-left: -15px; margin-top: -15px;">
+					<!--logo-->
+					<img style=" width:8%; height: 8%": src="<?php echo base_url() ?>assets/img/logo_paym_state.png" />
+					<div style="margin-left: 50px; margin-right: 15px;">
+						<table class="table table-condensed">
+							<tr>
+								<td style="padding-right:3em"><b><?php echo lang("cimps_PagRegistro"); ?></b></td>
+								<td style="padding-right:3em"><b><?php echo lang("cimps_PagAmountPesos"); ?></b></td>
+								<td><b><?php echo lang("cimps_PagAmountEuros"); ?></b></td>
+								<tr>
+									<?php $total = 0; $totalEuro = 0; ?>
+									<?php foreach($costs as $cost): ?>
+										<?php $total += $cost->total; $totalEuro += $cost->euro;?>
+										<tr>
+											<td><?php echo $cost->name ?></td>
+											<td>$<span class="cost"><?php echo $cost->total ?></span></td>
+											<td><span class="cost"><?php echo $cost->euro ?></span>€</td>
+										</tr>
+									<?php endforeach; ?>
+									<tr>
+										<td><b>Total</b></td>
+										<td><b>$<span class="cost"><?php echo $total ?></span></b></td>
+										<td><b><span class="cost"><?php echo $totalEuro  ?></span>€</b></td>
+									</tr>
+									<?php if ($discounts->discount != 0  ||  $discounts->discount_euros != 0) :?>
+										<tr>
+											<td><b>Discount</b></td>
+											<td><b>$<span class="cost"><?php echo $discounts->discount ?></span></b></td>
+											<td><b><span class="cost"><?php echo $discounts->discount_euros ?></span>€</b></td>
+										</tr>
+										<tr class="success">
+											<td><b>Grand Total</b></td>
+											<td><b>$<span class="cost"><?php echo $total - $discounts->discount ?></span></b></td>
+											<td><b><span class="cost"><?php echo $totalEuro - $discounts->discount_euros ?></span>€</b></td>
+										</tr>
+									<?php endif ?>
+								</table>
+							</div>						
+						</div> 
+					</div>
+
 			<?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
-			
 			<?php echo (!empty($error)) ? '<div class="alert alert-danger">'.$error.'</div>' : ''?>
-			
 			<form role="form" method="post" action="<?php echo site_url('payment/add'.$url_crud_id) ?>" enctype="multipart/form-data">
+
+
+
+
+				<!-- PayPal button to pay in mexican pesos -->  
+				<div style="border:2px solid #610303; border-radius: 25px; background-color : #FFFFFF; margin-top: 30px;">
+					<div style="margin-left: -15px; margin-top: -15px;">
+						<!--logo-->
+						<img style=" width:8%; height: 8%": src="<?php echo base_url() ?>assets/img/icono_info_user.png" />
+					</div>    
+					<div style="margin-left: 30px;"> 
+					<strong style="text-align: left;"><?php echo lang("cimps_paypal_mexican"); ?></strong>
+						<strong style="text-align: right;"><?php echo lang("cimps_paypal_euros"); ?></strong>
+					</div>
+					<div >
+						<form action='https://www.paypal.com/cgi-bin/webscr' method='post' name='form' style="margin-right: 20px;">
+							<input type='hidden' name='business' value='admeventos@cimat.mx'>
+							<input type='hidden' name='cmd' value='_xclick'> 
+							<input type='hidden' name='item_name' value='Pago para CIMPS 2016'>
+							<input type='hidden' name='item_number' value='1'>
+							<input type='hidden' name='amount' value='<?php echo $total ?>'>
+							<input type='hidden' name='no_shipping' value='1'>
+							<input type='hidden' name='currency_code' value='MXN'>
+							<input type='hidden' name='cancel_return' value='http://cancel.com'>
+							<input type='hidden' name='return' value='http://return.com/'>
+							<input type="image"   src="https://paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" name="submit">
+						</form>
+						<!-- PayPal button to pay in euros -->
+
+						<form action='https://www.paypal.com/cgi-bin/webscr' method='post' name='form' style="">
+							<input type='hidden' name='business' value='admeventos@cimat.mx'>
+							<input type='hidden' name='cmd' value='_xclick'> 
+							<input type='hidden' name='item_name' value='Pay to CIMPS 2016'>
+							<input type='hidden' name='item_number' value='1'>
+							<input type='hidden' name='amount' value='<?php echo $totalEuro ?>'>
+							<input type='hidden' name='no_shipping' value='1'>
+							<input type='hidden' name='currency_code' value='EUR'>
+							<input type='hidden' name='cancel_return' value='http://cancel.com'>
+							<input type='hidden' name='return' value='http://return.com/'>
+							<input type="image"   src="https://paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" name="submit">
+						</form>
+					</div>
+
+
+
+				</div>
+
+				
+				
+
+
+
+
+
+
+
 			  <div class="form-group">
 			    <label for="exampleInputEmail1"><?php echo lang("cimps_PagWaysPayment"); ?></label>
 			    <?php echo form_dropdown('payment_type', $payment_type, set_value('payment_type', $order->type_payment), 'class="form-control"') ?>
@@ -142,39 +206,7 @@
 			</form>
 		</div>
 
-<!-- PayPal button to pay in mexican pesos -->  
-<div>
-<strong><?php echo lang("cimps_paypal_mexican"); ?></strong>
- <form action='https://www.paypal.com/cgi-bin/webscr' method='post' name='form'>
-  <input type='hidden' name='business' value='admeventos@cimat.mx'>
-  <input type='hidden' name='cmd' value='_xclick'> 
-  <input type='hidden' name='item_name' value='Pago para CIMPS 2016'>
-  <input type='hidden' name='item_number' value='1'>
-  <input type='hidden' name='amount' value='<?php echo $total ?>'>
-  <input type='hidden' name='no_shipping' value='1'>
-  <input type='hidden' name='currency_code' value='MXN'>
-   <input type='hidden' name='cancel_return' value='http://cancel.com'>
-     <input type='hidden' name='return' value='http://return.com/'>
-   <input type="image"   src="https://paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" name="submit">
-</form>
-</div>
-<p></p>
-<!-- PayPal button to pay in euros -->
-<div>
-<strong><?php echo lang("cimps_paypal_euros"); ?></strong>
- <form action='https://www.paypal.com/cgi-bin/webscr' method='post' name='form'>
-  <input type='hidden' name='business' value='admeventos@cimat.mx'>
-  <input type='hidden' name='cmd' value='_xclick'> 
-  <input type='hidden' name='item_name' value='Pay to CIMPS 2016'>
-  <input type='hidden' name='item_number' value='1'>
-  <input type='hidden' name='amount' value='<?php echo $totalEuro ?>'>
-  <input type='hidden' name='no_shipping' value='1'>
-  <input type='hidden' name='currency_code' value='EUR'>
-   <input type='hidden' name='cancel_return' value='http://cancel.com'>
-     <input type='hidden' name='return' value='http://return.com/'>
-   <input type="image"   src="https://paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" name="submit">
-</form>
-</div>
+
 
 	     <div class="col-md-4">
 <h3><?php echo lang("cimps_Payment_Method"); ?></h3>
@@ -198,3 +230,4 @@
 		
 	  });
 	</script>
+

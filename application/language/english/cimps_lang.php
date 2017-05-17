@@ -7,7 +7,7 @@ $lang['cimps_login_problem']="Login Problems?";
 
 //Login
 $lang['cimps_login']="Please sign in";
-$lang['cimps_user']="Email Address";
+$lang['cimps_user']="Email Address     ";
 $lang['cimps_password']="Password";
 $lang['cimps_rememberme']="Remember me";
 $lang['cimps_Signin']="Sign in";
@@ -16,7 +16,7 @@ $lang['cimps_ForgotPass']="Forgot your password";
 
 //Registro
 $lang['cimps_Access_Codetag']="Access Code";
-$lang['cimps_Shirt_Size']="Shirt Size";
+$lang['cimps_Shirt_Size']="Shirt Size &nbsp &nbsp &nbsp &nbsp &nbsp";
 $lang['cimps_Guest']="Guest (LogIn)";
 $lang['cimps_Register']="Register";
 $lang['cimps_Required']="The fields below marked with (* ) are required";
@@ -33,11 +33,11 @@ $lang['cimps_Name']="Name";
 $lang['cimps_Gender']="Gender*";
 $lang['cimps_Female']="Female";
 $lang['cimps_Male']="Male";
-$lang['cimps_Citytag']="City*";
+$lang['cimps_Citytag']="City* &nbsp &nbsp";
 $lang['cimps_city']="City)";
 $lang['cimps_Countrytag']="Country*";
 $lang['cimps_country']="Country";
-$lang['cimps_Email_add']="Email address*";
+$lang['cimps_Email_add']="Email address* &nbsp &nbsp &nbsp";
 $lang['cimps_RegVenue']="ITA - Technological Institute of Aguascalientes";
 $lang['cimps_RegOtherVenue']="Other institution";
 $lang['cimps_Afiliationtag']="Afiliation Name (University/Company)";
