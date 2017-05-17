@@ -4928,6 +4928,7 @@ a.list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
   color: #428bca;
   background-color: #ffffff;
+}
 
 .nav-pills > li > a > .badge {
   margin-left: 3px;
@@ -4956,7 +4957,7 @@ a.list-group-item.active > .badge,
   border-radius: 6px;
 }
 
-@media screen and (min-width: 7px) {
+@media screen and (min-width: 768px) {
   .jumbotron {
     padding-top: 48px;
     padding-bottom: 48px;

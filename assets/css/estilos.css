@@ -1,7 +1,7 @@
 body{
 	margin:0;
 	padding:0;
-	/*background-image:url(../img/fondo.jpg);*/
+	background-image:url(../img/fondo.jpg);
     background-repeat:repeat;
     background-color: #aeaeae;
 	font:13px/20px 'Arial';
@@ -9,9 +9,6 @@ body{
 	min-width:960px;
 	color:#202020;
 }
-
-
-
 .headline-inner {
 	/*position: relative;
 	z-index: 1;
@@ -90,7 +87,6 @@ padding: 30px 0 30px 0;
 .container .jumbotron{
 margin-top: -100px;
 }
-
 
 .btn-primary{
 background-image: -webkit-gradient(linear,left 0,left 100%,from(#610303),to(#610303));
