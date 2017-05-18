@@ -67,9 +67,7 @@ $lang['cimps_update_profile']="Perfil de Registro";
 
 //Barra Lateral
 $lang['cimps_Payment_Method']="Método de Pago";
-$lang['cimps_Barralateralpago']="Depósito bancario o transferencia. 
-
-El pago se debe realizar a través de un depósito bancario, los datos para el depósito son: 
+$lang['cimps_Barralateralpago']="Depósito bancario o transferencia. El pago se debe realizar a través de un depósito bancario, los datos para el depósito son: 
 
 A nombre de: CENTRO DE INVESTIGACIÓN EN MATEMÁTICAS, A.C. 
 Banco: HSBC 
@@ -189,3 +187,8 @@ $lang['cimps_paypal_euros']="Pagar en euros";
 
 // Mensaje para imprimir codigo QR
 $lang['cimps_qr_code']="Imprimir QR";
+
+// Seccion de pagos para la version 2017
+$lang['cimps_account_statement'] = "Estado de Cuenta";
+$lang['cimps_paypal'] = "PayPal";
+$lang['cimps_deposit_detail'] = "Depósito / Transferencia Bancaria";

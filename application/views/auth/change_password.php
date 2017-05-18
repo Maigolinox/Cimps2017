@@ -1,3 +1,5 @@
+<!--Clase para cambiar parwword-->
+
 <ul class="nav nav-justified">
         <li><a href="http://cimps.cimat.mx/registration_system/index.php/user/"><?php echo lang("cimps_MenuHome"); ?></a></li>
     <li><a href="<?php echo site_url('user/information') ?>"><?php echo lang("cimps_MenuUpdate"); ?></a></li>

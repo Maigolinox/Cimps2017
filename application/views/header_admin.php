@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url() ?>assets/css/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/estilos.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url() ?>assets/css/justified-nav.css" rel="stylesheet">

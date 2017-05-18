@@ -68,7 +68,6 @@ $lang['cimps_update_profile']="Register Profile";
 //Barra Lateral
 $lang['cimps_Payment_Method']="Payment Method";
 $lang['cimps_Barralateralpago']="Bank deposit or electronic transfer. 
-
 Payment must be through a bank deposit as follows: 
 
 Receiver Bank information: 
@@ -142,8 +141,8 @@ $lang['cimps_MPPrint']="Print";
 //Sección de Pagos
 $lang['cimps_PagPayment']="Payment";
 $lang['cimps_PagRegistro']="Registration";
-$lang['cimps_PagAmountPesos']="Amount(Mexican Pesos $)";
-$lang['cimps_PagAmountEuros']=" Amount(Euros ";
+$lang['cimps_PagAmountPesos']="Amount (Mexican Pesos $)";
+$lang['cimps_PagAmountEuros']=" Amount (Euros €)";
 $lang['cimps_PagTotal']="Total";
 $lang['cimps_PagWaysPayment']="Choose one of three ways for payment:";
 $lang['cimps_PagDeposit']="By Deposit";
@@ -190,3 +189,8 @@ $lang['cimps_paypal_euros']="Pay in Euros";
 
 // Message to print QR Code
 $lang['cimps_qr_code']="Print QR Code";
+
+// Payment section from version 2017
+$lang['cimps_account_statement'] = "Account Statement";
+$lang['cimps_paypal'] = "PayPal";
+$lang['cimps_deposit_detail'] = "Deposit / Bank transfer";

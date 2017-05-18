@@ -13,7 +13,9 @@
     <title>CIMPS 2017</title>
 
     <!-- Bootstrap core CSS -->
+    <link href="<?php echo base_url() ?>/assets/css/estilos.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/bootstrap.css" rel="stylesheet">
+
 
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url() ?>assets/css/justified-nav.css" rel="stylesheet">
@@ -64,7 +66,7 @@
 				<?php } ?><br/><?php } ?>
 				</div><br/>
 			  <?php }else{ ?>
-			    <div style="color:white;font-family:Verdana,Tahoma,Arial;">Guest (<a href="<?php echo site_url('auth') ?>"><strong>Login</strong></a>)&nbsp;&nbsp;<a href="http://cimps.cimat.mx/registration_system/index.php/user/register" style="color:white;"><strong><font size="-2">Register</font></strong></a></div><br/><br/>
+			    <div style="color:white;font-family:Verdana,Tahoma,Arial;">Guest (<a href="<?php echo site_url('auth') ?>"><strong>Login</strong></a>)&nbsp;&nbsp;<a href="http://127.0.0.1:4001/wordpress/registration_system/index.php/user/register" style="color:white;"><strong><font size="-2">Register</font></strong></a></div><br/><br/>
 			  <?php } ?>
 			  </div>
 			  </div>
