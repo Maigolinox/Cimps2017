@@ -15,12 +15,15 @@
 			<h2 style="text-align: center"><?php echo lang("cimps_PagPayment"); ?></h2>
 
 
+			<!-- Informacion de pago -->
 			<?php echo (!empty($suc)) ? '<div class="alert alert-success">'.$suc.'</div>' : ''?>
 			<div style="border:2px solid #610303; border-radius: 25px; background-color : #FFFFFF;">
 				<div style="margin-left: -15px; margin-top: -15px;">
 					<!--logo-->
 					<img style=" width:8%; height: 8%": src="<?php echo base_url() ?>assets/img/logo_paym_state.png" />
 					<div style="margin-left: 50px; margin-right: 15px;">
+						
+
 						<table class="table table-condensed">
 							<tr>
 								<td style="padding-right:3em"><b><?php echo lang("cimps_PagRegistro"); ?></b></td>
@@ -72,39 +75,43 @@
 						<img style=" width:8%; height: 8%": src="<?php echo base_url() ?>assets/img/icono_info_user.png" />
 					</div>    
 					<div style="margin-left: 30px;"> 
-					<strong style="text-align: left;"><?php echo lang("cimps_paypal_mexican"); ?></strong>
-						<strong style="text-align: right;"><?php echo lang("cimps_paypal_euros"); ?></strong>
+
+						
 					</div>
-					<div >
-						<form action='https://www.paypal.com/cgi-bin/webscr' method='post' name='form' style="margin-right: 20px;">
-							<input type='hidden' name='business' value='admeventos@cimat.mx'>
-							<input type='hidden' name='cmd' value='_xclick'> 
-							<input type='hidden' name='item_name' value='Pago para CIMPS 2016'>
-							<input type='hidden' name='item_number' value='1'>
-							<input type='hidden' name='amount' value='<?php echo $total ?>'>
-							<input type='hidden' name='no_shipping' value='1'>
-							<input type='hidden' name='currency_code' value='MXN'>
-							<input type='hidden' name='cancel_return' value='http://cancel.com'>
-							<input type='hidden' name='return' value='http://return.com/'>
-							<input type="image"   src="https://paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" name="submit">
-						</form>
-						<!-- PayPal button to pay in euros -->
+					<div class='row'>
+						<div class="col-md-6 pull-right">
+							<strong><?php echo lang("cimps_paypal_mexican"); ?></strong>
+							<form action='https://www.paypal.com/cgi-bin/webscr' method='post' name='form' style="margin-right: 20px;">
+								<input type='hidden' name='business' value='admeventos@cimat.mx'>
+								<input type='hidden' name='cmd' value='_xclick'> 
+								<input type='hidden' name='item_name' value='Pago para CIMPS 2017'>
+								<input type='hidden' name='item_number' value='1'>
+								<input type='hidden' name='amount' value='<?php echo $total ?>'>
+								<input type='hidden' name='no_shipping' value='1'>
+								<input type='hidden' name='currency_code' value='MXN'>
+								<input type='hidden' name='cancel_return' value='http://cancel.com'>
+								<input type='hidden' name='return' value='http://return.com/'>
+								<input type="image"   src="https://paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" name="submit">
+							</form>
+							<!-- PayPal button to pay in euros -->
+						</div>
+						<div class="col-md-6 pull-left">
+							<strong><?php echo lang("cimps_paypal_euros"); ?></strong>
+							<form action='https://www.paypal.com/cgi-bin/webscr' method='post' name='form' style="">
+								<input type='hidden' name='business' value='admeventos@cimat.mx'>
+								<input type='hidden' name='cmd' value='_xclick'> 
+								<input type='hidden' name='item_name' value='Pay to CIMPS 2017'>
+								<input type='hidden' name='item_number' value='1'>
+								<input type='hidden' name='amount' value='<?php echo $totalEuro ?>'>
+								<input type='hidden' name='no_shipping' value='1'>
+								<input type='hidden' name='currency_code' value='EUR'>
+								<input type='hidden' name='cancel_return' value='http://cancel.com'>
+								<input type='hidden' name='return' value='http://return.com/'>
+								<input type="image"   src="https://paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" name="submit">
+							</form>
+						</div>
 
-						<form action='https://www.paypal.com/cgi-bin/webscr' method='post' name='form' style="">
-							<input type='hidden' name='business' value='admeventos@cimat.mx'>
-							<input type='hidden' name='cmd' value='_xclick'> 
-							<input type='hidden' name='item_name' value='Pay to CIMPS 2016'>
-							<input type='hidden' name='item_number' value='1'>
-							<input type='hidden' name='amount' value='<?php echo $totalEuro ?>'>
-							<input type='hidden' name='no_shipping' value='1'>
-							<input type='hidden' name='currency_code' value='EUR'>
-							<input type='hidden' name='cancel_return' value='http://cancel.com'>
-							<input type='hidden' name='return' value='http://return.com/'>
-							<input type="image"   src="https://paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" name="submit">
-						</form>
 					</div>
-
-
 
 				</div>
 
