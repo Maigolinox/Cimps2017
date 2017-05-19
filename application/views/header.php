@@ -42,32 +42,70 @@
    <div class="headline-inner">
     <div class="container">
 
-      <div class="masthead">
-        <div class="row">
-			  <!--Secambio por el diseño 2017
-			  <div class="col-xs-12 col-sm-6 col-md-8">
-			     <div class="masthead"> linea comentada
-				<a href="http://cimps.ingsoft.info/"><img src="<?php //echo base_url() ?>assets/img/logo-cimps.png"/></a>
-			     </div>linea comentada
-			  </div>-->
-			  <div class="col-xs-6 col-sm-6 col-md-4">
-			  
-			  <?php if(get_userdata('language') != "spanish") { ?><br/><br/>
-			  <a style="color:white;font-family:Verdana,Tahoma,Arial;" href="<?php echo site_url('user/es'); ?>">Ver sitio en Espa&ntilde;ol&nbsp;<img src="http://cimps.cimat.mx/wp-content/uploads/2016/06/Mexico512x512.png" alt="Espa&ntilde;ol" style="width:50px;height:43px;border:0;"/></a>
-			  <?php } else { ?><br/><br/>
-			  <a style="color:white;font-family:Verdana,Tahoma,Arial;" href="<?php echo site_url('user/en'); ?>">See site in English&nbsp;<img src="http://cimps.cimat.mx/wp-content/uploads/2016/05/uk-icon.png" alt="English" style="width:42px;height:42px;border:0"/></a>
-			  <?php } ?>
-			  
-			  <?php if(isset($user) && !empty($user)){ ?>
-				<div style="color:white;font-family:Verdana,Tahoma,Arial;"><u><?php echo $user->username ?></u> (<a href="<?php echo site_url('auth/logout') ?>"><strong>Logout</strong></a>)&nbsp;&nbsp;<a href="http://cimps.cimat.mx/registration_system/index.php/user/" style="color:white;"><strong><font size="-2">Home</font></strong></a>
-					<?php if (isset($admin)){ ?><p><font size="-2">[<a href="<?php echo site_url('admin') ?>"><strong>User Mngmt.</strong></a>][<a href="<?php echo site_url('program/admin') ?>"><strong>Program Mngmt.</strong></a>][<a href="<?php echo site_url('programWork/admin') ?>"><strong>Program Workshop Mngmt.</strong></a>]</font></p>
-                                        <?php } else { ?> <br/> <?php if($accepted) { ?>
-					[<a href="http://sistemas.ita.mx/fieat/registro/?id=<?php echo $user->id ?>&title=<?php echo $user->tittle ?>&name=<?php echo $user->name ?>&university=<?php echo $user->afiliation_name ?>&email=<?php echo $user->email ?>"><strong><font size="-2">Inscribirse a curso</font></strong></a>]
-				<?php } ?><br/><?php } ?>
-				</div><br/>
-			  <?php }else{ ?>
-			    <div style="color:white;font-family:Verdana,Tahoma,Arial;">Guest (<a href="<?php echo site_url('auth') ?>"><strong>Login</strong></a>)&nbsp;&nbsp;<a href="http://127.0.0.1:4001/wordpress/registration_system/index.php/user/register" style="color:white;"><strong><font size="-2">Register</font></strong></a></div><br/><br/>
-			  <?php } ?>
+    	<div class="masthead">
+    		<div class="row">
+    			<div class="col-xs-12 col-sm-6 col-md-8">
+    			<?php if(isset($user) && !empty($user)){ ?>
+    			<!--logo-->  			
+    				<img src="<?php echo base_url() ?>assets/img/logo2017.png"/>    			
+				<!--/logo-->
+				<?php } ?>
+				</div>
+
+
+
+
+		<div class="col-xs-6 col-sm-6 col-md-4" float: right; style="margin-top: 100px;" >
+
+			<!--seccion de lenguajes-->
+			<?php if(get_userdata('language') != "spanish") { ?><br/><br/>
+			<a style="color:white;font-family:Verdana,Tahoma,Arial;" href="<?php echo site_url('user/es'); ?>">Ver sitio en Espa&ntilde;ol&nbsp;<img src="<?php echo base_url() ?>assets/img/idioma_mex.png" alt="Espa&ntilde;ol" style="width:20px;height:12px;border:0;"/></a>
+			<?php } else { ?><br/><br/>
+			<a style="color:white;font-family:Verdana,Tahoma,Arial;" href="<?php echo site_url('user/en'); ?>">See site in English&nbsp;<img src="<?php echo base_url() ?>assets/img/idioma_usa.png" alt="English" style="width:20px;height:12px;border:0"/></a>
+			<?php } ?>
+			<!--/seccion de lenguajes-->
+
+
+
+			<?php if(isset($user) && !empty($user)){ ?>
+			
+				<div class="btn-group"> 
+
+            		<button class="btn btn-link dropdown-toggle" style="margin-left: 10px; width: 40px; height: 40px; border:0; background: url('<?php echo base_url() ?>assets/img/menu_bar.png') center no-repeat;" type="button" data-toggle="dropdown">
+            		</button>
+
+
+            		<ul class="dropdown-menu">
+               			<li><a><?php echo set_value('name', $user->name) ?></a></li>
+              			<li><a><?php echo set_value('email', $user->email) ?></a></li>
+              			<!--Opciones Adminstrativas-->
+              			<?php if (isset($admin)){ ?>
+              				<li class="divider"></li>
+              				<li><a href="<?php echo site_url('admin') ?>">User Mngmt.</a></li>
+              				<li><a href="<?php echo site_url('program/admin')?>">Program Mngmt.</a></li>
+              				<li><a href="<?php echo site_url('programWork/admin')?>">Program Workshop Mngmt.</a></li>	
+						<?php } ?> 
+               			<!--/Opciones Adminstrativas-->
+
+               			<li class="divider"></li>
+               			<li><a href="<?php echo site_url('auth/change_password')?>"><?php echo lang("cimps_MenuChange");?></a></li>
+               			<li class="divider"></li>
+               			<li><a href="<?php echo site_url('auth/logout') ?>"><?php echo lang("cimps_logout"); ?></a></li>
+            		</ul>
+         		</div>
+			<?php }// activa registro y login  else{ ?>
+
+
+	<!--registro y login
+		<div style="color:white;font-family:Verdana,Tahoma,Arial;">Guest (<a href="<?php echo site_url('auth') ?>"><strong>Login</strong></a>)&nbsp;&nbsp;
+
+		<a href="http://127.0.0.1:4001/wordpress/registration_system/index.php/user/register" style="color:white;"><strong><font size="-2">Register</font></strong></a></div><br/><br/>
+		<?php// } ?>
+	/registro y login -->
+
+
+
+
 			  </div>
 			  </div>
 			  <br/><br/><br/><br/>

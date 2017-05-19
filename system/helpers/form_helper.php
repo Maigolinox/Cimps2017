@@ -176,7 +176,7 @@ if ( ! function_exists('form_input'))
 	{
 		$defaults = array('type' => 'text', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value);
 
-		return "<input "._parse_form_attributes($data, $defaults).$extra." />";
+		return "<input class='round' style='width: 250px;'"._parse_form_attributes($data, $defaults).$extra." /> ";
 	}
 }
 
@@ -447,7 +447,7 @@ if ( ! function_exists('form_submit'))
 	{
 		$defaults = array('type' => 'submit', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value);
 
-		return "<input "._parse_form_attributes($data, $defaults).$extra." />";
+		return "<input class='btn btn-primary' "._parse_form_attributes($data, $defaults).$extra." />";
 	}
 }
 

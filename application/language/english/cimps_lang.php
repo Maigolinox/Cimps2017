@@ -194,3 +194,4 @@ $lang['cimps_qr_code']="Print QR Code";
 $lang['cimps_account_statement'] = "Account Statement";
 $lang['cimps_paypal'] = "PayPal";
 $lang['cimps_deposit_detail'] = "Deposit / Bank transfer";
+$lang['cimps_add_course'] = "Register for course";
