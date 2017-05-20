@@ -1,24 +1,49 @@
-<ul class="nav nav-justified">
-   <li><a href="http://cimps.cimat.mx/registration_system/index.php/user/"><?php echo lang("cimps_MenuHome"); ?></a></li>
-   <li><a href="<?php echo site_url('user/information'.$url_crud_id) ?>"><?php echo lang("cimps_MenuUpdate"); ?></a></li>
-   <li class="active"><a href="<?php if (isset($admin) && $admin)
-      echo site_url('payment/index'.$url_crud_id);
-      else 
-      	echo site_url('payment'); ?>"><?php echo lang("cimps_MenuAdd"); ?></a></li>
-   <li><a href="<?php echo site_url('auth/change_password') ?>"><?php echo lang("cimps_MenuChange"); ?></a></li>
-   <li><a href="http://cimps.ingsoft.info/contact-information" target="_blank"><?php echo lang("cimps_MenuContact"); ?></a></li>
-   <li><a href="<?php echo site_url('auth/logout') ?>"><?php echo lang("cimps_MenuLogout"); ?></a></li>
-</ul>
-<br/>
+ <!--Menu-->
+ <ul class="nav nav-justified">
+    <li>
+        <a  href="http://127.0.0.1:4001/wordpress/registration_system/index.php/user/" >
+            <img  src="<?php echo base_url() ?>assets/img/logo_home.png" style="width:30px;height:30px; margin: -30px -30px -30px -30px;">
+        </a>
+    </li>
+    <!--<li><a href="http://cimps.cimat.mx/registration_system/index.php/user/"><?php echo lang("cimps_MenuHome"); ?></a></li>-->
+    <li><a href="<?php echo site_url('user/information'.$url_crud_id) ?>"><?php echo lang("cimps_MenuUpdate"); ?></a></li>
+
+    <li class="active"><a href="<?php if (isset($admin) && $admin)
+        echo site_url('payment/index'.$url_crud_id);
+        else 
+            echo site_url('payment'); ?>"><?php echo lang("cimps_MenuAdd"); ?></a></li>
+
+        <!--REGISTRO DE CURSO-->
+            <?php if(isset($user) && !empty($user)){ ?>
+                <?php if (isset($admin)){ ?>
+                <?php } else { ?> 
+                <?php if($accepted) { ?>
+                <li>
+                <a href="http://sistemas.ita.mx/fieat/registro/?id=<?php echo $user->id ?>&title=<?php echo $user->tittle ?>&name=<?php echo $user->name ?>&university=<?php echo $user->afiliation_name ?>&email=<?php echo $user->email ?>"><?php echo lang("cimps_add_course");?></a>
+                 </li>
+            <?php } } } ?>
+       <!--/REGISTRO DE CURSO-->
+
+      
+
+
+        <li><a href="http://cimps.ingsoft.info/contact-information" target="_blank"><?php echo lang("cimps_MenuContact"); ?>
+            
+        </a></li>
+        <!--<li><a href="<?php echo site_url('auth/logout') ?>"><?php echo lang("cimps_MenuLogout"); ?></a></li>-->
+    </ul>
+    <!--Menu-->
+
 <div style="margin:20px;"></div>
+<h2 style="text-align: center"><?php echo lang("cimps_PagPayment"); ?></h2>
 <div class="row">
    <div class="col-md-8">
-      <h1 style="text-align: center"><?php echo lang("cimps_PagPayment"); ?></h1>
+      
       <!-- SECCION TABLA DE PAGO -->
       <?php echo (!empty($suc)) ? '<div class="alert alert-success">'.$suc.'</div>' : ''?>
       <div style="border:2px solid #610303; border-radius: 25px; background-color : #FFFFFF;">
-         <div style="margin-left: -30px; margin-top: -30px;">
-            <img style=" width:8%; height: 8%": src="<?php echo base_url() ?>assets/img/logo_paym_state.png" />   
+         <div style="margin-left: -25px; margin-top: -25px;">
+            <img style=" width:50px; height: 50px": src="<?php echo base_url() ?>assets/img/logo_paym_state.png" />   
             <div style="margin: -35px 20px 0px 50px;">
                <label >
                   <h3><?php echo lang("cimps_account_statement"); ?></h3>
@@ -72,9 +97,9 @@
 
       <!-- SECCION DE PAGOS CON PAYPAL -->  
       <div style="border:2px solid #610303; border-radius: 25px; background-color : #FFFFFF; margin-top: 30px;">
-         <div style="margin-left: -30px; margin-top: -30px;">
+         <div style="margin-left: -25px; margin-top: -25px;">
             <!--logo-->
-            <img style=" width:8%; height: 8%": src="<?php echo base_url() ?>assets/img/logo_paym_payp.png" />
+            <img style=" width: 50px; height: 50px": src="<?php echo base_url() ?>assets/img/logo_paym_payp.png" />
             <div style="margin: -35px 20px 0px 50px;">
                <label>
                   <h3><?php echo lang("cimps_paypal"); ?></h3>
@@ -122,9 +147,9 @@
 
       <!-- SECCION DE FORMULARIO DE PAGO -->  
       <div style="border:2px solid #610303; border-radius: 25px; background-color : #FFFFFF; margin-top: 30px;">
-         <div style="margin-left: -30px; margin-top: -30px;">
+         <div style="margin-left: -25px; margin-top: -25px;">
             <!--logo-->
-            <img style=" width:8%; height: 8%": src="<?php echo base_url() ?>assets/img/logo_paym_depo.png" />
+            <img style=" width: 50px; height: 50px": src="<?php echo base_url() ?>assets/img/logo_paym_depo.png" />
             <div  style="margin: -35px 20px 0px 50px;">
                <label>
                   <h3><?php echo lang("cimps_deposit_detail"); ?></h3>
@@ -150,19 +175,19 @@
                <div class="form-group">
                   <label for="inputName"><?php echo lang("cimps_PagBank"); ?></label>
                   <div>
-                     <input name="bank" value="<?php echo set_value('bank', $order->bank) ?>" type="text" class="round" placeholder="<?php echo lang("cimps_PagBank"); ?>" style="width: 500px;">
+                     <input name="bank" value="<?php echo set_value('bank', $order->bank) ?>" type="text" class="round" placeholder="<?php echo lang("cimps_PagBank"); ?>" style="width: 450px;">
                   </div>
                </div>
                <div class="form-group">
                   <label for="inputName"><?php echo lang("cimps_PagReference"); ?></label>
                   <div>
-                     <input type="text" name="reference" value="<?php echo set_value('reference', $order->reference) ?>" class="round" placeholder="Reference" style="width: 500px;">
+                     <input type="text" name="reference" value="<?php echo set_value('reference', $order->reference) ?>" class="round" placeholder="Reference" style="width: 450px;">
                   </div>
                </div>
                <div class="form-group">
                   <label for="inputName"><?php echo lang("cimps_PagTax"); ?></label>
                   <div>
-                     <input name="tax_number" value="<?php echo set_value('reference', $order->tax_number) ?>" type="text" class="round" placeholder="tax" style="width: 500px;">
+                     <input name="tax_number" value="<?php echo set_value('reference', $order->tax_number) ?>" type="text" class="round" placeholder="tax" style="width: 450px;">
                   </div>
                </div>
                
@@ -187,9 +212,9 @@
 
       <!-- SECCION DE INFORMACION PARA FACTURA -->
       <div style="border:2px solid #610303; border-radius: 25px; background-color : #FFFFFF; margin-top: 30px;">
-         <div style="margin-left: -30px; margin-top: -30px;">
+         <div style="margin-left: -25px; margin-top: -25px;">
             <!--logo-->
-            <img style=" width:8%; height: 8%": src="<?php echo base_url() ?>assets/img/logo_paym_depo.png" />
+            <img style=" width: 50px; height: 50px": src="<?php echo base_url() ?>assets/img/logo_paym_depo.png" />
          </div>
             <div style="margin: 5px 5px 20px 35px;">
             <label><?php echo lang("cimps_PagData_Invoice"); ?></label>
@@ -207,37 +232,37 @@
                   <div class="form-group">
                      <label for="organization"><?php echo lang("cimps_PagOrganization"); ?></label>
                      <div>
-                        <input name="organization" type="text" value="<?php echo set_value('organization', $order->organization) ?>" class="round" placeholder="organization" style="width: 500px;">
+                        <input name="organization" type="text" value="<?php echo set_value('organization', $order->organization) ?>" class="round" placeholder="organization" style="width: 450px;">
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="address"><?php echo lang("cimps_PagAddres"); ?></label>
                      <div>
-                        <input name="adress" type="text" value="<?php echo set_value('adress', $order->adress) ?>" class="round" placeholder="address" style="width: 500px;">
+                        <input name="adress" type="text" value="<?php echo set_value('adress', $order->adress) ?>" class="round" placeholder="address" style="width: 450px;">
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="locality"><?php echo lang("cimps_PagLocality"); ?></label>
                      <div>
-                        <input name="locality" type="text" value="<?php echo set_value('locality', $order->locality) ?>" class="round" placeholder="locality" style="width: 500px;">
+                        <input name="locality" type="text" value="<?php echo set_value('locality', $order->locality) ?>" class="round" placeholder="locality" style="width: 450px;">
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="postal_code"><?php echo lang("cimps_PagPostalCode"); ?></label>
                      <div>
-                        <input name="postal_code" type="text" value="<?php echo set_value('postal_code', $order->postal_code) ?>" class="round" placeholder="postal_code" style="width: 500px;">
+                        <input name="postal_code" type="text" value="<?php echo set_value('postal_code', $order->postal_code) ?>" class="round" placeholder="postal_code" style="width: 450px;">
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="country"><?php echo lang("cimps_PagCountry"); ?></label>
                      <div>
-                        <input name="country" type="text" value="<?php echo set_value('country', $order->country) ?>" class="round" placeholder="country" style="width: 500px;">
+                        <input name="country" type="text" value="<?php echo set_value('country', $order->country) ?>" class="round" placeholder="country" style="width: 450px;">
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="phone_number"><?php echo lang("cimps_PagPhoneNumber"); ?></label>
                      <div>
-                        <input name="phone_number" type="text" value="<?php echo set_value('phone_number', $order->phone_number) ?>" class="round" placeholder="phone_number" style="width: 500px;">
+                        <input name="phone_number" type="text" value="<?php echo set_value('phone_number', $order->phone_number) ?>" class="round" placeholder="phone_number" style="width: 450px;">
                      </div>
                   </div>
                </div>
@@ -248,11 +273,11 @@
       </form>
 
    </div>
-   <div class="col-md-4" style="margin-top: 60px;">
+   <div class="col-md-4" style="margin-top: -30px;">
       <div style="border:2px solid #610303; border-radius: 25px; background-color : #FFFFFF; margin-top: 30px;">
-         <div style="margin-left: -30px; margin-top: -30px;">
+         <div style="margin-left: -25px; margin-top: -25px;">
             <!--logo-->
-            <img style=" width:15%; height: 15%": src="<?php echo base_url() ?>assets/img/logo_paym_metopay.png" />
+            <img style=" width:50px; height: 50px;" src="<?php echo base_url() ?>assets/img/logo_paym_metopay.png" />
             <div style="margin-top: -25px; margin-left: 40px;">
                <label>
                   <h3><?php echo lang("cimps_Payment_Method"); ?></h3>
@@ -281,3 +306,4 @@
    });
    });
 </script>
+</div>

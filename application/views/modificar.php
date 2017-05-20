@@ -47,7 +47,6 @@
     <?php } ?>
     <!-- <a class="btn btn-primary" href="<?php // echo site_url('descargas/constanciaPDF'); ?>">Descargar constancia de asistencia en PDF</a> -->
 
-</style>
 
 <!--contenido de informacion de usuario-->
 <h2 style="text-align: center"><?php echo lang("cimps_user_information"); ?></h2> <!--titulo-->
@@ -66,21 +65,26 @@ else
     <div style="margin-left: -25px; margin-top: -25px;">
      <!--logo-->
      <img style=" width:50px; height: 50px": src="<?php echo base_url() ?>assets/img/logo_info_per.png" />
+     <div style="margin: -35px 20px 0px 50px;">
+          <label >
+            <h3><?php echo lang("cimps_personal_info"); ?></h3>
+          </label>
+      </div> 
  </div>        							
  <div style="margin-left: 35px; margin-right: 15px;">
      <label for="title"><?php echo lang("cimps_Tittletag"); ?></label> <!--etiqueta de Titulo-->
      <label for="inputName" style="margin-left: 100px;"><?php echo lang("cimps_Nametag"); ?></label> <!--etiqueta de nombre -->
      <div>
       <?php echo form_dropdown('tittle', $tittle, set_value('tittle', $user->tittle), 'class="round" disabled'); ?> <!--lista de titulos-->
-      <input disabled="true"; value="<?php echo set_value('name', $user->name) ?>" name="name" type="text" class="round" style= "margin-left: 20px; width: 450px;"  placeholder="Name" > <!--caja de texto de nombre-->
+      <input disabled="true"; value="<?php echo set_value('name', $user->name) ?>" name="name" type="text" class="round" style= "margin-left: 20px; width: 600px;"  placeholder="Name" > <!--caja de texto de nombre-->
   </div>      									
 </div>
 <div style="margin-left: 35px; margin-top: 5px; margin-right: 15px;">
- <label for="inputEmail"><?php echo lang("cimps_Email_add"); ?></label> <!--etiqueta de titulo-->
+ <label for="inputEmail" style="margin-right: 125px;"><?php echo lang("cimps_Email_add"); ?></label> <!--etiqueta de titulo-->
  <label for="inputShirtSize" style="margin-left: 120px;"><?php echo lang("cimps_Shirt_Size"); ?></label> <!--etiquera de tamanio de camisa-->
  <label for="inputName" style="margin-left: 50px;"><?php echo lang("cimps_Gender"); ?></label>
  <div>
-  <input disabled="true"; value="<?php echo set_value('email', $user->email) ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email"> <!-- caja de texto de el correro electronico-->
+  <input disabled="true"; value="<?php echo set_value('email', $user->email) ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email" style="width: 300px;"> <!-- caja de texto de el correro electronico-->
   <?php echo form_dropdown('shirt_size', $sizes, set_value('shirt_size', $user->shirt_size), 'class="round" style="margin-left: 60px;" id="size" disabled'); ?><!--lista depegable de el tamanio de camisa-->
   <label style="margin-left: 90px;">
    <input disabled="true"; type="radio" name="gender" id="optionsRadios1" value="female" <?php if(set_value('gender', $user->gender) == "female") echo "checked" ?>>
@@ -101,14 +105,19 @@ else
     <div style="margin-left: -25px; margin-top: -25px;">
      <!--logo-->
      <img style=" width:50px; height: 50px": src="<?php echo base_url() ?>assets/img/logo_info_loc.png" />
+     <div style="margin: -35px 20px 0px 50px;">
+          <label >
+            <h3><?php echo lang("cimps_personal_location"); ?></h3>
+          </label>
+      </div> 
  </div> 
- <div style="margin-left: 40px; margin-top: 0px; margin-right: 15px;">
+ <div style="margin-left: 40px; margin-right: 15px;">
      <label for="inputCity" ><?php echo lang("cimps_Citytag"); ?></label>
-     <label for="inputCountry" style="margin-left: 250px;"><?php echo lang("cimps_Countrytag"); ?></label>
+     <label for="inputCountry" style="margin-left: 325px;"><?php echo lang("cimps_Countrytag"); ?></label>
  </div>
  <div style=" margin-left: 40px;">
-     <input disabled="true"; value="<?php echo set_value('city', $user->city) ?>" name="city" type="text" class="round" style="width: 280px;" placeholder="City">
-     <input disabled="true"; value="<?php echo set_value('country', $user->country) ?>" type="text" name="country" class="round" style="width: 280px;  margin-left: 20px;" placeholder="Country">
+     <input disabled="true"; value="<?php echo set_value('city', $user->city) ?>" name="city" type="text" class="round" style="width: 350px;" placeholder="City">
+     <input disabled="true"; value="<?php echo set_value('country', $user->country) ?>" type="text" name="country" class="round" style="width: 350px;  margin-left: 20px;" placeholder="Country">
  </div>
 </div>
 <!--/procedencias del usuario -->
@@ -119,19 +128,24 @@ else
     <div style="margin-left: -25px; margin-top: -25px;">
      <!--logo-->
      <img style=" width:50px; height: 50px;" src="<?php echo base_url() ?>assets/img/logo_info_job.png" />
+          <div style="margin: -35px 20px 0px 50px;">
+          <label >
+            <h3><?php echo lang("cimps_personal_work"); ?></h3>
+          </label>
+      </div> 
  </div> 
  <div style="margin-left: 40px; margin-top: 0px; margin-right: 15px;">
      <label for="inputAfilation1"><?php echo lang("cimps_Afiliationtag"); ?></label>   									
  </div>
  <div style=" margin-left: 40px;">        									
      <input disabled="true"; value="<?php echo set_value('reg_venue', $user->reg_venue) ?>" type="hidden" name="reg_venue" id="regVenue">
-     <input disabled="true"; value="<?php echo set_value('afiliation_name', $user->afiliation_name) ?>" type="text" name="afiliation_name" class="round" style=" width: 500px;" id="inputAfiliation" placeholder="Afiliation Name" <?php if(intval($user->reg_venue)!=2) echo "readonly" ?>> 
+     <input disabled="true"; value="<?php echo set_value('afiliation_name', $user->afiliation_name) ?>" type="text" name="afiliation_name" class="round" style=" width: 700px;" id="inputAfiliation" placeholder="Afiliation Name" <?php if(intval($user->reg_venue)!=2) echo "readonly" ?>> 
  </div>       									
  <div style="margin-left: 40px;">
      <label for="inputAfilation2"><?php echo lang("cimps_AfiliationAddresstag"); ?></label>
  </div>
  <div style="margin-left: 40px;">
-     <input disabled="true"; value="<?php echo set_value('afiliation_address', $user->afiliation_adress) ?>" type="text" name="afiliation_address" class="round" style="width: 500px;" id="inputAfiliation2" placeholder="Afiliation Address">
+     <input disabled="true"; value="<?php echo set_value('afiliation_address', $user->afiliation_adress) ?>" type="text" name="afiliation_address" class="round" style="width: 700px;" id="inputAfiliation2" placeholder="Afiliation Address">
 
  </div>
 </div>
@@ -161,11 +175,6 @@ else
         									<?php echo form_dropdown('registre_porfile', $groups, set_value('registre_porfile', $user_group),  'class="round" style="width:500px;" id="group"  disabled'); ?>
         								</div>
         							</div>
-
-
-
-
-
                               </form>
                               <div class="col-md-4">
                                 <a href="<?php
@@ -183,6 +192,7 @@ else
                 </div> 
 
             </div>
+          <br>
 
             <script>
                 $(document).ready(function() {

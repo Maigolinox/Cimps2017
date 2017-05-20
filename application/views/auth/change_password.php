@@ -1,16 +1,39 @@
 <!--Clase para cambiar parwword-->
 
-<ul class="nav nav-justified">
-        <li><a href="http://cimps.cimat.mx/registration_system/index.php/user/"><?php echo lang("cimps_MenuHome"); ?></a></li>
-    <li><a href="<?php echo site_url('user/information') ?>"><?php echo lang("cimps_MenuUpdate"); ?></a></li>
-        <li><a href="<?php if (isset($admin) && $admin)
-                      echo site_url('payment/index'.$url_crud_id);
-                     else 
-                      echo site_url('payment'); ?>"><?php echo lang("cimps_MenuAdd"); ?></a></li>
-        <li class="active"><a href="<?php echo site_url('auth/change_password') ?>"><?php echo lang("cimps_MenuChange"); ?></a></li>
-        <li><a href="http://cimps.ingsoft.info/contact-information" target="_blank"><?php echo lang("cimps_MenuContact"); ?></a></li>
-    <li><a href="<?php echo site_url('auth/logout') ?>"><?php echo lang("cimps_MenuLogout"); ?></a></li>
-        </ul>
+ <!--Menu-->
+ <ul class="nav nav-justified">
+    <li>
+        <a  href="http://127.0.0.1:4001/wordpress/registration_system/index.php/user/" >
+            <img  src="<?php echo base_url() ?>assets/img/logo_home.png" style="width:30px;height:30px; margin: -30px -30px -30px -30px;">
+        </a>
+    </li>
+    <!--<li><a href="http://cimps.cimat.mx/registration_system/index.php/user/"><?php echo lang("cimps_MenuHome"); ?></a></li>-->
+    <li><a href="<?php echo site_url('user/information'.$url_crud_id) ?>"><?php echo lang("cimps_MenuUpdate"); ?></a></li>
+    <li><a href="<?php if (isset($admin) && $admin)
+        echo site_url('payment/index'.$url_crud_id);
+        else 
+            echo site_url('payment'); ?>"><?php echo lang("cimps_MenuAdd"); ?></a></li>
+
+        <!--REGISTRO DE CURSO-->
+            <?php if(isset($user) && !empty($user)){ ?>
+                <?php if (isset($admin)){ ?>
+                <?php } else { ?> 
+                <?php if($accepted) { ?>
+                <li>
+                <a href="http://sistemas.ita.mx/fieat/registro/?id=<?php echo $user->id ?>&title=<?php echo $user->tittle ?>&name=<?php echo $user->name ?>&university=<?php echo $user->afiliation_name ?>&email=<?php echo $user->email ?>"><?php echo lang("cimps_add_course");?></a>
+                 </li>
+            <?php } } } ?>
+       <!--/REGISTRO DE CURSO-->
+
+      
+
+
+        <li><a href="http://cimps.ingsoft.info/contact-information" target="_blank"><?php echo lang("cimps_MenuContact"); ?>
+            
+        </a></li>
+        <!--<li><a href="<?php echo site_url('auth/logout') ?>"><?php echo lang("cimps_MenuLogout"); ?></a></li>-->
+    </ul>
+    <!--Menu-->
 <h2  style="text-align: center;"><strong><?php echo lang('change_password_heading');?></strong></h2>
 
 <div id="infoMessage"><?php echo $message;?></div>

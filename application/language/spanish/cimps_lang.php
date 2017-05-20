@@ -194,3 +194,6 @@ $lang['cimps_paypal'] = "PayPal";
 $lang['cimps_deposit_detail'] = "Depósito / Transferencia Bancaria";
 $lang['cimps_deposit_detail'] = "Depósito / Transferencia Bancaria";
 $lang['cimps_add_course'] = "Inscribirse a curso";
+$lang['cimps_personal_info'] = "Información personal";
+$lang['cimps_personal_location'] = "Localización";
+$lang['cimps_personal_work'] = "Información laboral";
