@@ -15,6 +15,7 @@
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url() ?>/assets/css/estilos.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     <!-- Custom styles for this template -->
@@ -55,7 +56,7 @@
 
 
 
-		<div class="col-xs-6 col-sm-6 col-md-4" float: right; style="margin-top: 100px;" >
+		<div class="col-xs-6 col-sm-6 col-md-4" float: right; style="margin-top: 100px" >
 
 			<!--seccion de lenguajes-->
 			<?php if(get_userdata('language') != "spanish") { ?><br/><br/>
@@ -71,9 +72,9 @@
 			
 				<div class="btn-group"> 
 
-            		<button class="btn btn-link dropdown-toggle" style="margin-left: 10px; width: 40px; height: 40px; border:0; background: url('<?php echo base_url() ?>assets/img/menu_bar.png') center no-repeat;" type="button" data-toggle="dropdown">
-            		</button>
+            	
 
+                <button class="btn btn-link dropdown-toggle"  data-toggle="dropdown" style="color: white"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></button>
 
             		<ul class="dropdown-menu">
                			<li><a><?php echo set_value('name', $user->name) ?></a></li>
@@ -84,6 +85,10 @@
               				<li><a href="<?php echo site_url('admin') ?>">User Mngmt.</a></li>
               				<li><a href="<?php echo site_url('program/admin')?>">Program Mngmt.</a></li>
               				<li><a href="<?php echo site_url('programWork/admin')?>">Program Workshop Mngmt.</a></li>	
+                      <li class="divider"></li>
+                    <li><a href="<?php echo site_url('auth/change_password')?>"><?php echo lang("cimps_MenuChange");?></a></li>
+                    <li class="divider"></li>
+                    <li><a href="<?php echo site_url('auth/logout') ?>"><?php echo lang("cimps_logout"); ?></a></li>
 						<?php } ?> 
                			<!--/Opciones Adminstrativas-->
 
@@ -94,7 +99,7 @@
             		</ul>
          		</div>
 			<?php }// activa registro y login  else{ ?>
-
+      <a href="http://127.0.0.1:4001/wordpress/registration_system/index.php/user/register" style="color:white;"><strong><font size="-2">Register</font></strong></a>
 
 	<!--registro y login
 		<div style="color:white;font-family:Verdana,Tahoma,Arial;">Guest (<a href="<?php echo site_url('auth') ?>"><strong>Login</strong></a>)&nbsp;&nbsp;

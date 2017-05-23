@@ -13,7 +13,7 @@ class User extends CI_Controller {
                 );
 
         private $venue_options = array(
-                  '1'  => 'I.T. Aguascalientes',
+                  '1'  => 'I.T. Aguascalientes',                 
                   '2'  => 'Other'
                 );
 
