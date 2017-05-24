@@ -1,7 +1,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+
 <div class="row">
 	<div class="col-md-6">
-		<img src="<?php echo base_url() ?>assets/img/logo2017.png"/>
+		<a href="http://cimps.cimat.mx/#"><img src="<?php echo base_url() ?>assets/img/logo2017.png"/></a>
 		<br><br>	
 	</div>
 	<div class="col-md-6">
@@ -20,14 +30,30 @@
 				<input  name="remember" type="checkbox" value="remember-me"> <?php echo lang('cimps_rememberme');?>
 			</label>
 			<button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo lang('cimps_Signin');?></button>
+
 			<div>
 				<div class="pull-right">
-					<h5><a href="<?php echo site_url("user/recovery") ?>"><?php echo lang('cimps_login_problem');?></a></p></h5>
+					<a href="<?php echo site_url("user/recovery") ?>"><?php echo lang('cimps_login_problem');?></a></p>
 				</div>
 				<div class="pull-left">
-					<h5><a href="<?php echo site_url("auth/forgot_password") ?>"><?php echo lang('cimps_ForgotPass');?></a></p></h5>
-				</div>
+					<a href="<?php echo site_url("auth/forgot_password") ?>"><?php echo lang('cimps_ForgotPass');?></a></p>
+				</div>										
 			</div>
+
+			<br>
+			
+
+				<button class="btn btn-lg btn-primary btn-block" type="submit">FACEBOOK</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">GOOGLE</button>
+
+			<div class="pull-right">
+				<a href="http://127.0.0.1:4001/wordpress/registration_system/index.php/user/register"><?php echo lang('cimps_Sign_up');?></a></p>
+			</div>
+
+					
+			
+			
 		</form>
+		
 	</div>
 </div>

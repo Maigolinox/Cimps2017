@@ -12,7 +12,7 @@ $lang['cimps_password']="Contraseña";
 $lang['cimps_rememberme']="No cerrar sesión";
 $lang['cimps_Signin']="Iniciar Sesión";
 $lang['cimps_Registration']="Registrarse";
-$lang['cimps_ForgotPass']="Olvidaste tu contraseña";
+$lang['cimps_ForgotPass']="Recuperar contraseña";
 
 //Registro
 $lang['cimps_Guest']="Visitante(Entrar)";
@@ -197,3 +197,4 @@ $lang['cimps_add_course'] = "Inscribirse a curso";
 $lang['cimps_personal_info'] = "Información personal";
 $lang['cimps_personal_location'] = "Localización";
 $lang['cimps_personal_work'] = "Información laboral";
+$lang['cimps_Sign_up'] = "Registrate";

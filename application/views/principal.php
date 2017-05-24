@@ -127,106 +127,137 @@
 				</div>
 
 
-	  		<div style="border:2px solid #610303; border-radius: 25px; margin-top: 40px; background-color : #FFFFFF;">
-	  		<div class="form-group">
-	  			<label for="title"><?php echo set_value('cimps_Register_Profile') ?></label>
-	  			<div>
-	  				<?php echo form_dropdown('registre_porfile', $groups, set_value('registre_porfile'), 'class="form-control" id="group"'); ?>
-	  			</div>
-	  		</div>
-	  		<div class="form-group" id="contenedor_matricula">
-	  			<label for="inputControlNum"><?php echo lang("cimps_Control_Numtag"); ?></label>
-	  			<div>
-	  				<input value="<?php echo set_value('control_num') ?>" name="control_num" id="control_num" type="text" maxlength="12" name="control_num" class="form-control" placeholder="ControlNum">
-	  			</div>
-	  		</div>
-	  		<div class="form-group" id="contenedor_tallas">
-	  			<label for="inputShirtSize"><?php echo lang("cimps_Shirt_Size"); ?></label>
-	  			<div>
-	  				<?php echo form_dropdown('shirt_size', $sizes, set_value('shirt_size'), 'class="form-control" id="size"'); ?>
-	  			</div>
-	  		</div>
-	  		<div class="form-group" id="contenedor_codigo">
-	  			<label for="inputAccessCode"><?php echo lang("cimps_Access_Codetag"); ?></label>
-	  			<div>
-	  				<input value="<?php echo set_value('access_code') ?>" name="access_code" id="access_code" type="password" maxlength="25" name="access_code" class="form-control" placeholder="AccessCode">
-	  			</div>
-	  		</div>
-	  		<div>
-	  			<table id="services" class="table table-condensed">
-	  				<tr>
-	  					<td style="padding-right:3em"><b><?php echo lang("cimps_Registration"); ?></b></td>
-	  					<td style="padding-right:3em"><b>Amount(Mexican Pesos $)</b></td>
-	  					<td><b>Amount(Euros )</b></td>
-	  					<tr>
-	  						<?php foreach ($services_autor as $service):?>
-	  							<tr>
-	  								<td style="padding-right:3em">
-	  									<div class="checkbox" style="margin-top:0px; margin-bottom:0px">
-	  										<label>
-	  											<?php if(!$service->marked){ ?>
-	  											<input name="cb<?php echo $service->id ?>" class="service" type="checkbox" value="<?php echo $service->id ?>" >
-	  											<?php }else{ ?>
-	  											<input class="service" type="checkbox" value="<?php echo $service->id ?>" checked disabled>
-	  											<?php echo '<input type="hidden" name="cb'.$service->id.'" value="'.$service->id.'" />' ?>
-	  											<?php } ?>
-	  											<?php echo $service->name ?>
-	  										</label>
-	  										<?php if(!$service->onlyone) echo '<input style="width:30px;" id="s_'.$service->id.'" name="'.$service->id.'" class="spinner" type="text" value="1">'  ?>
-	  										</div>
-	  									</td>
-	  									<td style="padding-right:3em">$<span class="cost"><?php echo $service->cost ?></span></td>
-	  									<td><span class="cost"><?php echo $service->euro ?></span>€</td>
-	  									<tr>
-	  									<?php endforeach;?>
-	  									<tr class="success">
-	  										<td style="padding-right:3em"><b>Total</b></td>
-	  										<td style="padding-right:3em">
-	  											$<b id="total">0</b>
-	  										</td>
-	  										<td><b id="total_euros">0</b>€</td>
-	  										<tr>
-	  										</table>
-	  									</div>
-	  									<div class="form-group">
-	  										<div>
-	  											<table id="paper" class="table" width="100%">
-	  												<tr>
-	  													<td width="20%"><b>Paper ID*</b></td>
-	  													<td width="80%"><b>Title* (at least one)</b></td>
-	  												</tr>
-	  												<tr >
-	  													<td ><input value="<?php echo set_value('paper_id1') ?>" type="text" name="paper_id1" class="form-control" id="paper_id1" ></td>
-	  													<td><input value="<?php echo set_value('paper_title1') ?>" type="text" name="paper_title1" class="form-control" id="paper_title1"></td>
-	  												</tr>
-	  												<tr>
-	  													<td><input value="<?php echo set_value('paper_id2') ?>" type="text" name="paper_id2" class="form-control" id="paper_id2" ></td>
-	  													<td><input value="<?php echo set_value('paper_title2') ?>" type="text" name="paper_title2" class="form-control" id="paper_title2"></td>
-	  												</tr>
-	  											</table>
-	  										</div>
-	  									</div>
-	  									<div class="form-group">
-	  										<div class="checkbox">
-	  											<label class="checkbox">
-	  												<input name="accept" value="1" type="checkbox"> <?php echo lang("cimps_Permission"); ?> 
-	  											</label>
-	  										</div>
-	  									</div>
-	  									<ul>
-	  										<li>CIMAT</li>
-	  										<li>IngSoft</li>
-	  										<li>COZCyT Zacatecas</li>
-	  										<li>SEZAC </li>
-	  										<li>Secretaría de Economía</li>
-	  										<li>Among Others</li>
-	  									</ul>
-	  									<div class="col-md-4">
-	  										<button class="btn btn-primary btn-md btn-block style="margin-left:-15px;"" type="submit"><?php echo lang("cimps_Register"); ?></button>
-	  									</div>
-	  								</form>
-	  							</div>
-	  							</div>
+				<div style="border:2px solid #610303; border-radius: 25px; margin-top: 40px; background-color : #FFFFFF;">
+
+					<div style="margin-left: -25px; margin-top: -25px;">
+						<!--logo-->
+						<img style=" width:50px; height: 50px;" src="<?php echo base_url() ?>assets/img/logo_info_job.png" />
+					</div>
+					<div style="margin: -35px 20px 0px 50px;">
+						<label >
+							<h3><?php echo lang("cimps_personal_work"); ?></h3>
+						</label>
+					</div> 
+
+
+				<div style="margin-left: 40px; margin-right: 40px">
+
+
+
+
+
+					<div class="form-group">
+						<label for="title"><?php echo set_value('cimps_Register_Profile') ?></label>
+						<div>
+							<?php echo form_dropdown('registre_porfile', $groups, set_value('registre_porfile'), 'class="round" id="group"'); ?>
+						</div>
+					</div>
+					<div class="form-group" id="contenedor_matricula">
+						<label for="inputControlNum"><?php echo lang("cimps_Control_Numtag"); ?></label>
+						<div>
+							<input value="<?php echo set_value('control_num') ?>" name="control_num" id="control_num" type="text" maxlength="12" name="control_num" class="round" placeholder="ControlNum">						
+						</div>
+					</div>
+					<div class="form-group" id="contenedor_tallas">
+						<label for="inputShirtSize"><?php echo lang("cimps_Shirt_Size"); ?></label>
+						<div>
+							<?php echo form_dropdown('shirt_size', $sizes, set_value('shirt_size'), 'class="round" id="size"'); ?>
+						</div>
+					</div>
+					<div class="form-group" id="contenedor_codigo">
+						<label for="inputAccessCode"><?php echo lang("cimps_Access_Codetag"); ?></label>
+						<div>
+							<input value="<?php echo set_value('access_code') ?>" name="access_code" id="access_code" type="password" maxlength="25" name="access_code" class="round" placeholder="AccessCode">
+						</div>
+					</div>
+					<div>
+
+
+						<table id="services" class="table table-condensed">
+							<tr>
+								<td style="padding-right:3em"><b><?php echo lang("cimps_Registration"); ?></b></td>
+								<td style="padding-right:3em"><b>Amount(Mexican Pesos $)</b></td>
+								<td><b>Amount(Euros )</b></td>
+								<tr>
+									<?php foreach ($services_autor as $service):?>
+										<tr>
+											<td style="padding-right:3em">
+												<div class="checkbox" style="margin-top:0px; margin-bottom:0px">
+													<label>
+														<?php if(!$service->marked){ ?>
+														<input name="cb<?php echo $service->id ?>" class="service" type="checkbox" value="<?php echo $service->id ?>" >
+														<?php }else{ ?>
+														<input class="service" type="checkbox" value="<?php echo $service->id ?>" checked disabled>
+														<?php echo '<input type="hidden" name="cb'.$service->id.'" value="'.$service->id.'" />' ?>
+														<?php } ?>
+														<?php echo $service->name ?>
+													</label>
+													<?php if(!$service->onlyone) echo '<input style="width:30px;" id="s_'.$service->id.'" name="'.$service->id.'" class="spinner" type="text" value="1">'  ?>
+													</div>
+												</td>
+												<td style="padding-right:3em">$<span class="cost"><?php echo $service->cost ?></span></td>
+												<td><span class="cost"><?php echo $service->euro ?></span>€</td>
+												<tr>
+												<?php endforeach;?>
+												<tr class="success">
+													<td style="padding-right:3em"><b>Total</b></td>
+													<td style="padding-right:3em">
+														$<b id="total">0</b>
+													</td>
+													<td><b id="total_euros">0</b>€</td>
+													<tr>
+													</table>
+												</div>
+												<div class="form-group">
+													<div>
+														<table id="paper" class="table" width="100%">
+															<tr>
+																<td width="20%"><b>Paper ID*</b></td>
+																<td width="80%"><b>Title* (at least one)</b></td>
+															</tr>
+															<tr >
+																<td ><input value="<?php echo set_value('paper_id1') ?>" type="text" name="paper_id1" class="form-control" id="paper_id1" ></td>
+																<td><input value="<?php echo set_value('paper_title1') ?>" type="text" name="paper_title1" class="form-control" id="paper_title1"></td>
+															</tr>
+															<tr>
+																<td><input value="<?php echo set_value('paper_id2') ?>" type="text" name="paper_id2" class="form-control" id="paper_id2" ></td>
+																<td><input value="<?php echo set_value('paper_title2') ?>" type="text" name="paper_title2" class="form-control" id="paper_title2"></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="checkbox">
+														<label class="checkbox">
+															<input name="accept" value="1" type="checkbox"> <?php echo lang("cimps_Permission"); ?> 
+														</label>
+													</div>
+												</div>
+												<ul>
+													<li>CIMAT</li>
+													<li>IngSoft</li>
+													<li>COZCyT Zacatecas</li>
+													<li>SEZAC </li>
+													<li>Secretaría de Economía</li>
+													<li>Among Others</li>
+												</ul>
+					</div>
+				</div>
+
+<br>
+
+
+
+
+
+
+
+												<div class="col-md-4">
+													<button class="btn btn-primary btn-md btn-block style="margin-left:-15px;"" type="submit"><?php echo lang("cimps_Register"); ?></button>
+												</div>
+											</form>
+										</div>
+									
 
 	<!-- div class="col-md-4">
 					<h3><?php echo lang("cimps_Payment_Method"); ?></h3>

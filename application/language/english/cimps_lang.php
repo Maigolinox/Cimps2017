@@ -198,3 +198,4 @@ $lang['cimps_add_course'] = "Register for course";
 $lang['cimps_personal_info'] = "Personal information";
 $lang['cimps_personal_location'] = "Location";
 $lang['cimps_personal_work'] = "Work information";
+$lang['cimps_Sign_up'] = "Sign up";

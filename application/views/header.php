@@ -79,17 +79,14 @@
             		<ul class="dropdown-menu">
                			<li><a><?php echo set_value('name', $user->name) ?></a></li>
               			<li><a><?php echo set_value('email', $user->email) ?></a></li>
+                    
               			<!--Opciones Adminstrativas-->
               			<?php if (isset($admin)){ ?>
               				<li class="divider"></li>
               				<li><a href="<?php echo site_url('admin') ?>">User Mngmt.</a></li>
               				<li><a href="<?php echo site_url('program/admin')?>">Program Mngmt.</a></li>
-              				<li><a href="<?php echo site_url('programWork/admin')?>">Program Workshop Mngmt.</a></li>	
-                      <li class="divider"></li>
-                    <li><a href="<?php echo site_url('auth/change_password')?>"><?php echo lang("cimps_MenuChange");?></a></li>
-                    <li class="divider"></li>
-                    <li><a href="<?php echo site_url('auth/logout') ?>"><?php echo lang("cimps_logout"); ?></a></li>
-						<?php } ?> 
+              				<li><a href="<?php echo site_url('programWork/admin')?>">Program Workshop Mngmt.</a></li>	                      
+						          <?php } ?> 
                			<!--/Opciones Adminstrativas-->
 
                			<li class="divider"></li>
@@ -99,7 +96,7 @@
             		</ul>
          		</div>
 			<?php }// activa registro y login  else{ ?>
-      <a href="http://127.0.0.1:4001/wordpress/registration_system/index.php/user/register" style="color:white;"><strong><font size="-2">Register</font></strong></a>
+      
 
 	<!--registro y login
 		<div style="color:white;font-family:Verdana,Tahoma,Arial;">Guest (<a href="<?php echo site_url('auth') ?>"><strong>Login</strong></a>)&nbsp;&nbsp;
