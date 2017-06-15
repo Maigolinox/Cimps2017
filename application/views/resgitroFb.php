@@ -16,6 +16,17 @@
 </div>
 	  		
 
+	<script>
+				// Load the SDK asynchronously
+					(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/en_US/sdk.js";
+					fjs.parentNode.insertBefore(js, fjs);
+					}(document, 'script', 'facebook-jssdk'));
+				</script>
+
 				<!--informacion personal-->
 				<div style="border:2px solid #610303; border-radius: 25px; background-color : #FFFFFF;">
 					<div style="margin-left: -25px; margin-top: -25px;">
@@ -34,12 +45,12 @@
 							<!--Nombre-->
 							<label for="inputName"><?php echo lang("cimps_Nametag"); ?></label>
 						</div>
-						<div>
+						<div id="d_fB_name">
 							<!--Titulo -->
 							<?php echo form_dropdown('tittle', $tittle, set_value('tittle'), 'class="round" style="margin-right: 20px"'); ?>
 							<!--Nombre-->
 							
-							<input value="<?php echo set_value('name')?>" name="name" type="text" class="round" placeholder="Name" style="width:600px">
+							<input id="faceName" value="<?php echo set_value('name')?>" name="name" type="text" class="round" placeholder="Name" style="width:600px">
 
 								  				
 						</div>
