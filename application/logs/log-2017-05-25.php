@@ -47,27 +47,3 @@ ERROR - 2017-05-25 00:18:20 --> Severity: Notice  --> Use of undefined constant 
 ERROR - 2017-05-25 00:18:25 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 105
 ERROR - 2017-05-25 00:18:25 --> Severity: Notice  --> Undefined variable: sizes C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\modificar.php 88
 ERROR - 2017-05-25 00:18:25 --> Severity: Warning  --> Invalid argument supplied for foreach() C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\system\helpers\form_helper.php 331
-ERROR - 2017-05-25 00:27:08 --> Could not find the language line "cimps_MenuChange"
-ERROR - 2017-05-25 00:27:08 --> Could not find the language line "cimps_logout"
-ERROR - 2017-05-25 00:27:16 --> Could not find the language line "cimps_MenuChange"
-ERROR - 2017-05-25 00:27:16 --> Could not find the language line "cimps_logout"
-ERROR - 2017-05-25 00:27:39 --> Could not find the language line "cimps_MenuChange"
-ERROR - 2017-05-25 00:27:39 --> Could not find the language line "cimps_logout"
-ERROR - 2017-05-25 00:27:59 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 105
-ERROR - 2017-05-25 18:38:24 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 105
-ERROR - 2017-05-25 18:39:56 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 105
-ERROR - 2017-05-25 18:39:57 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 105
-ERROR - 2017-05-25 18:39:58 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 105
-ERROR - 2017-05-25 18:41:01 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 105
-ERROR - 2017-05-25 18:47:42 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 105
-ERROR - 2017-05-25 18:47:43 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 105
-ERROR - 2017-05-25 18:50:14 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 105
-ERROR - 2017-05-25 18:50:15 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 105
-ERROR - 2017-05-25 18:50:28 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 105
-ERROR - 2017-05-25 18:50:28 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 105
-ERROR - 2017-05-25 18:50:39 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 105
-ERROR - 2017-05-25 18:50:39 --> Severity: Notice  --> Undefined variable: sizes C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\modificar.php 88
-ERROR - 2017-05-25 18:50:39 --> Severity: Warning  --> Invalid argument supplied for foreach() C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\system\helpers\form_helper.php 331
-ERROR - 2017-05-25 18:50:53 --> Could not find the language line "cimps_MenuChange"
-ERROR - 2017-05-25 18:50:53 --> Could not find the language line "cimps_logout"
-ERROR - 2017-05-25 18:50:53 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 105

@@ -27,7 +27,7 @@
       
 
 
-        <li><a href="http://cimps.cimat.mx/contact-information/" target="_blank"><?php echo lang("cimps_MenuContact"); ?>
+        <li><a href="http://cimps.ingsoft.info/contact-information" target="_blank"><?php echo lang("cimps_MenuContact"); ?>
             
         </a></li>
         <!--<li><a href="<?php echo site_url('auth/logout') ?>"><?php echo lang("cimps_MenuLogout"); ?></a></li>-->
@@ -76,15 +76,13 @@ else
      <label for="inputName" style="margin-left: 100px;"><?php echo lang("cimps_Nametag"); ?></label> <!--etiqueta de nombre -->
      <div>
       <?php echo form_dropdown('tittle', $tittle, set_value('tittle', $user->tittle), 'class="round" disabled'); ?> <!--lista de titulos-->
-      <input disabled="true"; value="<?php echo set_value('name', $user->name) ?>" name="name" type="text" class="round" style= "margin-left: 20px; margin-right: 10px; width: 500px;"  placeholder="Name" > <!--caja de texto de nombre-->
-      <?php echo form_dropdown('registre_porfile', $groups, set_value('registre_porfile', $user_group),  'class="round" style="width:250px;" id="group"  disabled'); ?>
+      <input disabled="true"; value="<?php echo set_value('name', $user->name) ?>" name="name" type="text" class="round" style= "margin-left: 20px; width: 600px;"  placeholder="Name" > <!--caja de texto de nombre-->
   </div>      									
 </div>
 <div style="margin-left: 35px; margin-top: 5px; margin-right: 15px;">
  <label for="inputEmail" style="margin-right: 125px;"><?php echo lang("cimps_Email_add"); ?></label> <!--etiqueta de titulo-->
  <label for="inputShirtSize" style="margin-left: 120px;"><?php echo lang("cimps_Shirt_Size"); ?></label> <!--etiquera de tamanio de camisa-->
  <label for="inputName" style="margin-left: 50px;"><?php echo lang("cimps_Gender"); ?></label>
-
  <div>
   <input disabled="true"; value="<?php echo set_value('email', $user->email) ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email" style="width: 300px;"> <!-- caja de texto de el correro electronico-->
   <?php echo form_dropdown('shirt_size', $sizes, set_value('shirt_size', $user->shirt_size), 'class="round" style="margin-left: 60px;" id="size"'); ?><!--lista depegable de el tamanio de camisa-->
@@ -164,7 +162,7 @@ else
 </div>
 
 
-        							<!--	se comento codigo que no funciona
+        							<!--	se comento codigo que no sunciona
         							<div>
         								<?php //"<button type="submit" class="btn btn-default"><?php echo lang("cimps_update_information"); </button>" ?>
         							</div>-->
@@ -174,12 +172,9 @@ else
         							<div class="form-group">
         								<label for="title"><?php echo set_value('cimps_Register_Profile') ?></label>
         								<div>
-        									
+        									<?php echo form_dropdown('registre_porfile', $groups, set_value('registre_porfile', $user_group),  'class="round" style="width:500px;" id="group"  disabled'); ?>
         								</div>
         							</div>
-
-
-
                               </form>
                               <div class="col-md-4">
                                 <a href="<?php

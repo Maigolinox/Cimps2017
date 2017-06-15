@@ -1,4 +1,4 @@
-<!--OLVIDE MI CONTRACEÑA-->
+<!--OLVIDE MI CONTRACENA-->
 
 <div class="row">
 	<div class="col-md-6">
@@ -7,9 +7,9 @@
 	</div>
 
 	<div style="border:2px solid #610303; border-radius: 25px; background-color : #FFFFFF;" class="col-md-6">
-		<div style="margin-left: -40px; margin-top: -25px;">
+		<div style="margin-left: -25px; margin-top: -25px;">
 			<!--logo-->
-			<img style=" width:50px; height: 50px": src="<?php echo base_url() ?>assets/img/logo_ch_psw.png" />
+			<img style=" width:50px; height: 50px": src="<?php echo base_url() ?>assets/img/logo_info_per.png" />
 		</div>
 		<div style="margin: -35px 20px 0px 50px;">
 			<label >
@@ -35,7 +35,7 @@
 
 	</div>
 	<div class="row">
-	<div class="col-md-6" style="margin-top: 10px; margin-left: -10px;"><br>
+	<div class="col-md-6" style="margin-top: 10px; margin-left: -10px;">
 			<?php echo form_submit('submit', lang('forgot_password_submit_btn'));?>
 
 			<?php echo form_close();?>

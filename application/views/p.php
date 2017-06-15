@@ -1,45 +1,22 @@
-<!--Modificar el perfil de registro-->
-<!--Menu-->
-<ul class="nav nav-justified">
-
-
-	<li>
-		<a  href="http://127.0.0.1:4001/wordpress/registration_system/index.php/user/" >
-			<img  src="<?php echo base_url() ?>assets/img/logo_home.png" style="width:30px;height:30px; margin: -30px -30px -30px -30px;">
-		</a>
-	</li>
-	<li class="active" ><a href="<?php echo site_url('user/information'.$url_crud_id) ?>">Update Information</a></li>
-
-	<li><a href="<?php if (isset($admin) && $admin)
-		echo site_url('payment/index'.$url_crud_id);
-		else 
-			echo site_url('payment');  ?>">Add Payment</a></li>
-
-		<li><a href="http://cimps.cimat.mx/contact-information/" target="_blank">Contact</a></li>
-
-	</ul>
-
-        <!--/Menu-->
-	  <div style="margin:50px;"></div>
+	  <ul class="nav nav-justified">
+          <li><a href="http://cimps.cimat.mx/registration_system/index.php/user/">Home Page</a></li>
+		  <li class="active" ><a href="<?php echo site_url('user/information'.$url_crud_id) ?>">Update Information</a></li>
+          <li><a href="<?php if (isset($admin) && $admin)
+          						echo site_url('payment/index'.$url_crud_id);
+          					 else 
+          						echo site_url('payment');  ?>">Add Payment</a></li>
+          <li><a href="<?php echo site_url('auth/change_password') ?>">Change Password</a></li>
+          <li><a href="http://cimps.ingsoft.info/contact-information" target="_blank">Contact</a></li>
+		  <li><a href="<?php echo site_url('auth/logout') ?>">Log out</a></li>
+        </ul>
+	  <div style="margin:20px;"></div>
 	  <div class="row">
-	   <div class="col-md-10">
+	   <div class="col-md-8">
 	   <form method="post" action="<?php echo site_url('p/update'.$url_crud_id); ?>" role="form">
-
-
-	   	<div style="border:2px solid #610303; border-radius: 25px; background-color : #FFFFFF;">
-	   	<div style="margin-left: -25px; margin-top: -25px;">
-     		<!--logo-->
-    		 <img style=" width:50px; height: 50px": src="<?php echo base_url() ?>assets/img/logo_info_per.png" />
-     		<div style="margin: -35px 20px 0px 50px;">
-          	<label >
-            	<h3>Register Profile</h3>
-	          </label>
-    	  </div> 
- 		</div>  
- 		<div style="margin-left: 35px; margin-right: 15px;">
 		<div class="form-group">
-		  	<div>
-				<?php echo form_dropdown('registre_porfile', $groups, set_value('registre_porfile', $user_group), 'class="round" id="group"'); ?>
+		  	<label for="title">Register Profile</label>
+			<div>
+				<?php echo form_dropdown('registre_porfile', $groups, set_value('registre_porfile', $user_group), 'class="form-control" id="group"'); ?>
 			</div>
 		</div>
 		<div>
@@ -112,23 +89,11 @@
 				  </tr>
 			  </table>
 		   </div>
-		   </div>
-		   </div>
-
 	    <div class="col-md-4">
-	    		<br>
 		  <button class="btn btn-primary btn-md btn-block" type="submit" style="margin-left:-15px;">Update</button>
 		</div>
-		
-
 	   </form>
-	 
-
-	   	<div class="col-md-2"></div>
-
-
-
-
+	   
 	   <script>
 		$(document).ready(function() {
 			
@@ -327,5 +292,3 @@
 			
 		});
 	</script>
-</div>
-</div>

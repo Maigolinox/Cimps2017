@@ -1,4 +1,4 @@
-<!--resgistro-->
+<!---->
 
 
 	  <div style="margin:20px;"></div>
@@ -15,6 +15,7 @@
 	  			echo site_url('user/register'); ?>" role="form">
 </div>
 	  		
+
 
 				<!--informacion personal-->
 				<div style="border:2px solid #610303; border-radius: 25px; background-color : #FFFFFF;">
@@ -34,14 +35,11 @@
 							<!--Nombre-->
 							<label for="inputName"><?php echo lang("cimps_Nametag"); ?></label>
 						</div>
-						<div>
+						<div >
 							<!--Titulo -->
 							<?php echo form_dropdown('tittle', $tittle, set_value('tittle'), 'class="round" style="margin-right: 20px"'); ?>
 							<!--Nombre-->
-							
-							<input value="<?php echo set_value('name')?>" name="name" type="text" class="round" placeholder="Name" style="width:600px">
-
-								  				
+							<input value="<?php echo set_value('name')?>" name="name" type="text" class="round" placeholder="Name" style="width:600px">	  				
 						</div>
 						<div>
 							<!--Correo elctronico -->
@@ -96,7 +94,7 @@
 				<!--/Procedencia del usuario -->
 	  		
 
-				<!--informacion de la univercidad del usuario -->
+				<!--informacion personal de la univercidad del usuario -->
 				<div style="border:2px solid #610303; border-radius: 25px; margin-top: 40px; background-color : #FFFFFF;">
 					<div style="margin-left: -25px; margin-top: -25px;">
 						<!--logo-->
@@ -256,7 +254,6 @@
 
 												<div class="col-md-4">
 													<button class="btn btn-primary btn-md btn-block style="margin-left:-15px;"" type="submit"><?php echo lang("cimps_Register"); ?></button>
-
 												</div>
 											</form>
 										</div>
@@ -266,7 +263,7 @@
 					<h3><?php echo lang("cimps_Payment_Method"); ?></h3>
 <pre><?php echo lang("cimps_Barralateralpago"); ?></pre>
 </div -->
-<br>
+
 </div>
 
 

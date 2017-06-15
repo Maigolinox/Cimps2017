@@ -15,22 +15,21 @@
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url() ?>/assets/css/estilos.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/bootstrap.css" rel="stylesheet">
-    
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url() ?>assets/css/justified-nav.css" rel="stylesheet">
 	<link href="<?php echo base_url() ?>assets/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>assets/css/estilos.css" rel="stylesheet">  
+    <link href="<?php echo base_url() ?>assets/css/estilos.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/csslogin2017.css" rel="stylesheet">
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/js/jquery.numeric.js"></script>
 	<script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/js/facebook.js"></script>
-  <script src="<?php echo base_url() ?>assets/js/numeral.js"></script>
-	<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+        <script src="<?php echo base_url() ?>assets/js/numeral.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="<?php echo base_url() ?>assets/js/html5shiv.js"></script>
@@ -41,7 +40,6 @@
   </head>
 
   <body>
-  
    <div class="headline-inner">
     <div class="container">
 
@@ -50,7 +48,7 @@
     			<div class="col-xs-12 col-sm-6 col-md-8">
     			<?php if(isset($user) && !empty($user)){ ?>
     			<!--logo-->  			
-    				<a href="http://cimps.cimat.mx/"><img src="<?php echo base_url() ?>assets/img/logo2017.png"/></a>
+    				<img src="<?php echo base_url() ?>assets/img/logo2017.png"/>    			
 				<!--/logo-->
 				<?php } ?>
 				</div>
@@ -76,14 +74,9 @@
 
             	
 
-                <button class="btn btn-link dropdown-toggle"  data-toggle="dropdown" style="color: white; background: transparent;"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></button>
+                <button class="btn btn-link dropdown-toggle"  data-toggle="dropdown" style="color: white"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></button>
 
             		<ul class="dropdown-menu">
-                    <?php if (isset($admin)){ ?>
-                    <li><a href="<?php echo site_url('user/information'.$url_crud_id) ?>">Inicio</a></li>
-                    <li class="divider"></li>
-                    <?php }?>
-
                			<li><a><?php echo set_value('name', $user->name) ?></a></li>
               			<li><a><?php echo set_value('email', $user->email) ?></a></li>
                     
@@ -92,19 +85,14 @@
               				<li class="divider"></li>
               				<li><a href="<?php echo site_url('admin') ?>">User Mngmt.</a></li>
               				<li><a href="<?php echo site_url('program/admin')?>">Program Mngmt.</a></li>
-              				<li><a href="<?php echo site_url('programWork/admin')?>">Program Workshop Mngmt.</a></li>	 
-                      <li class="divider"></li>
-                      <li><a href="<?php echo site_url('auth/change_password')?>">Cambiar Contraceña</a></li>
-                      <li class="divider"></li>
-                      <li><a href="<?php echo site_url('auth/logout') ?>">Salir</a></li>
-						          <?php } else {?> 
+              				<li><a href="<?php echo site_url('programWork/admin')?>">Program Workshop Mngmt.</a></li>	                      
+						          <?php } ?> 
                			<!--/Opciones Adminstrativas-->
 
                			<li class="divider"></li>
                			<li><a href="<?php echo site_url('auth/change_password')?>"><?php echo lang("cimps_MenuChange");?></a></li>
                			<li class="divider"></li>
                			<li><a href="<?php echo site_url('auth/logout') ?>"><?php echo lang("cimps_logout"); ?></a></li>
-                    <?php }?>
             		</ul>
          		</div>
 			<?php }// activa registro y login  else{ ?>
