@@ -1,5 +1,35 @@
 <!--resgistro-->
 
+<?php
+	$v1 = $_GET['LoginFacebook'];
+	
+	if ($v1 == true){ ?>
+		<script>
+
+				var windowName = 'userConsole';
+				var popUp = window.open('about:blank','_blank','width=1,height=1');
+				if (popUp == null || typeof(popUp)=='undefined') {  
+    				alert('Por favor deshabilita el bloqueador de ventanas emergentes y vuelve a refrescar la pagina (F5).');
+				}
+				else {  
+ 				   popUp.close();
+				}
+
+
+
+	  		(function(d, s, id) {
+	    		var js, fjs = d.getElementsByTagName(s)[0];
+	    		if (d.getElementById(id)) return;
+	    		js = d.createElement(s); js.id = id;
+	    		js.src = "//connect.facebook.net/en_US/sdk.js";
+	    		fjs.parentNode.insertBefore(js, fjs);
+	  		}(document, 'script', 'facebook-jssdk'));
+	 	</script>
+	 	
+
+	<?php }
+
+?>
 
 	  <div style="margin:20px;"></div>
 	  <div>
@@ -23,7 +53,7 @@
 						<img style=" width:50px; height: 50px": src="<?php echo base_url() ?>assets/img/logo_info_per.png" />
 						<div style="margin: -35px 20px 0px 50px;">
 							<label >
-								<h3><?php echo lang("cimps_personal_info"); ?></h3>
+								<h3><?php echo lang("cimps_personal_info"); echo $_POST['LoginFacebook']; ?></h3>
 							</label>
 						</div> 
 					</div> 
@@ -39,7 +69,7 @@
 							<?php echo form_dropdown('tittle', $tittle, set_value('tittle'), 'class="round" style="margin-right: 20px"'); ?>
 							<!--Nombre-->
 							
-							<input value="<?php echo set_value('name')?>" name="name" type="text" class="round" placeholder="Name" style="width:600px">
+							<input id="NombreFB" value="<?php echo set_value('name')?>" name="name" type="text" class="round" placeholder="Name" style="width:600px">
 
 								  				
 						</div>
@@ -51,14 +81,14 @@
 						</div>
 						<div>
 							<!--Correo elctronico -->
-							<input value="<?php echo set_value('email') ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email" style="width: 300px; margin-right: 35px">
+							<input id="EmailFB" value="<?php echo set_value('email') ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email" style="width: 300px; margin-right: 35px">
 							<!--Genero-->
 							<label>
-								<input type="radio" name="gender" id="optionsRadios1" value="female" <?php if(set_value('gender') == "female") echo "checked" ?>>
+								<input id="femaleFB" type="radio" name="gender" id="optionsRadios1" value="female" <?php if(set_value('gender') == "female") echo "checked" ?>>
 								<?php echo lang("cimps_Female"); ?>
 							</label>
 							<label>
-								<input type="radio" name="gender" id="optionsRadios2" value="male" <?php if(set_value('gender') == "male") echo "checked" ?>>
+								<input id="maleFB" type="radio" name="gender" id="optionsRadios2" value="male" <?php if(set_value('gender') == "male") echo "checked" ?>>
 								<?php echo lang("cimps_Male"); ?>
 							</label>				
 						</div>
@@ -255,7 +285,7 @@
 
 
 												<div class="col-md-4">
-													<button class="btn btn-primary btn-md btn-block style="margin-left:-15px;"" type="submit"><?php echo lang("cimps_Register"); ?></button>
+													<button class="btn btn-primary btn-md btn-block style=" margin-left:-15px; " type="submit"><?php echo lang("cimps_Register"); ?></button>
 
 												</div>
 											</form>
@@ -583,4 +613,18 @@
 
 
 	});
+
+
+
+
+var facebookLogin = function() {
+      checkLoginState(function(data) {
+        if (data.status !== 'connected') {
+          FB.login(function(response) {
+            if (response.status === 'connected')
+              getFacebookData();
+          }, {scope: scopes});
+        }
+      })
+    }
 </script>

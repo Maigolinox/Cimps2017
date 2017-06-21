@@ -198,3 +198,4 @@ $lang['cimps_personal_info'] = "Información personal";
 $lang['cimps_personal_location'] = "Localización";
 $lang['cimps_personal_work'] = "Información laboral";
 $lang['cimps_Sign_up'] = "Registrate";
+$lang['cimps_Sign_FB'] = "Continuar con Facebook";

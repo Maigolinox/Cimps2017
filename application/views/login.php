@@ -35,24 +35,28 @@
 				</div>										
 			</div>
 
-			<br>
-			<a href="http://localhost:4001/wordpress/registration_system/index.php/user/registroFb" class="btn btn-primary">Iniciar sesión</a>
-
-
-		
-
-
-				<button class="btn btn-lg btn-primary btn-block" type="submit">GOOGLE</button>
-
-			<div class="pull-right">
-				<a href="http://localhost:4001/wordpress/registration_system/index.php/user/register"><?php echo lang('cimps_Sign_up');?></a></p>
-			</div>
-				
-
-					
+			<br>				
 			
 			
 		</form>
+
+		<div style="margin: 0px 100px 0px 100px;">
+		<div style="margin-bottom: 5px;">
+				<form action="http://localhost:4001/wordpress/registration_system/index.php/user/register" method="get">
+					<input type="hidden" name="LoginFacebook" value="true" />			
+					<button style="background-color: #4267b2;  font: 145% sans-serif;" class="btn" type="submit"><i style="color: white;" class="fa fa-facebook-official fa-lg" aria-hidden="true">&nbsp;<?php echo lang('cimps_Sign_FB');?></i></button>
+				</form>
+			</div>
+			<form>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">GOOGLE</button>
+			</form>
+			
+			<form >
+				<div class="pull-right">
+					<a href="http://localhost:4001/wordpress/registration_system/index.php/user/register"><?php echo lang('cimps_Sign_up');?></a></p>
+				</div>
+			</form>
+		</div>
 		
 	</div>
 </div>

@@ -18,17 +18,24 @@ $(function() {
         status     : true,
         cookie     : true, 
         xfbml      : true, 
-        version    : 'v2.1'
+        version    : 'v2.9'
       });
 
 
       FB.getLoginStatus(function(response) {
         statusChangeCallback(response, function() {});
       });
+
+
+      facebookLogin();
+
+      facebookLogout();
+
+
     };
 
     var statusChangeCallback = function(response, callback) {
-      console.log(response);
+      
       
       if (response.status === 'connected') {
           getFacebookData();
@@ -44,13 +51,17 @@ $(function() {
     }
 
     var getFacebookData =  function() {
-      FB.api('/me', function(response) {
-        //$('#login').after(div_session);
-        //$('#login').remove();
-        //$('#facebook-session strong').text("Bienvenido: "+response.name);
-        //$('#facebook-session img').attr('src','http://graph.facebook.com/'+response.id+'/picture?type=large');
-        //location.href = "http://localhost:4001/wordpress/registration_system/index.php/user/register";
-       
+       FB.api('/me', {fields: 'name, email, gender'}, function(response) {
+        
+          NombreFB.value=response.name;
+        EmailFB.value=response.email;
+
+       if (response.gender === 'male'){
+          $("#maleFB").prop("checked", true);
+       }else{
+          $("#femaleFB").prop("checked", true);
+       }
+       alert("¡¡Bienvenido!! \n \n Por favor de completar los campos requeridos. \n \n *Nota: si se queda la ventana de facebook abierta, favor de cerrar y refrescar la pagina (F5).");
       });
     }
 
