@@ -15,7 +15,7 @@
 |
 */
 /*$config['base_url']	= 'http://cimps.cimat.mx/registration_system/';*/
-$config['base_url']	= 'http://127.0.0.1:4001/wordpress/registration_system/';
+$config['base_url']	= 'http://localhost:4001/wordpress/registration_system/';
 
 /*
 |--------------------------------------------------------------------------

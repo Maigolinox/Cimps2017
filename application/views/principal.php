@@ -1,5 +1,99 @@
 <!---->
 
+			<!--verifica si estan blokeadas las ventanas emergentes-->					
+			<script type="text/javascript">
+				var windowName = 'userConsole';
+				var popUp = window.open('about:blank','_blank','width=1,height=1');
+				if (popUp == null || typeof(popUp)=='undefined') {  
+					alert('Por favor deshabilita el bloqueador de ventanas emergentes y vuelve a refrescar la pagina (F5).');
+				}
+				else {  
+					popUp.close();
+				}
+
+			</script>
+			<!--/verifica si estan blokeadas las ventanas emergentes-->	
+			<!--varaibles boleanas que bienen de login -->
+			<?php
+			$v1 = $_GET['LoginFacebook'];
+			$v2 = $_GET['LoginGoogle'];
+
+			if ($v1 == true){ ?>
+			<!--incio con facebook -->
+			<script>
+
+				(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/en_US/sdk.js";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+
+				
+			</script>
+
+
+			<?php } elseif ($v2 == true) { ?>
+			<!--inicio con google cuenta ligada a iscrodma@gmail.com-->
+			<meta name="google-signin-clientid" content="1093837043328-9664stilbogjtv6muiomom2r9qecn5fl.apps.googleusercontent.com" />
+			<meta name="google-signin-scope" content="https://www.googleapis.com/auth/plus.login" />
+			<meta name="google-signin-requestvisibleactions" content="http://schema.org/AddAction" />
+			<meta name="google-signin-cookiepolicy" content="single_host_origin" />
+			<!---->
+			<script>
+
+				var additionalParams = {
+					'callback': signinCallback
+				};
+				(function() {
+					var po = document.createElement('script');
+					po.type = 'text/javascript'; po.async = true;
+					po.src = 'https://apis.google.com/js/client:plusone.js?onload=render';
+					var s = document.getElementsByTagName('script')[0];
+					s.parentNode.insertBefore(po, s);
+				})();
+
+				/* Executed when the APIs finish loading */
+				function render() {
+
+						   // Additional params including the callback, the rest of the params will
+						   // come from the page-level configuration.
+						   gapi.auth.signIn(additionalParams);
+						   // Attach a click listener to a button to trigger the flow.
+						   
+						}
+
+						function signinCallback(authResult) {
+							if (authResult['status']['signed_in']) {
+
+								getInfo();
+							} else {							
+								gapi.auth.signIn(additionalParams);
+							}
+						}
+						function getInfo(){
+							gapi.client.load('oauth2', 'v2', function() {
+							gapi.client.oauth2.userinfo.get().execute(function(resp) {
+						    NombreFB.value=resp.name;
+						    EmailFB.value=resp.email;
+						    console.log();
+
+						    if (resp.gender === 'male'){
+						    	$("#maleFB").prop("checked", true);
+						    }else{
+						    	$("#femaleFB").prop("checked", true);
+						    }					
+								alert("¡¡Bienvenido!! \n \n Por favor de completar los campos requeridos. \n \n *Nota: si se queda la ventana de Google abierta, favor de cerrar y refrescar la pagina (F5).");					
+						})
+							});
+						}
+
+					</script>
+					<!--finaliza registro con redes sociales-->
+					<?php }
+
+					?>
 
 	  <div style="margin:20px;"></div>
 	  <div>
@@ -24,7 +118,7 @@
 						<img style=" width:50px; height: 50px": src="<?php echo base_url() ?>assets/img/logo_info_per.png" />
 						<div style="margin: -35px 20px 0px 50px;">
 							<label >
-								<h3><?php echo lang("cimps_personal_info"); ?></h3>
+								<h3><?php echo lang("cimps_personal_info"); echo $_POST['LoginFacebook']; ?></h3>
 							</label>
 						</div> 
 					</div> 
@@ -39,7 +133,14 @@
 							<!--Titulo -->
 							<?php echo form_dropdown('tittle', $tittle, set_value('tittle'), 'class="round" style="margin-right: 20px"'); ?>
 							<!--Nombre-->
+<<<<<<< HEAD
 							<input value="<?php echo set_value('name')?>" name="name" type="text" class="round" placeholder="Name" style="width:600px">	  				
+=======
+							
+							<input id="NombreFB" value="<?php echo set_value('name')?>" name="name" type="text" class="round" placeholder="Name" style="width:600px">
+
+								  				
+>>>>>>> c433c41
 						</div>
 						<div>
 							<!--Correo elctronico -->
@@ -49,14 +150,14 @@
 						</div>
 						<div>
 							<!--Correo elctronico -->
-							<input value="<?php echo set_value('email') ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email" style="width: 300px; margin-right: 35px">
+							<input id="EmailFB" value="<?php echo set_value('email') ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email" style="width: 300px; margin-right: 35px">
 							<!--Genero-->
 							<label>
-								<input type="radio" name="gender" id="optionsRadios1" value="female" <?php if(set_value('gender') == "female") echo "checked" ?>>
+								<input id="femaleFB" type="radio" name="gender" id="optionsRadios1" value="female" <?php if(set_value('gender') == "female") echo "checked" ?>>
 								<?php echo lang("cimps_Female"); ?>
 							</label>
 							<label>
-								<input type="radio" name="gender" id="optionsRadios2" value="male" <?php if(set_value('gender') == "male") echo "checked" ?>>
+								<input id="maleFB" type="radio" name="gender" id="optionsRadios2" value="male" <?php if(set_value('gender') == "male") echo "checked" ?>>
 								<?php echo lang("cimps_Male"); ?>
 							</label>				
 						</div>
@@ -253,7 +354,12 @@
 
 
 												<div class="col-md-4">
+<<<<<<< HEAD
 													<button class="btn btn-primary btn-md btn-block style="margin-left:-15px;"" type="submit"><?php echo lang("cimps_Register"); ?></button>
+=======
+													<button class="btn btn-primary btn-md btn-block style=" margin-left:-15px; " type="submit"><?php echo lang("cimps_Register"); ?></button>
+
+>>>>>>> c433c41
 												</div>
 											</form>
 										</div>
@@ -580,4 +686,18 @@
 
 
 	});
+
+
+
+
+var facebookLogin = function() {
+      checkLoginState(function(data) {
+        if (data.status !== 'connected') {
+          FB.login(function(response) {
+            if (response.status === 'connected')
+              getFacebookData();
+          }, {scope: scopes});
+        }
+      })
+    }
 </script>
