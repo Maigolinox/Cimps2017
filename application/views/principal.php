@@ -1,35 +1,99 @@
 <!--resgistro-->
 
-<?php
-	$v1 = $_GET['LoginFacebook'];
-	
-	if ($v1 == true){ ?>
-		<script>
-
+			<!--verifica si estan blokeadas las ventanas emergentes-->					
+			<script type="text/javascript">
 				var windowName = 'userConsole';
 				var popUp = window.open('about:blank','_blank','width=1,height=1');
 				if (popUp == null || typeof(popUp)=='undefined') {  
-    				alert('Por favor deshabilita el bloqueador de ventanas emergentes y vuelve a refrescar la pagina (F5).');
+					alert('Por favor deshabilita el bloqueador de ventanas emergentes y vuelve a refrescar la pagina (F5).');
 				}
 				else {  
- 				   popUp.close();
+					popUp.close();
 				}
 
+			</script>
+			<!--/verifica si estan blokeadas las ventanas emergentes-->	
+			<!--varaibles boleanas que bienen de login -->
+			<?php
+			$v1 = $_GET['LoginFacebook'];
+			$v2 = $_GET['LoginGoogle'];
+
+			if ($v1 == true){ ?>
+			<!--incio con facebook -->
+			<script>
+
+				(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/en_US/sdk.js";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+
+				
+			</script>
 
 
-	  		(function(d, s, id) {
-	    		var js, fjs = d.getElementsByTagName(s)[0];
-	    		if (d.getElementById(id)) return;
-	    		js = d.createElement(s); js.id = id;
-	    		js.src = "//connect.facebook.net/en_US/sdk.js";
-	    		fjs.parentNode.insertBefore(js, fjs);
-	  		}(document, 'script', 'facebook-jssdk'));
-	 	</script>
-	 	
+			<?php } elseif ($v2 == true) { ?>
+			<!--inicio con google cuenta ligada a iscrodma@gmail.com-->
+			<meta name="google-signin-clientid" content="1093837043328-9664stilbogjtv6muiomom2r9qecn5fl.apps.googleusercontent.com" />
+			<meta name="google-signin-scope" content="https://www.googleapis.com/auth/plus.login" />
+			<meta name="google-signin-requestvisibleactions" content="http://schema.org/AddAction" />
+			<meta name="google-signin-cookiepolicy" content="single_host_origin" />
+			<!---->
+			<script>
 
-	<?php }
+				var additionalParams = {
+					'callback': signinCallback
+				};
+				(function() {
+					var po = document.createElement('script');
+					po.type = 'text/javascript'; po.async = true;
+					po.src = 'https://apis.google.com/js/client:plusone.js?onload=render';
+					var s = document.getElementsByTagName('script')[0];
+					s.parentNode.insertBefore(po, s);
+				})();
 
-?>
+				/* Executed when the APIs finish loading */
+				function render() {
+
+						   // Additional params including the callback, the rest of the params will
+						   // come from the page-level configuration.
+						   gapi.auth.signIn(additionalParams);
+						   // Attach a click listener to a button to trigger the flow.
+						   
+						}
+
+						function signinCallback(authResult) {
+							if (authResult['status']['signed_in']) {
+
+								getInfo();
+							} else {							
+								gapi.auth.signIn(additionalParams);
+							}
+						}
+						function getInfo(){
+							gapi.client.load('oauth2', 'v2', function() {
+							gapi.client.oauth2.userinfo.get().execute(function(resp) {
+						    NombreFB.value=resp.name;
+						    EmailFB.value=resp.email;
+						    console.log();
+
+						    if (resp.gender === 'male'){
+						    	$("#maleFB").prop("checked", true);
+						    }else{
+						    	$("#femaleFB").prop("checked", true);
+						    }					
+								alert("¡¡Bienvenido!! \n \n Por favor de completar los campos requeridos. \n \n *Nota: si se queda la ventana de Google abierta, favor de cerrar y refrescar la pagina (F5).");					
+						})
+							});
+						}
+
+					</script>
+					<!--finaliza registro con redes sociales-->
+					<?php }
+
+					?>
 
 	  <div style="margin:20px;"></div>
 	  <div>

@@ -1,5 +1,5 @@
 $(function() {
-
+//app_id es de facebook de cimps
   var app_id = '1903043489935181';
   var scopes = 'email, user_friends, user_online_presence';
 
@@ -61,7 +61,7 @@ $(function() {
        }else{
           $("#femaleFB").prop("checked", true);
        }
-       alert("¡¡Bienvenido!! \n \n Por favor de completar los campos requeridos. \n \n *Nota: si se queda la ventana de facebook abierta, favor de cerrar y refrescar la pagina (F5).");
+       alert("¡¡Bienvenido!! \n \n Por favor de completar los campos requeridos. \n \n *Nota: si se queda la ventana de Facebook abierta, favor de cerrar y refrescar la pagina (F5).");
       });
     }
 
