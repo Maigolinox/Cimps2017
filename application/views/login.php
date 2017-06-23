@@ -1,13 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <div id="fb-root"></div>
-			<script>(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));</script>
+
 
 <div class="row">
 	<div class="col-md-6">
@@ -24,7 +17,9 @@
 
 		<form class="form-signin" action="<?php echo base_url() ?>" method="post" style="font-family:Tahoma,Arial;">
 			<h3 class="form-signin-heading"><strong><?php echo lang('cimps_login');?></strong></h3>
-			<input name="identity" type="text" class="form-control" placeholder="<?php echo lang('cimps_user');?>" autofocus>
+			<div id="FaceEmail">
+			<input id="EmailCorreo" name="identity" type="text" class="form-control" placeholder="<?php echo lang('cimps_user');?>" autofocus>
+			</div>
 			<input name="password" type="password" class="form-control" placeholder="<?php echo lang('cimps_password');?>">
 			<label class="checkbox">
 				<input  name="remember" type="checkbox" value="remember-me"> <?php echo lang('cimps_rememberme');?>
@@ -40,16 +35,6 @@
 				</div>										
 			</div>
 
-<<<<<<< HEAD
-			<br>
-			
-
-				<button class="btn btn-lg btn-primary btn-block" type="submit">FACEBOOK</button>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">GOOGLE</button>
-
-			<div class="pull-right">
-				<a href="http://127.0.0.1:4001/wordpress/registration_system/index.php/user/register"><?php echo lang('cimps_Sign_up');?></a></p>
-=======
 			<br>				
 			
 			
@@ -62,7 +47,6 @@
 					<input type="hidden" name="LoginFacebook" value="true" />			
 					<button style="background-color: #4267b2;  font: 145% sans-serif;" class="btn" type="submit"><i style="color: white;" class="fa fa-facebook-official fa-lg" aria-hidden="true">&nbsp;<?php echo lang('cimps_Sign_FB');?></i></button>
 				</form>
->>>>>>> c433c41
 			</div>
 
 			<form action="http://localhost:4001/wordpress/registration_system/index.php/user/register" method="get">

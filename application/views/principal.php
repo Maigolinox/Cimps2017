@@ -1,4 +1,4 @@
-<!---->
+<!--resgistro-->
 
 			<!--verifica si estan blokeadas las ventanas emergentes-->					
 			<script type="text/javascript">
@@ -110,7 +110,6 @@
 </div>
 	  		
 
-
 				<!--informacion personal-->
 				<div style="border:2px solid #610303; border-radius: 25px; background-color : #FFFFFF;">
 					<div style="margin-left: -25px; margin-top: -25px;">
@@ -129,18 +128,14 @@
 							<!--Nombre-->
 							<label for="inputName"><?php echo lang("cimps_Nametag"); ?></label>
 						</div>
-						<div >
+						<div>
 							<!--Titulo -->
 							<?php echo form_dropdown('tittle', $tittle, set_value('tittle'), 'class="round" style="margin-right: 20px"'); ?>
 							<!--Nombre-->
-<<<<<<< HEAD
-							<input value="<?php echo set_value('name')?>" name="name" type="text" class="round" placeholder="Name" style="width:600px">	  				
-=======
 							
 							<input id="NombreFB" value="<?php echo set_value('name')?>" name="name" type="text" class="round" placeholder="Name" style="width:600px">
 
 								  				
->>>>>>> c433c41
 						</div>
 						<div>
 							<!--Correo elctronico -->
@@ -195,7 +190,7 @@
 				<!--/Procedencia del usuario -->
 	  		
 
-				<!--informacion personal de la univercidad del usuario -->
+				<!--informacion de la univercidad del usuario -->
 				<div style="border:2px solid #610303; border-radius: 25px; margin-top: 40px; background-color : #FFFFFF;">
 					<div style="margin-left: -25px; margin-top: -25px;">
 						<!--logo-->
@@ -354,12 +349,8 @@
 
 
 												<div class="col-md-4">
-<<<<<<< HEAD
-													<button class="btn btn-primary btn-md btn-block style="margin-left:-15px;"" type="submit"><?php echo lang("cimps_Register"); ?></button>
-=======
 													<button class="btn btn-primary btn-md btn-block style=" margin-left:-15px; " type="submit"><?php echo lang("cimps_Register"); ?></button>
 
->>>>>>> c433c41
 												</div>
 											</form>
 										</div>
@@ -369,7 +360,7 @@
 					<h3><?php echo lang("cimps_Payment_Method"); ?></h3>
 <pre><?php echo lang("cimps_Barralateralpago"); ?></pre>
 </div -->
-
+<br>
 </div>
 
 
