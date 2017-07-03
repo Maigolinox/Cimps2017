@@ -1,0 +1,59 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2017-07-03 16:30:26 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 115
+ERROR - 2017-07-03 16:30:29 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 115
+ERROR - 2017-07-03 16:30:29 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 18
+ERROR - 2017-07-03 16:30:29 --> Severity: Notice  --> Undefined index: LoginGoogle C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 19
+ERROR - 2017-07-03 16:30:29 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 155
+ERROR - 2017-07-03 16:32:40 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 115
+ERROR - 2017-07-03 16:32:40 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 18
+ERROR - 2017-07-03 16:32:41 --> Severity: Notice  --> Undefined index: LoginGoogle C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 19
+ERROR - 2017-07-03 16:32:41 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 155
+ERROR - 2017-07-03 16:36:12 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 115
+ERROR - 2017-07-03 16:36:12 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 18
+ERROR - 2017-07-03 16:36:12 --> Severity: Notice  --> Undefined index: LoginGoogle C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 19
+ERROR - 2017-07-03 16:36:12 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 155
+ERROR - 2017-07-03 16:39:58 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 115
+ERROR - 2017-07-03 16:39:58 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 18
+ERROR - 2017-07-03 16:39:58 --> Severity: Notice  --> Undefined index: LoginGoogle C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 19
+ERROR - 2017-07-03 16:39:58 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 155
+ERROR - 2017-07-03 16:40:53 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 115
+ERROR - 2017-07-03 16:40:53 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 18
+ERROR - 2017-07-03 16:40:53 --> Severity: Notice  --> Undefined index: LoginGoogle C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 19
+ERROR - 2017-07-03 16:40:53 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 155
+ERROR - 2017-07-03 16:41:37 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 115
+ERROR - 2017-07-03 16:41:37 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 18
+ERROR - 2017-07-03 16:41:37 --> Severity: Notice  --> Undefined index: LoginGoogle C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 19
+ERROR - 2017-07-03 16:41:37 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 155
+ERROR - 2017-07-03 17:03:33 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 115
+ERROR - 2017-07-03 17:03:33 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 18
+ERROR - 2017-07-03 17:03:33 --> Severity: Notice  --> Undefined index: LoginGoogle C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 19
+ERROR - 2017-07-03 17:03:34 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 155
+ERROR - 2017-07-03 17:10:51 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 115
+ERROR - 2017-07-03 17:10:51 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 18
+ERROR - 2017-07-03 17:10:51 --> Severity: Notice  --> Undefined index: LoginGoogle C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 19
+ERROR - 2017-07-03 17:10:51 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 155
+ERROR - 2017-07-03 17:11:46 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 115
+ERROR - 2017-07-03 17:11:46 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 18
+ERROR - 2017-07-03 17:11:46 --> Severity: Notice  --> Undefined index: LoginGoogle C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 19
+ERROR - 2017-07-03 17:11:46 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 155
+ERROR - 2017-07-03 17:13:15 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 115
+ERROR - 2017-07-03 17:13:15 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 18
+ERROR - 2017-07-03 17:13:15 --> Severity: Notice  --> Undefined index: LoginGoogle C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 19
+ERROR - 2017-07-03 17:13:15 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 155
+ERROR - 2017-07-03 18:26:53 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 115
+ERROR - 2017-07-03 18:26:54 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 18
+ERROR - 2017-07-03 18:26:54 --> Severity: Notice  --> Undefined index: LoginGoogle C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 19
+ERROR - 2017-07-03 18:26:54 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 155
+ERROR - 2017-07-03 18:27:11 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 115
+ERROR - 2017-07-03 18:27:11 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 18
+ERROR - 2017-07-03 18:27:11 --> Severity: Notice  --> Undefined index: LoginGoogle C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 19
+ERROR - 2017-07-03 18:27:11 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 155
+ERROR - 2017-07-03 18:40:11 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 115
+ERROR - 2017-07-03 18:40:11 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 18
+ERROR - 2017-07-03 18:40:11 --> Severity: Notice  --> Undefined index: LoginGoogle C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 19
+ERROR - 2017-07-03 18:40:11 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 155
+ERROR - 2017-07-03 18:41:35 --> Severity: Notice  --> Use of undefined constant php - assumed 'php' C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\header.php 115
+ERROR - 2017-07-03 18:41:35 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 18
+ERROR - 2017-07-03 18:41:35 --> Severity: Notice  --> Undefined index: LoginGoogle C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 19
+ERROR - 2017-07-03 18:41:35 --> Severity: Notice  --> Undefined index: LoginFacebook C:\Users\Unity\Desktop\InstantWP_4.5\iwpserver\htdocs\wordpress\registration_system\application\views\principal.php 155

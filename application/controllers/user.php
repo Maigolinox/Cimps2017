@@ -13,8 +13,22 @@ class User extends CI_Controller {
                 );
 
         private $venue_options = array(
-                  '1'  => 'I.T. Aguascalientes',                 
-                  '2'  => 'Other'
+            '0' => 'Other',
+           '1' => 'Instituto Nacional De Estadística Y Geografía',
+           '2' => 'Instituto Tecnológico De Aguascalientes',
+           '3' => 'Instituto Tecnológico De Orizaba',
+           '4' => 'Instituto Tecnológico De Zacatecas',
+           '5' => 'Universidad Autónoma De Yucatán',
+           '6' => 'Universidad Católica Del Norte',
+           '7' => 'Universidad De Atacama',
+           '8' => 'Universidad Politécnica De Aguascalientes',
+           '9' => 'Universidad Politécnica De Zacatecas',
+           '10' => 'Universidad Veracruzana',
+           '11' => 'Centro De Bachillerato Tecnológico Industrial Y De Servicios No.168',
+           '12' => 'Centro De Investigación En Matemáticas, A.C. Unidad Aguascalientes',
+           '13' => 'Centro De Investigación En Matemáticas, A.C. Unidad Guanajuato',
+           '14' => 'Centro De Investigación En Matemáticas, A.C. Unidad Zacatecas'                 
+           
                 );
 
         private $size_options = array(

@@ -35,6 +35,7 @@
 
 
 			<?php } elseif ($v2 == true) { ?>
+
 			<!--inicio con google cuenta ligada a iscrodma@gmail.com-->
 			<meta name="google-signin-clientid" content="1093837043328-9664stilbogjtv6muiomom2r9qecn5fl.apps.googleusercontent.com" />
 			<meta name="google-signin-scope" content="https://www.googleapis.com/auth/plus.login" />
@@ -42,7 +43,7 @@
 			<meta name="google-signin-cookiepolicy" content="single_host_origin" />
 			<!---->
 			<script>
-
+				var val = 0;
 				var additionalParams = {
 					'callback': signinCallback
 				};
@@ -68,7 +69,10 @@
 							if (authResult['status']['signed_in']) {
 
 								getInfo();
-							} else {							
+								console.log("1 "+val);
+
+							} else {	
+								val=0;						
 								gapi.auth.signIn(additionalParams);
 							}
 						}
@@ -77,7 +81,10 @@
 							gapi.client.oauth2.userinfo.get().execute(function(resp) {
 						    NombreFB.value=resp.name;
 						    EmailFB.value=resp.email;
-						    console.log();
+						    ImgPefil.src=resp.picture;
+						    console.log(resp);
+						    div = document.getElementById('exit');
+            				div.style.display = '';
 
 						    if (resp.gender === 'male'){
 						    	$("#maleFB").prop("checked", true);
@@ -85,15 +92,43 @@
 						    	$("#femaleFB").prop("checked", true);
 						    }					
 								alert("¡¡Bienvenido!! \n \n Por favor de completar los campos requeridos. \n \n *Nota: si se queda la ventana de Google abierta, favor de cerrar y refrescar la pagina (F5).");					
+								val=1;
+								console.log("2 "+val);
+
 						})
+
 							});
+
+
+								
 						}
 
+						
 					</script>
+					<script type="text/javascript">
+						function signOut() {
+							var popUp = window.open('https://accounts.google.com/logout','https://accounts.google.com/logout','width=450, height=750');
+							if (popUp == null || typeof(popUp)=='undefined') {  
+								alert('Por favor deshabilita el bloqueador de ventanas emergentes y vuelve a refrescar la pagina (F5).');
+								}
+							else {  
+								
+							}
+						}
+					</script>
+
+
 					<!--finaliza registro con redes sociales-->
 					<?php }
 
 					?>
+					
+
+
+					<div id="exit" style="text-align: right; display:none;">
+						<img id="ImgPefil" style=" width:50px; height: 50px "  src="" />
+						<a href="#" onclick="signOut();">Sign out</a>
+					</div>
 
 	  <div style="margin:20px;"></div>
 	  <div>
@@ -208,7 +243,7 @@
 							<div>
 								<?php echo form_dropdown('reg_venue', $venues, set_value('reg_venue'), 'class="round" id="venue" style="width: 700px" '); ?>
 
-								<input style="width: 700px" value="<?php echo ((intval(set_value('reg_venue'))==2) ? set_value('afiliation_name') : "I.T. Aguascalientes") ?>" type="text" name="afiliation_name" class="round" id="inputAfiliation" placeholder="Afiliation Name" <?php if(intval(set_value('reg_venue'))!=2) echo "readonly" ?>>
+								<input style="width: 700px" value="<?php echo ((intval(set_value('reg_venue'))==2) ? set_value('afiliation_name') : "") ?>" type="text" name="afiliation_name" class="round" id="inputAfiliation" placeholder="Afiliation Name" <?php if(intval(set_value('reg_venue'))!=2) echo "readonly" ?>>
 
 							</div>
 						</div>
@@ -383,16 +418,81 @@
 		$('#venue').on('change', function() {
 			idVenue = $(this).val();
 
-			if (idVenue != 1) {
+			if (idVenue == 0) {
 				$('#inputAfiliation').val('');
 				$('#inputAfiliation').attr('readonly',false);
 				$('#inputAfiliation').focus();
-			} else {
-				$('#inputAfiliation').val('I.T. Aguascalientes');
+			} else if(idVenue == 1) {
+				$('#inputAfiliation').val('Instituto Nacional De Estadística Y Geografía');
 				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('Av. Héroe De Nacozari Sur 2301 Fracc. Jardines Del Parque C.P. 20276');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 2) {
+				$('#inputAfiliation').val('Instituto Tecnológico De Aguascalientes');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('Av. Adolfo López Mateos #1801 Ote. Fracc. Bona Gens C.P. 20256 Aguascalientes Aguascalientes México.');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 3) {
+				$('#inputAfiliation').val('Instituto Tecnológico De Orizaba');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 4) {
+				$('#inputAfiliation').val('Instituto Tecnológico De Zacatecas');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('Carretera Panamericana S/N Crucero A Guadalajara Zacatecas Zac.');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 5) {
+				$('#inputAfiliation').val('Universidad Autónoma De Yucatán');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 6) {
+				$('#inputAfiliation').val('Universidad Católica Del Norte');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 7) {
+				$('#inputAfiliation').val('Universidad De Atacama');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 8) {
+				$('#inputAfiliation').val('Universidad Politécnica De Aguascalientes');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 9) {
+				$('#inputAfiliation').val('Universidad Politécnica De Zacatecas');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 10) {
+				$('#inputAfiliation').val('Universidad Veracruzana');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 11) {
+				$('#inputAfiliation').val('Centro De Bachillerato Tecnológico Industrial Y De Servicios No. 168');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('Rio Rhin S/N Frac. Colinas Del Rio Aguascalientes, Ags.');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 12) {
+				$('#inputAfiliation').val('Centro De Investigación En Matemáticas, A. C. Unidad Aguascalientes');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 13) {
+				$('#inputAfiliation').val('Centro De Investigación En Matemáticas, A. C. Unidad Guanajuato');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 14) {
+				$('#inputAfiliation').val('Centro De Investigación En Matemáticas, A. C. Unidad Zacatecas');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('Av. Universidad # 222 Fraccionamiento La Loma C.P. 98068 Zacatecas Zac.');
 				$('#inputAfiliation2').focus();
 			}
-
 			idGroup = $("#group").val();
 
 			if(idGroup != 4 || (idGroup == 4 &&  idVenue != 1)){
