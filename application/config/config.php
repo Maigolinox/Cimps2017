@@ -14,8 +14,8 @@
 | path to your installation.
 |
 */
-/*$config['base_url']	= 'http://cimps.cimat.mx/registration_system/';*/
-$config['base_url']	= 'http://localhost:4001/wordpress/registration_system/';
+/*$config['base_url']	= 'http://cimps.cimat.mx/registro/';*/
+$config['base_url']	= 'http://localhost:4001/wordpress/Cimps2017/';
 
 /*
 |--------------------------------------------------------------------------

@@ -46,20 +46,21 @@
 		<div style="text-align:center;">
 
 			<div style="margin-bottom: 5px;">
-				<form action="http://localhost:4001/wordpress/registration_system/index.php/user/register" method="get">
+				<form action=" <?php echo site_url("user/register") ?>" method="get">
 					<input type="hidden" name="LoginFacebook" value="true" />			
 					<button style="background-color: #4267b2;  font: 145% sans-serif;" class="btn" type="submit"><i style="color: white;" class="fa fa-facebook-official fa-lg" aria-hidden="true">&nbsp;<?php echo lang('cimps_Sign_FB');?></i></button>
 				</form>
 			</div>
 
-			<form action="http://localhost:4001/wordpress/registration_system/index.php/user/register" method="get">
+			<form action="
+				<form action="<?php echo site_url("user/register") ?> " method="get">
 				<input type="hidden" name="LoginGoogle" value="true" />			
 				<button style="background-color: #D34836;  font: 160% sans-serif;" class="btn" type="submit"><i style="color: white;" class="fa fa-google fa-lg" aria-hidden="true">&nbsp;<?php echo lang('cimps_Sign_G');?></i></button>
 			</form>
 			
 			<form class="form-signin">
 				<div style="text-align:right;">
-					<a href="http://localhost:4001/wordpress/registration_system/index.php/user/register"><?php echo lang('cimps_Sign_up');?></a></p>
+					<a href="<?php echo site_url("user/register") ?>"><?php echo lang('cimps_Sign_up');?></a></p>
 				</div>
 			</form>
 		</div>

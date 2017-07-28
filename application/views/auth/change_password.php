@@ -28,7 +28,7 @@
       
 
 
-        <li><a href="http://cimps.ingsoft.info/contact-information" target="_blank"><?php echo lang("cimps_MenuContact"); ?>
+        <li><a href="http://cimps.cimat.mx/contact-information/" target="_blank"><?php echo lang("cimps_MenuContact"); ?>
             
         </a></li>
         <!--<li><a href="<?php echo site_url('auth/logout') ?>"><?php echo lang("cimps_MenuLogout"); ?></a></li>-->

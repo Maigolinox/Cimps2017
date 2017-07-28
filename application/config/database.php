@@ -50,7 +50,7 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';  //'ingsofti_CIMPS';
-$db['default']['password'] = ''; //'cK4CP=ThENQy';
+$db['default']['password'] = ''; //'';
 $db['default']['database'] = 'ingsofti_CIMPS3';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
