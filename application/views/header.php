@@ -30,6 +30,7 @@
   <script src="<?php echo base_url() ?>assets/js/facebook.js"></script>
   <script src="<?php echo base_url() ?>assets/js/numeral.js"></script>
   <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="<?php echo base_url() ?>assets/js/html5shiv.js"></script>

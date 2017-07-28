@@ -87,7 +87,7 @@ else
 
  <div>
   <input disabled="true"; value="<?php echo set_value('email', $user->email) ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email" style="width: 300px;"> <!-- caja de texto de el correro electronico-->
-  <?php echo form_dropdown('shirt_size', $sizes, set_value('shirt_size', $user->shirt_size), 'class="round" style="margin-left: 60px;" id="size"'); ?><!--lista depegable de el tamanio de camisa-->
+  <?php echo form_dropdown('shirt_size', $sizes, set_value('shirt_size', $user->shirt_size), 'class="round" style="margin-left: 60px; disabled="true";" id="size"'); ?><!--lista depegable de el tamanio de camisa-->
   <label style="margin-left: 90px;">
    <input disabled="true"; type="radio" name="gender" id="optionsRadios1" value="female" <?php if(set_value('gender', $user->gender) == "female") echo "checked" ?>>
    <?php echo lang("cimps_Female"); ?>

@@ -406,7 +406,7 @@ class User extends CI_Controller {
 					$this->email->from('cimps@cimat.mx', 'CIMPS');
 					$this->email->to($user->email);
 					
-					$this->email->subject('Register CIMPS 2016');
+					$this->email->subject('Register CIMPS 2017');
                     $message = $this->load->view('email', array("autor"=>$user, 'password'=>$password, 'total' => $total, 'total_euros' => $totalEuro, 'orden' => $order_list, 'group' => $this->ion_auth->get_users_groups()->row()->name), true);
                     $this->email->message($message);
                     $this->email->send();
@@ -420,7 +420,7 @@ class User extends CI_Controller {
                                         //  array('MIME-Version: 1.0\r\n'
                                         //));
 					$this->postageapp->to($user->email);
-					$this->postageapp->subject('Register CIMPS 2016');
+					$this->postageapp->subject('Register CIMPS 2017');
 					//$this->postageapp->message($message);
                                         $this->postageapp->message(
                                             array('text/html' => $message

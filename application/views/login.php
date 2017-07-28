@@ -24,8 +24,11 @@
 			<label class="checkbox">
 				<input  name="remember" type="checkbox" value="remember-me"> <?php echo lang('cimps_rememberme');?>
 			</label>
-			<button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo lang('cimps_Signin');?></button>
 
+			<div style="margin-bottom: 20px;" id='recaptcha' class="g-recaptcha" data-sitekey="6Lf_5icUAAAAAKJs_6JPoDDVtZRmbzd7dgtv35Sr" data-callback="onSubmit"></div>
+			<div id="Rcp" style="display: none;">
+			<button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo lang('cimps_Signin');?></button>
+			</div>
 			<div>
 				<div class="pull-right">
 					<a href="<?php echo site_url("user/recovery") ?>"><?php echo lang('cimps_login_problem');?></a></p>
@@ -63,3 +66,27 @@
 		
 	</div>
 </div>
+
+<script>
+  function onSubmit(token) {
+    div = document.getElementById('Rcp');
+    div.style.display = '';
+    div = document.getElementById('recaptcha');
+    div.style.display = 'none';
+   
+  }
+
+  function validate(event) {
+    event.preventDefault();
+    if (!document.getElementById('field').value) {
+      alert("You must add text to the required field");
+    } else {
+      grecaptcha.execute();
+    }
+  }
+
+  function onload() {
+    var element = document.getElementById('submit');
+    element.onclick = validate;
+  }
+</script>

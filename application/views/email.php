@@ -1,7 +1,7 @@
 <font face="Arial,Verdana,Tahoma">
 Dear <?php echo $autor->tittle." ".$autor->name ?>,<br/>
 
-Thank you for registering on CIMPS 2016!<br/><br/>
+Thank you for registering on CIMPS 2017!<br/><br/>
 
 Your account login data is:<br/>
 <strong>User:</strong>&nbsp;<?php echo $autor->username ?><br/>
@@ -33,7 +33,7 @@ Via PayPal:<br/>
 <form action='https://www.paypal.com/cgi-bin/webscr' method='post' name='form'>
   <input type='hidden' name='business' value='admeventos@cimat.mx'>
   <input type='hidden' name='cmd' value='_xclick'> 
-  <input type='hidden' name='item_name' value='Pago para CIMPS 2016'>
+  <input type='hidden' name='item_name' value='Pago para CIMPS 2017'>
   <input type='hidden' name='item_number' value='1'>
   <input type='hidden' name='amount' value='<?php echo $total ?>'>
   <input type='hidden' name='no_shipping' value='1'>
@@ -50,7 +50,7 @@ Via PayPal:<br/>
 <form action='https://www.paypal.com/cgi-bin/webscr' method='post' name='form'>
   <input type='hidden' name='business' value='admeventos@cimat.mx'>
   <input type='hidden' name='cmd' value='_xclick'> 
-  <input type='hidden' name='item_name' value='Pay to CIMPS 2016'>
+  <input type='hidden' name='item_name' value='Pay to CIMPS 2017'>
   <input type='hidden' name='item_number' value='1'>
   <input type='hidden' name='amount' value='<?php echo $total_euros ?>'>
   <input type='hidden' name='no_shipping' value='1'>
@@ -89,9 +89,9 @@ Post/Zip code: 36240<br/>
 Country: México<br/>
 Telephone: +52 473 7350800<br/><br/>
 
-Scanned payment receipt must be sent to <a href="http://cimps.cimat.mx/registration_system/index.php/payment">http://cimps.cimat.mx/registration_system/index.php/payment</a><br/>
+Scanned payment receipt must be sent to <a href="http://cimps.cimat.mx/registro/index.php/payment">http://cimps.cimat.mx/registro/index.php/payment</a><br/>
 by clicking the Add Payment button indicating full name of the participant.<br/>
 If an invoice is required, fiscal data must be sent for processing.<br/><br/>
 
-Original billings will be sent to the registered e-mail address or delivered at CIMPS Conference (October 12-14, 2016).<br/>
+Original billings will be sent to the registered e-mail address or delivered at CIMPS Conference (October 18-20, 2017).<br/>
 </font>

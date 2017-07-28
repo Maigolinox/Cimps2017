@@ -69,7 +69,7 @@
 							if (authResult['status']['signed_in']) {
 
 								getInfo();
-								console.log("1 "+val);
+								
 
 							} else {	
 								val=0;						
@@ -82,7 +82,7 @@
 						    NombreFB.value=resp.name;
 						    EmailFB.value=resp.email;
 						    ImgPefil.src=resp.picture;
-						    console.log(resp);
+						    
 						    div = document.getElementById('exit');
             				div.style.display = '';
 
@@ -92,8 +92,8 @@
 						    	$("#femaleFB").prop("checked", true);
 						    }					
 								alert("¡¡Bienvenido!! \n \n Por favor de completar los campos requeridos. \n \n *Nota: si se queda la ventana de Google abierta, favor de cerrar y refrescar la pagina (F5).");					
-								val=1;
-								console.log("2 "+val);
+						
+								
 
 						})
 
@@ -135,14 +135,14 @@
 	  	<div>
 	  		<h2 style="text-align: center"><strong><?php echo lang("cimps_Register"); ?></strong></h2>
 
-<div style="margin-bottom: 40px;">
-	<h5><?php echo lang("cimps_Required"); ?></h5>
+
+	<h5><?php echo lang("cimps_Required"); ?></h5></br>
 	  		<?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
 	  		<form id="registrationFormInfo"  method="post" action="<?php if (isset($admin) &&  $admin)
 	  		echo site_url('user/register/admin');
 	  		else
 	  			echo site_url('user/register'); ?>" role="form">
-</div>
+
 	  		
 
 				<!--informacion personal-->
@@ -381,9 +381,14 @@
 
 
 
+												
+												<div style="margin-bottom: 20px;" id='recaptcha' class="g-recaptcha" data-sitekey="6Lf_5icUAAAAAKJs_6JPoDDVtZRmbzd7dgtv35Sr" data-callback="onSubmit"></div>
 
 
-												<div class="col-md-4">
+
+												<div id="Rcp" class="col-md-4" style="display: none;">
+
+
 													<button class="btn btn-primary btn-md btn-block style=" margin-left:-15px; " type="submit"><?php echo lang("cimps_Register"); ?></button>
 
 												</div>
@@ -399,6 +404,27 @@
 </div>
 
 
+<script>
+  function onSubmit(token) {
+    div = document.getElementById('Rcp');
+    div.style.display = '';
+   
+  }
+
+  function validate(event) {
+    event.preventDefault();
+    if (!document.getElementById('field').value) {
+      alert("You must add text to the required field");
+    } else {
+      grecaptcha.execute();
+    }
+  }
+
+  function onload() {
+    var element = document.getElementById('submit');
+    element.onclick = validate;
+  }
+</script>
 
 
 
@@ -778,17 +804,4 @@
 
 	});
 
-
-
-
-var facebookLogin = function() {
-      checkLoginState(function(data) {
-        if (data.status !== 'connected') {
-          FB.login(function(response) {
-            if (response.status === 'connected')
-              getFacebookData();
-          }, {scope: scopes});
-        }
-      })
-    }
 </script>
