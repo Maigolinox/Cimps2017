@@ -17,30 +17,35 @@
 
 		<form class="form-signin" action="<?php echo base_url() ?>" method="post" style="font-family:Tahoma,Arial;">
 			<h3 class="form-signin-heading"><strong><?php echo lang('cimps_login');?></strong></h3>
-			<div id="FaceEmail">
-			<input id="EmailCorreo" name="identity" type="text" class="form-control" placeholder="<?php echo lang('cimps_user');?>" autofocus>
-			</div>
-			<input name="password" type="password" class="form-control" placeholder="<?php echo lang('cimps_password');?>">
-			<label class="checkbox">
-				<input  name="remember" type="checkbox" value="remember-me"> <?php echo lang('cimps_rememberme');?>
-			</label>
 
-			<div style="margin-bottom: 20px;" id='recaptcha' class="g-recaptcha" data-sitekey="6Lf_5icUAAAAAKJs_6JPoDDVtZRmbzd7dgtv35Sr" data-callback="onSubmit"></div>
 			<div id="Rcp" style="display: none;">
-			<button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo lang('cimps_Signin');?></button>
-			</div>
-			<div>
-				<div class="pull-right">
-					<a href="<?php echo site_url("user/recovery") ?>"><?php echo lang('cimps_login_problem');?></a></p>
+				<div id="FaceEmail">
+					<input id="EmailCorreo" name="identity" type="text" class="form-control" placeholder="<?php echo lang('cimps_user');?>" autofocus>
 				</div>
-				<div class="pull-left">
-					<a href="<?php echo site_url("auth/forgot_password") ?>"><?php echo lang('cimps_ForgotPass');?></a></p>
-				</div>										
-			</div>
+				<input name="password" type="password" class="form-control" placeholder="<?php echo lang('cimps_password');?>">
+				<label class="checkbox">
+					<input  name="remember" type="checkbox" value="remember-me"> <?php echo lang('cimps_rememberme');?>
+				</label>
 
-			<br>				
-			
-			
+				
+				<div>
+					<button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo lang('cimps_Signin');?></button>
+				</div>
+				<div>
+					<div class="pull-right">
+						<a href="<?php echo site_url("user/recovery") ?>"><?php echo lang('cimps_login_problem');?></a></p>
+					</div>
+					<div class="pull-left">
+						<a href="<?php echo site_url("auth/forgot_password") ?>"><?php echo lang('cimps_ForgotPass');?></a></p>
+					</div>										
+				</div>
+
+				<br>				
+			</div>
+			<!--6Lf_5icUAAAAAKJs_6JPoDDVtZRmbzd7dgtv35Sr-->
+			<label id='lvcaptcha'><?php echo lang('cimps_captcha');?></label>
+			<div style="margin-bottom: 20px;" id='recaptcha' class="g-recaptcha" data-sitekey="6Lf_5icUAAAAAKJs_6JPoDDVtZRmbzd7dgtv35Sr" data-callback="onSubmit"></div>
+
 		</form>
 
 		<div style="text-align:center;">
@@ -53,7 +58,7 @@
 			</div>
 
 			<form action="
-				<form action="<?php echo site_url("user/register") ?> " method="get">
+			<form action="<?php echo site_url("user/register") ?> " method="get">
 				<input type="hidden" name="LoginGoogle" value="true" />			
 				<button style="background-color: #D34836;  font: 160% sans-serif;" class="btn" type="submit"><i style="color: white;" class="fa fa-google fa-lg" aria-hidden="true">&nbsp;<?php echo lang('cimps_Sign_G');?></i></button>
 			</form>
@@ -74,7 +79,8 @@
     div.style.display = '';
     div = document.getElementById('recaptcha');
     div.style.display = 'none';
-   
+    lavel = document.getElementById('lvcaptcha');
+   lavel.style.display ='none';
   }
 
   function validate(event) {

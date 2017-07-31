@@ -1,7 +1,7 @@
  <!--Menu-->
  <ul class="nav nav-justified">
     <li>
-        <a  href="http://127.0.0.1:4001/wordpress/registration_system/index.php/user/" >
+        <a  href="http://cimps.cimat.mx/registro/index.php/user/" >
             <img  src="<?php echo base_url() ?>assets/img/logo_home.png" style="width:30px;height:30px; margin: -30px -30px -30px -30px;">
         </a>
     </li>

@@ -200,3 +200,4 @@ $lang['cimps_personal_work'] = "Información laboral";
 $lang['cimps_Sign_up'] = "Registrate";
 $lang['cimps_Sign_FB'] = "Continuar con Facebook";
 $lang['cimps_Sign_G'] = "Continuar con Google";
+$lang['cimps_captcha'] = "Para iniciar sesión completa el captcha";
