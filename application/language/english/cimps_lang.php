@@ -2,7 +2,7 @@
 //Titulos
 $lang['cimps_user_information']="User information";
 $lang['cimps_update_information']="Update Information";
-$lang['cimps_change']="Change";
+$lang['cimps_change']="Change Profile ";
 $lang['cimps_login_problem']="Login Problems?";
 
 //Login
@@ -202,3 +202,5 @@ $lang['cimps_Sign_up'] = "Sign up";
 $lang['cimps_Sign_FB'] = "Continue with Facebook";
 $lang['cimps_Sign_G'] = "Continue with Google";
 $lang['cimps_captcha'] = "To start session complete the captcha";
+$lang['cimps_factura'] = "For invoicing send data to one of the following emails:";
+$lang['cimps_perfil'] = "Profile*";

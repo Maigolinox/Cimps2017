@@ -111,7 +111,7 @@
             <!-- Buton de PayPal para pagos en pesos mexicanos -->
             <div class="col-md-6">
                <strong><?php echo lang("cimps_paypal_mexican"); ?></strong>
-               <form action='https://www.paypal.com/cgi-bin/webscr' method='post' name='form' style="margin-right: 20px;">
+               <form action='https://www.paypal.com/cgi-bin/webscr' target="_blank" method='post' name='form' style="margin-right: 20px;">
                   <input type='hidden' name='business' value='admeventos@cimat.mx'>
                   <input type='hidden' name='cmd' value='_xclick'> 
                   <input type='hidden' name='item_name' value='Pago para CIMPS 2017'>
@@ -127,7 +127,7 @@
             <!-- Buton de PayPal para pagos en euros -->
             <div class="col-md-6 pull-right">
                <strong><?php echo lang("cimps_paypal_euros"); ?></strong>
-               <form action='https://www.paypal.com/cgi-bin/webscr' method='post' name='form' style="">
+               <form action='https://www.paypal.com/cgi-bin/webscr' target="_blank" method='post' name='form' style="">
                   <input type='hidden' name='business' value='admeventos@cimat.mx'>
                   <input type='hidden' name='cmd' value='_xclick'> 
                   <input type='hidden' name='item_name' value='Pay to CIMPS 2017'>
@@ -159,12 +159,12 @@
          </div>
          <div style="margin: 5px 5px 20px 50px;">
             <form role="form" method="post" action="<?php echo site_url('payment/add'.$url_crud_id) ?>" enctype="multipart/form-data">
-               <div class="form-group">
+               <!--<div class="form-group">
                   <label for="exampleInputEmail1"><?php echo lang("cimps_PagWaysPayment"); ?></label>
                   <div>
                   <?php echo form_dropdown('payment_type', $payment_type, set_value('payment_type', $order->type_payment), 'class="round"') ?>
                   </div>
-               </div>
+               </div>-->
                <h5><?php echo lang("cimps_PagDigitalize"); ?></h5>
                <div class="form-group">
                   <label for="inputName"><?php echo lang("cimps_PagDate"); ?></label>
@@ -217,8 +217,11 @@
             <img style=" width: 50px; height: 50px": src="<?php echo base_url() ?>assets/img/logo_paym_depo.png" />
          </div>
             <div style="margin: 5px 5px 20px 35px;">
-            <label><?php echo lang("cimps_PagData_Invoice"); ?></label>
-               <div class="form-group">
+            <label><?php echo lang("cimps_factura"); ?></label><br>
+            <label>conferencecimps@cimat.mx</label></br>
+            <label>jmejia@cimat.mx</label>
+
+             <!--  <div class="form-group">
                   <label for="inputName"><?php echo lang("cimps_PagData_advice"); ?></label>
                   <div>
                   <select name="tax" id="tax" class="round">
@@ -265,7 +268,7 @@
                         <input name="phone_number" type="text" value="<?php echo set_value('phone_number', $order->phone_number) ?>" class="round" placeholder="phone_number" style="width: 450px;">
                      </div>
                   </div>
-               </div>
+               </div>-->
       </div>
       </div>
       <!-- /SECCION DE INFORMACION PARA FACTURA -->

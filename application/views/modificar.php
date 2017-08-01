@@ -74,27 +74,28 @@ else
  <div style="margin-left: 35px; margin-right: 15px;">
      <label for="title"><?php echo lang("cimps_Tittletag"); ?></label> <!--etiqueta de Titulo-->
      <label for="inputName" style="margin-left: 100px;"><?php echo lang("cimps_Nametag"); ?></label> <!--etiqueta de nombre -->
+     <label for="inputName" style="margin-left: 270px;"><?php echo lang("cimps_perfil"); ?></label><!--etiqueta de perfil-->
      <div>
-      <?php echo form_dropdown('tittle', $tittle, set_value('tittle', $user->tittle), 'class="round" disabled'); ?> <!--lista de titulos-->
-      <input disabled="true"; value="<?php echo set_value('name', $user->name) ?>" name="name" type="text" class="round" style= "margin-left: 20px; margin-right: 10px; width: 500px;"  placeholder="Name" > <!--caja de texto de nombre-->
+      <?php echo form_dropdown('tittle', $tittle, set_value('tittle', $user->tittle), 'class="round"'); ?> <!--lista de titulos-->
+      <input value="<?php echo set_value('name', $user->name) ?>" name="name" type="text" class="round" style= "margin-left: 20px; margin-right: 10px; width: 500px;"  placeholder="Name" > <!--caja de texto de nombre-->
       <?php echo form_dropdown('registre_porfile', $groups, set_value('registre_porfile', $user_group),  'class="round" style="width:250px;" id="group"  disabled'); ?>
   </div>      									
 </div>
 <div style="margin-left: 35px; margin-top: 5px; margin-right: 15px;">
  <label for="inputEmail" style="margin-right: 125px;"><?php echo lang("cimps_Email_add"); ?></label> <!--etiqueta de titulo-->
- <label for="inputShirtSize" style="margin-left: 120px;"><?php echo lang("cimps_Shirt_Size"); ?></label> <!--etiquera de tamanio de camisa-->
- <label for="inputName" style="margin-left: 50px;"><?php echo lang("cimps_Gender"); ?></label>
+ <!--<label for="inputShirtSize" style="margin-left: 120px;"><?php echo lang("cimps_Shirt_Size"); ?></label> etiquera de tamanio de camisa-->
+ <label for="inputName" style="margin-left: 120px;"><?php echo lang("cimps_Gender"); ?></label>
 
  <div>
-  <input disabled="true"; value="<?php echo set_value('email', $user->email) ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email" style="width: 300px;"> <!-- caja de texto de el correro electronico-->
-  <?php echo form_dropdown('shirt_size', $sizes, set_value('shirt_size', $user->shirt_size), 'class="round" style="margin-left: 60px; disabled="true";" id="size"'); ?><!--lista depegable de el tamanio de camisa-->
-  <label style="margin-left: 90px;">
-   <input disabled="true"; type="radio" name="gender" id="optionsRadios1" value="female" <?php if(set_value('gender', $user->gender) == "female") echo "checked" ?>>
+  <input  value="<?php echo set_value('email', $user->email) ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email" style="width: 300px;"> <!-- caja de texto de el correro electronico-->
+ <!-- <?php echo form_dropdown('shirt_size', $sizes, set_value('shirt_size', $user->shirt_size), 'class="round" style="margin-left: 60px;"   id="size"'); ?>lista depegable de el tamanio de camisa-->
+  <label style="margin-left: 70px;">
+   <input type="radio" name="gender" id="optionsRadios1" value="female" <?php if(set_value('gender', $user->gender) == "female") echo "checked" ?>>
    <?php echo lang("cimps_Female"); ?>
 </label>
 
 <label>
-   <input disabled="true"; type="radio" name="gender" id="optionsRadios2" value="male" <?php if(set_value('gender', $user->gender) == "male") echo "checked" ?>>
+   <input type="radio" name="gender" id="optionsRadios2" value="male" <?php if(set_value('gender', $user->gender) == "male") echo "checked" ?>>
    <?php echo lang("cimps_Male"); ?>
 </label>        															
 </div>
@@ -118,8 +119,8 @@ else
      <label for="inputCountry" style="margin-left: 325px;"><?php echo lang("cimps_Countrytag"); ?></label>
  </div>
  <div style=" margin-left: 40px;">
-     <input disabled="true"; value="<?php echo set_value('city', $user->city) ?>" name="city" type="text" class="round" style="width: 350px;" placeholder="City">
-     <input disabled="true"; value="<?php echo set_value('country', $user->country) ?>" type="text" name="country" class="round" style="width: 350px;  margin-left: 20px;" placeholder="Country">
+     <input value="<?php echo set_value('city', $user->city) ?>" name="city" type="text" class="round" style="width: 350px;" placeholder="City">
+     <input value="<?php echo set_value('country', $user->country) ?>" type="text" name="country" class="round" style="width: 350px;  margin-left: 20px;" placeholder="Country">
  </div>
 </div>
 <!--/procedencias del usuario -->
@@ -140,14 +141,14 @@ else
      <label for="inputAfilation1"><?php echo lang("cimps_Afiliationtag"); ?></label>   									
  </div>
  <div style=" margin-left: 40px;">        									
-     <input disabled="true"; value="<?php echo set_value('reg_venue', $user->reg_venue) ?>" type="hidden" name="reg_venue" id="regVenue">
-     <input disabled="true"; value="<?php echo set_value('afiliation_name', $user->afiliation_name) ?>" type="text" name="afiliation_name" class="round" style=" width: 700px;" id="inputAfiliation" placeholder="Afiliation Name" <?php if(intval($user->reg_venue)!=2) echo "readonly" ?>> 
+     <input value="<?php echo set_value('reg_venue', $user->reg_venue) ?>" type="hidden" name="reg_venue" id="regVenue">
+     <input value="<?php echo set_value('afiliation_name', $user->afiliation_name) ?>" type="text" name="afiliation_name" class="round" style=" width: 700px;" id="inputAfiliation" placeholder="Afiliation Name" <?php if(intval($user->reg_venue)!=2) echo "readonly" ?>> 
  </div>       									
  <div style="margin-left: 40px;">
      <label for="inputAfilation2"><?php echo lang("cimps_AfiliationAddresstag"); ?></label>
  </div>
  <div style="margin-left: 40px;">
-     <input disabled="true"; value="<?php echo set_value('afiliation_address', $user->afiliation_adress) ?>" type="text" name="afiliation_address" class="round" style="width: 700px;" id="inputAfiliation2" placeholder="Afiliation Address">
+     <input value="<?php echo set_value('afiliation_address', $user->afiliation_adress) ?>" type="text" name="afiliation_address" class="round" style="width: 700px;" id="inputAfiliation2" placeholder="Afiliation Address" readonly=true; >
 
  </div>
 </div>
@@ -162,26 +163,19 @@ else
     <div><input value="<?php echo set_value('control_num', $user->control_num) ?>" name="control_num" type="text" maxlength="12" name="control_num" class="round" placeholder="ControlNum"></div>
 </div>
 </div>
+                    <br>
 
+        						  <div class="form-group">
+                        <label for="title"><?php echo set_value('cimps_Register_Profile') ?></label>
+                      </div>
 
-        							<!--	se comento codigo que no funciona
-        							<div>
-        								<?php //"<button type="submit" class="btn btn-default"><?php echo lang("cimps_update_information"); </button>" ?>
-        							</div>-->
-
-        							<br>
-
-        							<div class="form-group">
-        								<label for="title"><?php echo set_value('cimps_Register_Profile') ?></label>
-        								<div>
-        									
-        								</div>
+        							<div class="col-md-3">
+                         <button type="submit" class="btn btn-default"> <?php echo lang("cimps_update_information");?> </button>
+        								
         							</div>
 
-
-
-                              </form>
-                              <div class="col-md-4">
+        							        </form>
+                              <div class="col-md-3">
                                 <a href="<?php
                                 if (isset($admin) && $admin)
                                  echo site_url('p/index/'.$crud_user_id);
@@ -191,7 +185,7 @@ else
 
                          </a>
                      </div>
-                     <div class="col-md-4">
+                     <div class="col-md-3">
                         <a href="<?php echo site_url('qrcode/index/'.$user->id); ?>" class="btn btn-primary btn-md btn-block"><?php echo lang("cimps_qr_code"); ?></a>
                     </div>
                 </div> 

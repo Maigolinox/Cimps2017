@@ -289,12 +289,12 @@
 							<input value="<?php echo set_value('control_num') ?>" name="control_num" id="control_num" type="text" maxlength="12" name="control_num" class="round" placeholder="ControlNum">						
 						</div>
 					</div>
-					<div class="form-group" id="contenedor_tallas">
+					<!--<div class="form-group" id="contenedor_tallas">
 						<label for="inputShirtSize"><?php echo lang("cimps_Shirt_Size"); ?></label>
 						<div>
 							<?php echo form_dropdown('shirt_size', $sizes, set_value('shirt_size'), 'class="round" id="size"'); ?>
 						</div>
-					</div>
+					</div>-->
 					<div class="form-group" id="contenedor_codigo">
 						<label for="inputAccessCode"><?php echo lang("cimps_Access_Codetag"); ?></label>
 						<div>
@@ -381,8 +381,8 @@
 
 
 
-												
-												<div style="margin-bottom: 20px;" id='recaptcha' class="g-recaptcha" data-sitekey="6Lf_5icUAAAAAKJs_6JPoDDVtZRmbzd7dgtv35Sr" data-callback="onSubmit"></div>
+												<!--6Lf_5icUAAAAAKJs_6JPoDDVtZRmbzd7dgtv35Sr-->
+												<div style="margin-bottom: 20px;" id='recaptcha' class="g-recaptcha" data-sitekey="6LeTKisUAAAAAGwn_QA5QV6fo7XFI5Ln9DzIiAkz" data-callback="onSubmit"></div>
 
 
 

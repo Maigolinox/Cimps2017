@@ -39,10 +39,24 @@
  		<div style="margin-left: 35px; margin-right: 15px;">
 		<div class="form-group">
 		  	<div>
-				<?php echo form_dropdown('registre_porfile', $groups, set_value('registre_porfile', $user_group), 'class="round" id="group"'); ?>
+				<?php echo form_dropdown('registre_porfile', $groups, set_value('registre_porfile', $user_group), 'class="round" id="group"');?>
 			</div>
 		</div>
 		<div>
+			  		<div class="form-group" id="contenedor_matricula" <?php if($user_group != 4) echo 'style="display:none"' ?>>
+						<label for="inputControlNum">ControlNum</label>
+						<div>
+							<input value="<?php echo set_value('control_num', $user->control_num) ?>" name="control_num" id="control_num" type="text" maxlength="12" name="control_num" class="round" placeholder="ControlNum">						
+						</div>
+					</div>
+					<div class="form-group" id="contenedor_codigo" style="display:none;">
+						<label for="inputAccessCode">AccessCode</label>
+						<div>
+							<input value="<?php echo set_value('access_code', $user->access_code) ?>" name="access_code" id="access_code" type="password" maxlength="25" name="access_code" class="round" placeholder="AccessCode">
+						</div>
+					</div>
+					<div>
+
 			   <table id="services" class="table table-condensed">
 				   <tr>
 						<td style="padding-right:3em"><b>Registration</b></td>
@@ -124,7 +138,7 @@
 	   </form>
 	 
 
-	   	<div class="col-md-2"></div>
+	   	<div class="col-md-2"></div></div>
 
 
 
@@ -197,21 +211,30 @@
 					total = 0;
 					totalEuros = 0;
 					idGroup = $("#group").val();
-					
+
 					if(idGroup != 2){
 						$("#paper").hide();
 					}else{
 						$("#paper").show();
+						$("#contenedor_codigo").hide();
+					}
+					if(idGroup != 4){
+						$("#contenedor_matricula").hide();
+					}else{
+						$("#contenedor_matricula").show();
+						$("#contenedor_codigo").hide();
 					}
 					
 					if(idGroup == "3"){    //General Public
 						total += 700;
 						totalEuros += 40;
 						setTotals("#total", total, "#total_euros", totalEuros);
+						$("#contenedor_codigo").hide();
 					}else if(idGroup == "4"){   //Students
 						total += 300;
 						totalEuros += 20;
 						setTotals("#total", total, "#total_euros", totalEuros);
+						$("#contenedor_matricula").show();
 					}else if(idGroup == "2"){   //Author
 						total += 5500;
 						totalEuros += 285;
@@ -220,6 +243,19 @@
 						total += 1500;
 						totalEuros += 80;
 						setTotals("#total", total, "#total_euros", totalEuros);
+						$("#contenedor_codigo").hide();
+					}
+					if(idGroup == 6){
+						$("#contenedor_codigo").show();
+					}if(idGroup == 7){
+						$("#contenedor_codigo").show();
+					}if(idGroup == 8){
+						$("#contenedor_codigo").show();
+					}if(idGroup == 9){
+						$("#contenedor_codigo").show();
+					}
+					if(idGroup == 10){
+						$("#contenedor_codigo").hide();
 					}
 					
 				  $(".spinner").numeric({ negative: false }, function() { alert("No negative values"); this.value = ""; this.focus(); });

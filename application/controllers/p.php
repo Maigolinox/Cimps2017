@@ -111,21 +111,11 @@ class P extends CI_Controller {
 		$order_id = $order->id;
 		$paper_id1 = $this->input->post("paper_id1");
 		$paper_id2 = $this->input->post("paper_id2");
-
-		if($registre_porfile == 2){// si es autor
-			$paper_title1 = $this->input->post("paper_title1");
-			$paper_title2 = $this->input->post("paper_title2");
-
-			 $user_data = array(
-				'paper_id1' => $paper_id1,
-				'paper_id2' => $paper_id2,
-				'title1' => $paper_title1,
-				'title2' => $paper_title2,
-			 );
-
-			 $this->ion_auth->update($user->id, $user_data);
-		}
-
+		$paper_title1 = $this->input->post("paper_title1");
+		$paper_title2 = $this->input->post("paper_title2");
+ 		$access_code = $this->input->post("access_code");
+ 		$code = $this->ion_auth->access_code(1);
+		
 		if($registre_porfile == "2"){
 				$normal_paper = $this->input->post("cb1", 0);
 				$extra_paper = $this->input->post("cb2", 0);
@@ -136,10 +126,33 @@ class P extends CI_Controller {
 
 				if($normal_paper){
 						$this->Service_model->add_user_service($normal_paper, 1, $order_id  );
+						if ($paper_title1 == ""){
+							echo "<script>alert('Paper Title Incorrect!');window.history.back();</script>";
+						}
+						else if ($paper_id1 == ""){
+							echo "<script>alert('Paper Id Incorrect!');window.history.back();</script>";
+						}else if ($paper_id1 == 0){
+							echo "<script>alert('Paper Id Incorrect!');window.history.back();</script>";
+						}
+
 				}
 
 				if($extra_paper){
+
 						$this->Service_model->add_user_service($extra_paper, 1, $order_id  );
+
+						if ($paper_title2 == ""){
+							echo "<script>alert('Paper Title Incorrect!!');window.history.back();</script>";
+						}
+						else if ($paper_id2 == ""){
+							echo "<script>alert('Paper Id Incorrect!');window.history.back();</script>";
+						}else if ($paper_id2 == 0){
+							echo "<script>alert('Paper Id Incorrect!');window.history.back();</script>";
+						}
+				}else{
+
+					$paper_id2 = "";
+					$paper_title2 = "";
 				}
 
 				if($extra_page){
@@ -158,6 +171,11 @@ class P extends CI_Controller {
 				if($additional_documentation){
 						$additional_documentation_num = $this->input->post("6", 0);
 						$this->Service_model->add_user_service($additional_documentation, $additional_documentation_num, $order_id );
+				}
+				if($normal_paper){
+						
+						$this->session->set_flashdata('message', "Saved");
+					
 				}
 
 		// si es publico en general
@@ -223,6 +241,29 @@ class P extends CI_Controller {
 						$this->Service_model->add_user_service($additional_documentation, $additional_documentation_num, $order_id  );
 				}
 
+		}
+
+		if(($registre_porfile==6||$registre_porfile==7||$registre_porfile==8||$registre_porfile==9||$registre_porfile==10) && strlen($access_code)>0 && strtoupper(md5($access_code))!=$code) {
+               echo "<script>alert('Incorrect Access Code!');window.history.back();</script>";
+               
+            }  
+            if(($registre_porfile==6||$registre_porfile==7||$registre_porfile==8||$registre_porfile==9||$registre_porfile==10)) {
+              if ($access_code == ""){
+              		 echo "<script>alert('Incorrect Access Code!');window.history.back();</script>";
+              }
+            }        
+		if($registre_porfile == 2){// si es autor
+
+			
+
+			 $user_data = array(
+				'paper_id1' => $paper_id1,
+				'paper_id2' => $paper_id2,
+				'title1' => $paper_title1,
+				'title2' => $paper_title2,
+			 );
+
+			 $this->ion_auth->update($user->id, $user_data);
 		}
 
 		$this->session->set_flashdata('message', "User information Saved");

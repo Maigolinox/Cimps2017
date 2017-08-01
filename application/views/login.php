@@ -16,9 +16,10 @@
 		<?php } ?>
 
 		<form class="form-signin" action="<?php echo base_url() ?>" method="post" style="font-family:Tahoma,Arial;">
+		<div id="Rcp" style="display: none;">
 			<h3 class="form-signin-heading"><strong><?php echo lang('cimps_login');?></strong></h3>
 
-			<div id="Rcp" style="display: none;">
+			
 				<div id="FaceEmail">
 					<input id="EmailCorreo" name="identity" type="text" class="form-control" placeholder="<?php echo lang('cimps_user');?>" autofocus>
 				</div>
@@ -43,8 +44,8 @@
 				<br>				
 			</div>
 			<!--6Lf_5icUAAAAAKJs_6JPoDDVtZRmbzd7dgtv35Sr-->
-			<label id='lvcaptcha'><?php echo lang('cimps_captcha');?></label>
-			<div style="margin-bottom: 20px;" id='recaptcha' class="g-recaptcha" data-sitekey="6Lf_5icUAAAAAKJs_6JPoDDVtZRmbzd7dgtv35Sr" data-callback="onSubmit"></div>
+			<h3 id='lvcaptcha' class="form-signin-heading"><strong><?php echo lang('cimps_captcha');?></strong></h3>
+			<div style="margin-bottom: 20px;" id='recaptcha' class="g-recaptcha" data-sitekey="6LeTKisUAAAAAGwn_QA5QV6fo7XFI5Ln9DzIiAkz" data-callback="onSubmit"></div>
 
 		</form>
 
@@ -79,8 +80,8 @@
     div.style.display = '';
     div = document.getElementById('recaptcha');
     div.style.display = 'none';
-    lavel = document.getElementById('lvcaptcha');
-   lavel.style.display ='none';
+    h3 = document.getElementById('lvcaptcha');
+   h3.style.display ='none';
   }
 
   function validate(event) {

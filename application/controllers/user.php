@@ -61,7 +61,7 @@ class User extends CI_Controller {
 			{
 				redirect($this->agent->referrer());
 			}else{
-				redirect("http://cimps.cimat.mx/registration_system/");
+				redirect("http://cimps.cimat.mx/registro/");
 			}
 			//redirect($ref, 'location'); 
 		}
@@ -74,7 +74,7 @@ class User extends CI_Controller {
 			{
 				redirect($this->agent->referrer());
 			}else{
-				redirect("http://cimps.cimat.mx/registration_system/");
+				redirect("http://cimps.cimat.mx/registro/");
 			}
 		}
 		
@@ -542,9 +542,13 @@ class User extends CI_Controller {
             $this->form_validation->set_rules('city', 'City', 'required');
             $this->form_validation->set_rules('country', 'Country', 'required');
             $this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback_email_check_user['.$user_id.']');
+
+           
             
             //$this->ion_auth->update($user->id, $data);
             $groups = $this->ion_auth->groups()->result();
+
+            
                 
             $goups_options = array();
             foreach ($groups as $group){
@@ -587,6 +591,8 @@ class User extends CI_Controller {
                 $registre_porfile = $this->input->post("registre_porfile");
                 $afiliation_name = $this->input->post("afiliation_name");
                 $afiliation_address = $this->input->post("afiliation_address");
+
+               
                 
                 $user_data = array(
                     'tittle'  => $tittle,
