@@ -58,8 +58,8 @@
 				</form>
 			</div>
 
-			<form action="
-			<form action="<?php echo site_url("user/register") ?> " method="get">
+			
+			<form action= "<?php echo site_url("user/register") ?> " method="get">
 				<input type="hidden" name="LoginGoogle" value="true" />			
 				<button style="background-color: #D34836;  font: 160% sans-serif;" class="btn" type="submit"><i style="color: white;" class="fa fa-google fa-lg" aria-hidden="true">&nbsp;<?php echo lang('cimps_Sign_G');?></i></button>
 			</form>

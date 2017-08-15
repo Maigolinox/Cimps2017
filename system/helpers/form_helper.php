@@ -896,12 +896,14 @@ if ( ! function_exists('form_error'))
 if ( ! function_exists('validation_errors'))
 {
 	function validation_errors($prefix = '', $suffix = '')
+
 	{
 		if (FALSE === ($OBJ =& _get_validation_object()))
 		{
-			return '';
-		}
 
+			return '';
+
+		}
 		return $OBJ->error_string($prefix, $suffix);
 	}
 }
@@ -1044,8 +1046,7 @@ if ( ! function_exists('_get_validation_object'))
 			
 			return $CI->$object;
 		}
-		
-		return $return;
+			return $return;
 	}
 }
 

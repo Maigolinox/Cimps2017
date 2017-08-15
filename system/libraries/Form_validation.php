@@ -264,7 +264,6 @@ class CI_Form_validation {
 				$str .= $prefix.$val.$suffix."\n";
 			}
 		}
-
 		return $str;
 	}
 

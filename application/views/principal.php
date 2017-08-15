@@ -80,20 +80,45 @@
 							gapi.client.load('oauth2', 'v2', function() {
 							gapi.client.oauth2.userinfo.get().execute(function(resp) {
 						    NombreFB.value=resp.name;
-						    EmailFB.value=resp.email;
+						   	EmailFB.value=resp.email;
+
 						    ImgPefil.src=resp.picture;
 						    
 						    div = document.getElementById('exit');
             				div.style.display = '';
 
+            				
+
 						    if (resp.gender === 'male'){
 						    	$("#maleFB").prop("checked", true);
 						    }else{
 						    	$("#femaleFB").prop("checked", true);
-						    }					
+						    }	
+
+
+						    function validar_email( email ) 
+							{
+    							var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    							return regex.test(email) ? true : false;
+							}
+
+							if (validar_email( resp.email )){
+            					document.getElementById("EmailFB").disabled = true;
+            					document.getElementById("city").focus();
+            				}else{
+            					document.getElementById("EmailFB").value="";
+            					document.getElementById("EmailFB").focus();
+            				}	
+
+
+
 								alert("¡¡Bienvenido!! \n \n Por favor de completar los campos requeridos. \n \n *Nota: si se queda la ventana de Google abierta, favor de cerrar y refrescar la pagina (F5).");					
 						
-								
+
+
+							
+
+            				 
 
 						})
 
@@ -108,10 +133,12 @@
 					<script type="text/javascript">
 						function signOut() {
 							var popUp = window.open('https://accounts.google.com/logout','https://accounts.google.com/logout','width=450, height=750');
+														
 							if (popUp == null || typeof(popUp)=='undefined') {  
 								alert('Por favor deshabilita el bloqueador de ventanas emergentes y vuelve a refrescar la pagina (F5).');
 								}
 							else {  
+								location.href="http://cimps.cimat.mx/registro/";
 								
 							}
 						}
@@ -168,7 +195,7 @@
 							<?php echo form_dropdown('tittle', $tittle, set_value('tittle'), 'class="round" style="margin-right: 20px"'); ?>
 							<!--Nombre-->
 							
-							<input id="NombreFB" value="<?php echo set_value('name')?>" name="name" type="text" class="round" placeholder="Name" style="width:600px">
+							<input id="NombreFB" value="<?php echo set_value('name')?>" name="name" type="text" class="round" placeholder="Name" style="width:600px" required>
 
 								  				
 						</div>
@@ -180,7 +207,7 @@
 						</div>
 						<div>
 							<!--Correo elctronico -->
-							<input id="EmailFB" value="<?php echo set_value('email') ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email" style="width: 300px; margin-right: 35px">
+							<input id="EmailFB" value="<?php echo set_value('email') ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email" style="width: 300px; margin-right: 35px" required>
 							<!--Genero-->
 							<label>
 								<input id="femaleFB" type="radio" name="gender" id="optionsRadios1" value="female" <?php if(set_value('gender') == "female") echo "checked" ?>>
@@ -216,9 +243,9 @@
 						</div>
 						<div>
 							<!--CIUDAD-->
-							<input value="<?php echo set_value('city') ?>" name="city" type="text" class="round" placeholder="City" style="width: 350px; margin-right: 20px">
+							<input id="city" value="<?php echo set_value('city') ?>" name="city" type="text" class="round" placeholder="City" style="width: 350px; margin-right: 20px" required>
 							<!--ESTADO-->
-							<input value="<?php echo set_value('country') ?>" type="text" name="country" class="round" placeholder="Country" style="width: 350px">
+							<input value="<?php echo set_value('country') ?>" type="text" name="country" class="round" placeholder="Country" style="width: 350px" required>
 						</div>
 					</div>
 				</div>
@@ -243,14 +270,14 @@
 							<div>
 								<?php echo form_dropdown('reg_venue', $venues, set_value('reg_venue'), 'class="round" id="venue" style="width: 700px" '); ?>
 
-								<input style="width: 700px" value="<?php echo ((intval(set_value('reg_venue'))==2) ? set_value('afiliation_name') : "") ?>" type="text" name="afiliation_name" class="round" id="inputAfiliation" placeholder="Afiliation Name" <?php if(intval(set_value('reg_venue'))!=2) echo "readonly" ?>>
+								<input style="width: 700px" value="<?php echo ((intval(set_value('reg_venue'))==2) ? set_value('afiliation_name') : "") ?>" type="text" name="afiliation_name" class="round" id="inputAfiliation" placeholder="Afiliation Name" <?php if(intval(set_value('reg_venue'))!=2) echo "readonly" ?> required>
 
 							</div>
 						</div>
 						<div>
 							<label for="inputAfilation2"><?php echo lang("cimps_AfiliationAddresstag"); ?></label>
 							<div>
-								<input style="width: 700px" value="<?php echo set_value('afiliation_address') ?>" type="text" name="afiliation_address" class="round" id="inputAfiliation2" placeholder="Afiliation Address">
+								<input style="width: 700px" value="<?php echo set_value('afiliation_address') ?>" type="text" name="afiliation_address" class="round" id="inputAfiliation2" placeholder="Afiliation Address" required>
 							</div>
 						</div>
 

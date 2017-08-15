@@ -203,3 +203,4 @@ $lang['cimps_Sign_G'] = "Continuar con Google";
 $lang['cimps_captcha'] = "Para iniciar sesión completa el captcha";
 $lang['cimps_factura'] = "Para facturación mandar datos a uno de los siguientes correos:";
 $lang['cimps_perfil'] = "Perfil*";
+$lang['cimps_paypal_sed'] = "Al finalizar tu pago por PayPal toma una captura de pantalla y envíala en el apartado de 'depósito / trasferencia bancaria' para validar tu pago, gracias.";

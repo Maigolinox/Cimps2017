@@ -186,7 +186,7 @@ else
                          </a>
                      </div>
                      <div class="col-md-3">
-                        <a href="<?php echo site_url('qrcode/index/'.$user->id); ?>" class="btn btn-primary btn-md btn-block"><?php echo lang("cimps_qr_code"); ?></a>
+                       <!-- <a href="<?php echo site_url('qrcode/index/'.$user->id); ?>" class="btn btn-primary btn-md btn-block"><?php echo lang("cimps_qr_code"); ?></a>-->
                     </div>
                 </div> 
 

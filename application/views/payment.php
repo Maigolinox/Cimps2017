@@ -104,6 +104,8 @@
                <label>
                   <h3><?php echo lang("cimps_paypal"); ?></h3>
                </label>
+               <label><?php echo lang("cimps_paypal_sed"); ?></label>
+               </br></br>
             </div>
 
          </div>
@@ -141,6 +143,7 @@
                </form>
             </div>
          </div>
+         <br>
       </div>
       <!-- /SECCION DE PAGOS CON PAYPAL -->
 
@@ -159,46 +162,47 @@
          </div>
          <div style="margin: 5px 5px 20px 50px;">
             <form role="form" method="post" action="<?php echo site_url('payment/add'.$url_crud_id) ?>" enctype="multipart/form-data">
-               <!--<div class="form-group">
+               <div class="form-group">
                   <label for="exampleInputEmail1"><?php echo lang("cimps_PagWaysPayment"); ?></label>
                   <div>
-                  <?php echo form_dropdown('payment_type', $payment_type, set_value('payment_type', $order->type_payment), 'class="round"') ?>
-                  </div>
-               </div>-->
-               <h5><?php echo lang("cimps_PagDigitalize"); ?></h5>
-               <div class="form-group">
-                  <label for="inputName"><?php echo lang("cimps_PagDate"); ?></label>
-                  <div>
-                     <input id="date" value="<?php echo set_value('date', $order->date) ?>" name="date" type="text" class="round" placeholder="Date" style="width: 250px;">
+                        <?php echo form_dropdown('payment_type', $payment_type, set_value('payment_type', $order->type_payment), 'class="round" id="payme"') ?>
                   </div>
                </div>
-               <div class="form-group">
-                  <label for="inputName"><?php echo lang("cimps_PagBank"); ?></label>
-                  <div>
-                     <input name="bank" value="<?php echo set_value('bank', $order->bank) ?>" type="text" class="round" placeholder="<?php echo lang("cimps_PagBank"); ?>" style="width: 450px;">
-                  </div>
-               </div>
-               <div class="form-group">
-                  <label for="inputName"><?php echo lang("cimps_PagReference"); ?></label>
-                  <div>
-                     <input type="text" name="reference" value="<?php echo set_value('reference', $order->reference) ?>" class="round" placeholder="Reference" style="width: 450px;">
-                  </div>
-               </div>
-               <div class="form-group">
-                  <label for="inputName"><?php echo lang("cimps_PagTax"); ?></label>
-                  <div>
-                     <input name="tax_number" value="<?php echo set_value('reference', $order->tax_number) ?>" type="text" class="round" placeholder="tax" style="width: 450px;">
-                  </div>
-               </div>
-               
-               <div class="form-group">
-                  <div><?php if(!empty($order->image)){ ?>
-                     <a href="<?php echo base_url()."assets/payments/".$order->image ?>"><?php echo base_url()."assets/payments/".$order->image ?></a>
-                     <?php } ?>
-                  </div>
-                  <label for="exampleInputFile"><?php echo lang("cimps_PagProofofPayment"); ?></label>
-                  <input name="proof_payment" type="file" id="exampleInputFile">
-               </div>
+               <div id="comprobante" style="display: none;">
+                      <h5><?php echo lang("cimps_PagDigitalize"); ?></h5>
+                     <div class="form-group">
+                        <label for="inputName"><?php echo lang("cimps_PagDate"); ?></label>
+                        <div>
+                           <input id="date" value="<?php echo set_value('date', $order->date) ?>" name="date" type="text" class="round" placeholder="Date" style="width: 250px;">
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label for="inputName"><?php echo lang("cimps_PagBank"); ?></label>
+                        <div>
+                           <input name="bank" value="<?php echo set_value('bank', $order->bank) ?>" type="text" class="round" placeholder="<?php echo lang("cimps_PagBank"); ?>" style="width: 450px;">
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label for="inputName"><?php echo lang("cimps_PagReference"); ?></label>
+                        <div>
+                           <input type="text" name="reference" value="<?php echo set_value('reference', $order->reference) ?>" class="round" placeholder="Reference" style="width: 450px;">
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label for="inputName"><?php echo lang("cimps_PagTax"); ?></label>
+                        <div>
+                           <input name="tax_number" value="<?php echo set_value('reference', $order->tax_number) ?>" type="text" class="round" placeholder="tax" style="width: 450px;">
+                        </div>
+                     </div>
+                     </div>
+                     <div class="form-group">
+                        <div><?php if(!empty($order->image)){ ?>
+                           <a href="<?php echo base_url()."assets/payments/".$order->image ?>"><?php echo base_url()."assets/payments/".$order->image ?></a>
+                           <?php } ?>
+                        </div>
+                        <label for="exampleInputFile"><?php echo lang("cimps_PagProofofPayment"); ?></label>
+                        <input name="proof_payment" type="file" id="exampleInputFile">
+                     </div>
                <div>
                   <button style="margin-right: 40px;" class="btn btn-primary pull-right" type="submit"><?php echo (empty($order->payment_type)) ? lang("cimps_PagSubmit") : 'Update Payment'; ?>
                      </button>
@@ -298,7 +302,7 @@
    	$( "#date" ).datepicker({
    		changeMonth: true,
    		changeYear: true,
-   		yearRange: "2016:2016"
+   		yearRange: "2017:2017"
    	});
    
    	$('#tax').on('change', function() {
@@ -306,7 +310,20 @@
    		extra
    	}*/
    	$("#extra").toggle();
+
+
    });
+
+      $('#payme').on('change', function(){
+         tipo = $("#payme").val();
+         if(tipo == 'paypal'){
+            $('#comprobante').hide();
+         }else if(tipo == 'deposit'){
+            $('#comprobante').toggle();
+         }else if(tipo == 'bank transfer'){
+            $('#comprobante').toggle();
+         }
+      });
    });
 </script>
 </div>
