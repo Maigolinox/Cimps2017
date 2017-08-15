@@ -87,24 +87,28 @@ class Payment extends CI_Controller {
 			$data['url_crud_id'] = "";
 		}
 		
+
+
 		$order = $this->order_model->get_order($user->id);
 		$this->form_validation->set_rules('payment_type', 'Choose one of three ways for payment', 'required');
-		$this->form_validation->set_rules('date', 'Date', 'required|callback_valid_date');
-
+		
                 $pay_type = $this->input->post("payment_type");
-                if ($pay_type != "paypal")
+                if ($pay_type != "paypal"){
+            
+ $this->form_validation->set_rules('date', 'Date', 'required|callback_valid_date');
+
 		    $this->form_validation->set_rules('bank', 'Bank', 'required');
 
-		if(!$this->input->post("tax")){
-				$this->form_validation->set_rules('organization', 'Organization', 'required');
-				$this->form_validation->set_rules('adress', 'Address', 'required');
-				$this->form_validation->set_rules('locality', 'Locality', 'required');
-				$this->form_validation->set_rules('postal_code', 'Postal Code', 'required');
-				$this->form_validation->set_rules('country', 'Country', 'required');
-				$this->form_validation->set_rules('phone_number', 'Phone Number', 'required');
-				$this->form_validation->set_rules('tax_number', 'Tax Number', 'required');
+		//if(!$this->input->post("tax")){
+		//		$this->form_validation->set_rules('organization', 'Organization', 'required');
+		//		$this->form_validation->set_rules('adress', 'Address', 'required');
+		///		$this->form_validation->set_rules('locality', 'Locality', 'required');
+			//	$this->form_validation->set_rules('postal_code', 'Postal Code', 'required');
+			//	$this->form_validation->set_rules('country', 'Country', 'required');
+			//	$this->form_validation->set_rules('phone_number', 'Phone Number', 'required');
+			//	$this->form_validation->set_rules('tax_number', 'Tax Number', 'required');
+		//}
 		}
-		
 		
 		if ($this->form_validation->run() == FALSE )
 		{
@@ -144,7 +148,7 @@ class Payment extends CI_Controller {
 			$config['encrypt_name']	= true;
 			
 			$this->load->library('upload', $config);
-			if($_FILES['proof_payment']['name']!=""){
+			if($_FILES['proof_payment']['name']!="No se eligió archivo"){
 			
 				if ( ! $this->upload->do_upload('proof_payment'))
 				{

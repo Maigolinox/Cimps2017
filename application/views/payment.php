@@ -165,11 +165,11 @@
                <div class="form-group">
                   <label for="exampleInputEmail1"><?php echo lang("cimps_PagWaysPayment"); ?></label>
                   <div>
-                        <?php echo form_dropdown('payment_type', $payment_type, set_value('payment_type', $order->type_payment), 'class="round" id="payme"') ?>
+                        <?php echo form_dropdown('payment_type', $payment_type, set_value('paypal'), 'class="round" id="payme"') ?>
                   </div>
                </div>
                <div id="comprobante" style="display: none;">
-                      <h5><?php echo lang("cimps_PagDigitalize"); ?></h5>
+                <h5><?php echo lang("cimps_PagDigitalize");?></h5>
                      <div class="form-group">
                         <label for="inputName"><?php echo lang("cimps_PagDate"); ?></label>
                         <div>
@@ -195,6 +195,7 @@
                         </div>
                      </div>
                      </div>
+
                      <div class="form-group">
                         <div><?php if(!empty($order->image)){ ?>
                            <a href="<?php echo base_url()."assets/payments/".$order->image ?>"><?php echo base_url()."assets/payments/".$order->image ?></a>
@@ -315,7 +316,12 @@
    });
 
       $('#payme').on('change', function(){
-         tipo = $("#payme").val();
+        tipopago();
+      });
+
+
+function tipopago() {
+     tipo = $("#payme").val();
          if(tipo == 'paypal'){
             $('#comprobante').hide();
          }else if(tipo == 'deposit'){
@@ -323,7 +329,8 @@
          }else if(tipo == 'bank transfer'){
             $('#comprobante').toggle();
          }
-      });
+}
+
    });
 </script>
 </div>

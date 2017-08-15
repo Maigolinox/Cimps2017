@@ -167,10 +167,10 @@ class User extends CI_Controller {
             if(empty($id_grupo)) {
                 $id_grupo = 2;          //Author
             } else if($id_grupo==4) { //$af_name=='I.T. Aguascalientes'){ //Student
-                $this->form_validation->set_rules('shirt_size', 'Shirt Size', 'required');
+                $this->form_validation->set_rules('shirt_size', 'Shirt Size');
 
                 if ($id_venue==1)    //del ITA?
-                   $this->form_validation->set_rules('control_num', 'Control Number', 'required|callback_control_num_check');
+                   $this->form_validation->set_rules('control_num', 'Control Number');
 
             } else if($id_grupo==2) {   //Author
                 $this->form_validation->set_rules('paper_id1', 'Paper Id (at least one)', 'required');
