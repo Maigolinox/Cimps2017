@@ -2,8 +2,8 @@
 		 </div>
 		 <!-- Site footer -->
 		 <!-- div class="footer" -->
-		  <p style="color:#ffffff;;font-family:Verdana,Tahoma,Arial;">CIMPS 2017 - October 18-20, Copyright © 2017 CIMAT - Zacatecas, México
-		 	<br/>Av. Universidad No. 222. Zacatecas. México. conferencecimps@cimat.mx</p>	 
+		  <p style="color:#ffffff;;font-family:Verdana,Tahoma,Arial;">CIMPS 2024 - October 18-20, Copyright ©2026 CIMAT - Zacatecas, México
+		 	<br/>Parque Quantum, ciudad del conocimiento Avenida Lasec andador galileo galilei manzana 3 lote 7, C.p. 98160 Zacatecas. México. conferencecimps@cimat.mx</p>	 
 		 <!-- /div -->
 		</div> <!-- /container -->
 	</div>

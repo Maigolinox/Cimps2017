@@ -149,7 +149,7 @@ class Payment extends CI_Controller {
 			
 			$this->load->library('upload', $config);
 			if($_FILES['proof_payment']['name']!="No se eligió archivo"){
-			
+				
 				if ( ! $this->upload->do_upload('proof_payment'))
 				{
 					$data['error'] = $this->upload->display_errors();
@@ -169,8 +169,10 @@ class Payment extends CI_Controller {
 				else
 				{
 					$file = $this->upload->data();
-					$this->order_model->update_order($payment_type, $file['file_name'], $bank, $reference, $date, $tax, $order->id);
+					// enviar email de confirmacion de que se subio un archivo por parte del usuario
+					$this->sendEmail($this->ion_auth->user()->row(), $file);
 					
+					$this->order_model->update_order($payment_type, $file['file_name'], $bank, $reference, $date, $tax, $order->id);
 					if(!$this->input->post("tax", 1)){
 						$this->order_model->update_remaining_data($organization, $adress, $locality, $postal_code, $country, $phone_number,$tax, $order->id);
 					}
@@ -216,5 +218,48 @@ class Payment extends CI_Controller {
 		    $this->form_validation->set_message('valid_date', 'Invalid date.');
 			return false;
 		}
+	}
+	function sendEmail($user, $file){
+			$this->load->library('PostageApp');
+
+			// Datos del archivo cargado
+			$path = $file['full_path'];
+			$fileName = $file['orig_name'];
+			$fileType = $file['file_type']; // image/jpeg o application/pdf
+			$file_name = $file['file_name']; // nombre codificado dentro del servidor
+
+			// variables de usuario
+			$email = $user->username; // email
+			$name = $user->name; 
+			$afiliation_name = $user->afiliation_name; // Ejmp: CIMAT - guanajuato
+			$country = $user->country;
+			$city = $user->city;
+
+			// Ej. link : http://cimps.cimat.mx/registro2/assets/payments/d9c729ebebb67099e22ca0114446a6d4.png
+			$link = 'http://cimps.cimat.mx/registro/assets/payments/'.$file_name;
+
+			// se asigna los datos a la vista
+			$message =  $this->load->view('confirm', array(
+				"email" => $email,
+				"name" => $name,
+				"afiliation_name" => $afiliation_name,
+				"country" => $country,
+				"city" => $city,
+				"fileName" => $fileName,
+				"link" => $link,
+			), true);
+
+			$this->load->library('PostageApp');
+            $this->postageapp->from('conferencecimps@cimat.mx');
+            $this->postageapp->to("conferencecimps@cimat.mx");
+            $this->postageapp->subject('Registro de comprobante de pago de: '.$name);
+			
+			// $this->postageapp->attach($path); // enviar imagen por correo. (rquiere actualizar plan de postageapp)
+
+            $this->postageapp->message(
+               array('text/html' => $message
+            ));
+
+			$this->postageapp->send();
 	}
 }

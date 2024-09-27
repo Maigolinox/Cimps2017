@@ -178,6 +178,10 @@
 						total += 350;
 						totalEuros += 25;
 						setTotals("#total", total, "#total_euros", totalEuros);
+					}else if(idGroup == "12"){
+						total += 300;
+						totalEuros += 22;
+						setTotals("#total", total, "#total_euros", totalEuros);
 					}else if(idGroup == "2"){
 						total += 3500;
 						totalEuros += 220;

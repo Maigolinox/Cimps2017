@@ -1,5 +1,6 @@
 <html>
 <body style="text-align:center">
-<img src="<?php echo base_url() ?>assets/img/c<?php echo $id ?>2016.jpg" />
+<?php //print_r($result); ?>
+<img src="<?php echo base_url() ?>application/controllers/assets/image/c<?php echo $id ?>2017.jpg" />
 </body>
 </html>

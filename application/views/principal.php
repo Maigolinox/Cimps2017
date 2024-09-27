@@ -81,6 +81,7 @@
 							gapi.client.oauth2.userinfo.get().execute(function(resp) {
 						    NombreFB.value=resp.name;
 						   	EmailFB.value=resp.email;
+							EmailC.value=resp.email;
 
 						    ImgPefil.src=resp.picture;
 						    
@@ -104,9 +105,11 @@
 
 							if (validar_email( resp.email )){
             					document.getElementById("EmailFB").disabled = true;
+								document.getElementById("EmailC").disabled = true;
             					document.getElementById("city").focus();
             				}else{
             					document.getElementById("EmailFB").value="";
+								document.getElementById("EmailC").value="";
             					document.getElementById("EmailFB").focus();
             				}	
 
@@ -115,8 +118,7 @@
 								alert("¡¡Bienvenido!! \n \n Por favor de completar los campos requeridos. \n \n *Nota: si se queda la ventana de Google abierta, favor de cerrar y refrescar la pagina (F5).");					
 						
 
-
-							
+		
 
             				 
 
@@ -143,7 +145,7 @@
 							}
 						}
 					</script>
-
+					<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 					<!--finaliza registro con redes sociales-->
 					<?php }
@@ -160,17 +162,16 @@
 	  <div style="margin:20px;"></div>
 	  <div>
 	  	<div>
+			<p style="text-align: right"><a  href="http://cimps.cimat.mx/registro/"><strong><?php echo lang("cimps_back_Login"); ?></strong></a></p> 
 	  		<h2 style="text-align: center"><strong><?php echo lang("cimps_Register"); ?></strong></h2>
-
-
-	<h5><?php echo lang("cimps_Required"); ?></h5></br>
+		<div style="display: inline;">
+			<div>
+				<span><strong><?php echo lang("cimps_Required"); ?></strong></span> 
+			</div> 
+			 
+		</div></br>
 	  		<?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
-	  		<form id="registrationFormInfo"  method="post" action="<?php if (isset($admin) &&  $admin)
-	  		echo site_url('user/register/admin');
-	  		else
-	  			echo site_url('user/register'); ?>" role="form">
-
-	  		
+	  		<form id="registrationFormInfo" method="post"  role="form">
 
 				<!--informacion personal-->
 				<div style="border:2px solid #610303; border-radius: 25px; background-color : #FFFFFF;">
@@ -186,9 +187,9 @@
 					<div style="margin-left: 35px; margin-right: 15px;">
 						<div>
 							<!--Titulo -->
-							<label for="title" style="margin-right: 100px"><?php echo lang("cimps_Tittletag"); ?></label>
+							<div><label for="title" style="margin-right: 100px"><?php echo lang("cimps_Tittletag"); ?></label></div> 
 							<!--Nombre-->
-							<label for="inputName"><?php echo lang("cimps_Nametag"); ?></label>
+							<div><label for="inputName"><?php echo lang("cimps_Nametag"); ?></label></div> 
 						</div>
 						<div>
 							<!--Titulo -->
@@ -200,14 +201,22 @@
 								  				
 						</div>
 						<div>
-							<!--Correo elctronico -->
-							<label for="inputEmail" style="margin-right: 220px"><?php echo lang("cimps_Email_add");?></label>
+							<!--Correo electronico -->
+							<label for="inputEmail1" style="margin-right: 295px"><?php echo lang("cimps_Email_add");?></label>
+							<!--Correo electronico -->
+							<label for="inputEmailConf" style="margin-right: 70px"><?php echo lang("cimps_Confirm_Email_add");?></label>
+						</div>
+						<div>
+							<input id="EmailFB" value="<?php echo set_value('email') ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email" style="width:350px; margin-right: 35px" required>
+							<!--Confirmar Correo electronico -->
+							<input id="EmailC" value="<?php echo set_value('emailConf') ?>" type="email" name="emailConf" class="round" id="inputEmailConf" placeholder="Email Confirmation" style="width: 350px; margin-right: 35px" required>
+							
+						</div>
+						<div>
 							<!--Genero-->
 							<label for="inputName"><?php echo lang("cimps_Gender"); ?></label>
 						</div>
 						<div>
-							<!--Correo elctronico -->
-							<input id="EmailFB" value="<?php echo set_value('email') ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email" style="width: 300px; margin-right: 35px" required>
 							<!--Genero-->
 							<label>
 								<input id="femaleFB" type="radio" name="gender" id="optionsRadios1" value="female" <?php if(set_value('gender') == "female") echo "checked" ?>>
@@ -270,7 +279,7 @@
 							<div>
 								<?php echo form_dropdown('reg_venue', $venues, set_value('reg_venue'), 'class="round" id="venue" style="width: 700px" '); ?>
 
-								<input style="width: 700px" value="<?php echo ((intval(set_value('reg_venue'))==2) ? set_value('afiliation_name') : "") ?>" type="text" name="afiliation_name" class="round" id="inputAfiliation" placeholder="Afiliation Name" <?php if(intval(set_value('reg_venue'))!=2) echo "readonly" ?> required>
+								<input style="width: 700px" value="<?php echo ((intval(set_value('reg_venue'))==2) ? set_value('afiliation_name') : "") ?>" type="text" name="afiliation_name" class="round" id="inputAfiliation" placeholder="Afiliation Name" <?php if(intval(set_value('reg_venue'))!=2) ?> required>
 
 							</div>
 						</div>
@@ -293,7 +302,7 @@
 					</div>
 					<div style="margin: -35px 20px 0px 50px;">
 						<label >
-							<h3><?php echo lang("cimps_personal_work"); ?></h3>
+							<h3><?php echo lang("cimps_personal_setting"); ?></h3>
 						</label>
 					</div> 
 
@@ -341,20 +350,30 @@
 										<tr>
 											<td style="padding-right:3em">
 												<div class="checkbox" style="margin-top:0px; margin-bottom:0px">
-													<label>
+													<label id="label<?php echo $service->id?>" >
 														<?php if(!$service->marked){ ?>
-														<input name="cb<?php echo $service->id ?>" class="service" type="checkbox" value="<?php echo $service->id ?>" >
-														<?php }else{ ?>
-														<input class="service" type="checkbox" value="<?php echo $service->id ?>" checked disabled>
-														<?php echo '<input type="hidden" name="cb'.$service->id.'" value="'.$service->id.'" />' ?>
-														<?php } ?>
+														<input name="cb<?php echo $service->id ?>" class="service input<?php echo $service->id ?>" type="checkbox" value="<?php echo $service->id ?>" >
 														<?php echo $service->name ?>
+														<?php }else{ ?>
+														<input class="service input<?php echo $service->id ?>" type="checkbox" value="<?php echo $service->id ?>" checked disabled>
+														<?php echo '<input type="hidden" name="cb'.$service->id.'" value="'.$service->id.'" />' ?>
+														<b><?php echo $service->name ?> </b>
+														<?php } ?>
+														
 													</label>
 													<?php if(!$service->onlyone) echo '<input style="width:30px;" id="s_'.$service->id.'" name="'.$service->id.'" class="spinner" type="text" value="1">'  ?>
 													</div>
 												</td>
-												<td style="padding-right:3em">$<span class="cost"><?php echo $service->cost ?></span></td>
-												<td><span class="cost"><?php echo $service->euro ?></span>€</td>
+												<?php if($service->id == "11"){ ?>
+													<td style="padding-right:3em"><span class="cost"><?php echo $service->cost ?></span> %</td>
+												<?php }else{ ?>
+													<td style="padding-right:3em">$<span class="cost"><?php echo $service->cost ?></span></td>
+												<?php } ?>
+												<?php if($service->id == "11"){ ?>
+													<td><span class="cost"><?php echo $service->euro ?></span> %</td>
+												<?php }else{ ?>
+													<td><span class="cost"><?php echo $service->euro ?></span>€</td>
+												<?php } ?>
 												<tr>
 												<?php endforeach;?>
 												<tr class="success">
@@ -366,6 +385,13 @@
 													<tr>
 													</table>
 												</div>
+												
+												<div style="margin-left: 5px; margin-right: 15px;">
+													<div>
+														<div><label for="title" style="margin-right: 100px">* Prices valid until September 30</label></div> 
+													</div>
+												</div>
+
 												<div class="form-group">
 													<div>
 														<table id="paper" class="table" width="100%">
@@ -384,19 +410,19 @@
 														</table>
 													</div>
 												</div>
+
 												<div class="form-group">
 													<div class="checkbox">
 														<label class="checkbox">
-															<input name="accept" value="1" type="checkbox"> <?php echo lang("cimps_Permission"); ?> 
+															<input name="accept" value="1" type="checkbox" checked> <?php echo lang("cimps_Permission"); ?> 
 														</label>
 													</div>
 												</div>
 												<ul>
 													<li>CIMAT</li>
 													<li>IngSoft</li>
-													<li>COZCyT Zacatecas</li>
-													<li>SEZAC </li>
-													<li>Secretaría de Economía</li>
+													<li>IEEE Xplore</li>
+													<li>SPRINGER </li>
 													<li>Among Others</li>
 												</ul>
 					</div>
@@ -409,13 +435,13 @@
 
 
 												<!--6Lf_5icUAAAAAKJs_6JPoDDVtZRmbzd7dgtv35Sr-->
-												<div style="margin-bottom: 20px;" id='recaptcha' class="g-recaptcha" data-sitekey="6LeTKisUAAAAAGwn_QA5QV6fo7XFI5Ln9DzIiAkz" data-callback="onSubmit"></div>
-
+												<div style="margin-bottom: 20px;" id='recaptcha' class="g-recaptcha" data-sitekey="6Lcjz9YhAAAAAJA3VJnoI6Wbp-ISlPyavT-zSxKA" data-callback="onSubmit"></div>
 
 
 												<div id="Rcp" class="col-md-4" style="display: none;">
 
 
+													
 													<button class="btn btn-primary btn-md btn-block style=" margin-left:-15px; " type="submit"><?php echo lang("cimps_Register"); ?></button>
 
 												</div>
@@ -443,6 +469,7 @@
     if (!document.getElementById('field').value) {
       alert("You must add text to the required field");
     } else {
+    alert("")
       grecaptcha.execute();
     }
   }
@@ -459,6 +486,7 @@
 	$(document).ready(function() {
 
 		var total = 0;
+		var iva = false;
 		var totalEuros = 0;
 		var s = new Array();
 
@@ -475,8 +503,9 @@
 				$('#inputAfiliation').val('');
 				$('#inputAfiliation').attr('readonly',false);
 				$('#inputAfiliation').focus();
+				$('#inputAfiliation2').val('');
 			} else if(idVenue == 1) {
-				$('#inputAfiliation').val('Instituto Nacional De Estadística Y Geografía');
+				$('#inputAfiliation').val('Instituto Nacional De Estadística Y Geograf� 2a');
 				$('#inputAfiliation').attr('readonly',true);
 				$('#inputAfiliation2').val('Av. Héroe De Nacozari Sur 2301 Fracc. Jardines Del Parque C.P. 20276');
 				$('#inputAfiliation2').focus();
@@ -486,64 +515,89 @@
 				$('#inputAfiliation2').val('Av. Adolfo López Mateos #1801 Ote. Fracc. Bona Gens C.P. 20256 Aguascalientes Aguascalientes México.');
 				$('#inputAfiliation2').focus();
 			}else if(idVenue == 3) {
+				$('#inputAfiliation').val('Instituto Tecnológico eD Le�n');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('Industrial Julian de Obregon, C.P. 37290 Le�n, Gto.');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 4) {
 				$('#inputAfiliation').val('Instituto Tecnológico De Orizaba');
 				$('#inputAfiliation').attr('readonly',true);
 				$('#inputAfiliation2').val('');
 				$('#inputAfiliation2').focus();
-			}else if(idVenue == 4) {
+			}else if(idVenue == 5) {
 				$('#inputAfiliation').val('Instituto Tecnológico De Zacatecas');
 				$('#inputAfiliation').attr('readonly',true);
 				$('#inputAfiliation2').val('Carretera Panamericana S/N Crucero A Guadalajara Zacatecas Zac.');
 				$('#inputAfiliation2').focus();
-			}else if(idVenue == 5) {
+			}else if(idVenue == 6) {
 				$('#inputAfiliation').val('Universidad Autónoma De Yucatán');
 				$('#inputAfiliation').attr('readonly',true);
 				$('#inputAfiliation2').val('');
 				$('#inputAfiliation2').focus();
-			}else if(idVenue == 6) {
+			}else if(idVenue == 7) {
 				$('#inputAfiliation').val('Universidad Católica Del Norte');
 				$('#inputAfiliation').attr('readonly',true);
 				$('#inputAfiliation2').val('');
 				$('#inputAfiliation2').focus();
-			}else if(idVenue == 7) {
+			}else if(idVenue == 8) {
 				$('#inputAfiliation').val('Universidad De Atacama');
 				$('#inputAfiliation').attr('readonly',true);
 				$('#inputAfiliation2').val('');
 				$('#inputAfiliation2').focus();
-			}else if(idVenue == 8) {
+			}else if(idVenue == 9) {
 				$('#inputAfiliation').val('Universidad Politécnica De Aguascalientes');
 				$('#inputAfiliation').attr('readonly',true);
 				$('#inputAfiliation2').val('');
 				$('#inputAfiliation2').focus();
-			}else if(idVenue == 9) {
+			}else if(idVenue == 10) {
 				$('#inputAfiliation').val('Universidad Politécnica De Zacatecas');
 				$('#inputAfiliation').attr('readonly',true);
 				$('#inputAfiliation2').val('');
 				$('#inputAfiliation2').focus();
-			}else if(idVenue == 10) {
+			}else if(idVenue == 11) {
 				$('#inputAfiliation').val('Universidad Veracruzana');
 				$('#inputAfiliation').attr('readonly',true);
 				$('#inputAfiliation2').val('');
 				$('#inputAfiliation2').focus();
-			}else if(idVenue == 11) {
+			}else if(idVenue == 12) {
 				$('#inputAfiliation').val('Centro De Bachillerato Tecnológico Industrial Y De Servicios No. 168');
 				$('#inputAfiliation').attr('readonly',true);
 				$('#inputAfiliation2').val('Rio Rhin S/N Frac. Colinas Del Rio Aguascalientes, Ags.');
 				$('#inputAfiliation2').focus();
-			}else if(idVenue == 12) {
+			}else if(idVenue == 13) {
 				$('#inputAfiliation').val('Centro De Investigación En Matemáticas, A. C. Unidad Aguascalientes');
 				$('#inputAfiliation').attr('readonly',true);
 				$('#inputAfiliation2').val('');
 				$('#inputAfiliation2').focus();
-			}else if(idVenue == 13) {
+			}else if(idVenue == 14) {
 				$('#inputAfiliation').val('Centro De Investigación En Matemáticas, A. C. Unidad Guanajuato');
 				$('#inputAfiliation').attr('readonly',true);
 				$('#inputAfiliation2').val('');
 				$('#inputAfiliation2').focus();
-			}else if(idVenue == 14) {
-				$('#inputAfiliation').val('Centro De Investigación En Matemáticas, A. C. Unidad Zacatecas');
+			}else if(idVenue == 15) {
+				$('#inputAfiliation').val('Centro De Investigación En Matemáticas, A.C. Unidad Zacatecas');
 				$('#inputAfiliation').attr('readonly',true);
 				$('#inputAfiliation2').val('Av. Universidad # 222 Fraccionamiento La Loma C.P. 98068 Zacatecas Zac.');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 16) {
+				$('#inputAfiliation').val('Centro Universitario de Ciencias Exactas e Ingenierías');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('Boulevard Marcelino García Barragán 1421, Olímpica, 44430 Guadalajara, Jal.');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 17) {
+				$('#inputAfiliation').val('Centro Universitario de Ciencias Económico-Administrativas');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('Periférico Norte N° 799, Núcleo Universitario Los Belenes, 45100 Zapopan, Jal.');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 18) {
+				$('#inputAfiliation').val('Centro Universitario de los Valles');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('Carretera Guadalajara - Ameca Km. 45.5, C.P. 46600, Ameca, Jalisco, México.');
+				$('#inputAfiliation2').focus();
+			}else if(idVenue == 19) {
+				$('#inputAfiliation').val('Centro Universitario de Tonalá');
+				$('#inputAfiliation').attr('readonly',true);
+				$('#inputAfiliation2').val('Av. Nuevo Periférico 555, Ejido San José Tatepozco, 45425 Tonalá, Jal.');
 				$('#inputAfiliation2').focus();
 			}
 			idGroup = $("#group").val();
@@ -589,41 +643,48 @@
 	}
 
 			if(idGroup == 3){  //General Public
-				total += 700;
-				totalEuros += 40;
+				total += 900;
+				totalEuros += 42;
 				//$("#total").text(numeral(total).format('0,0'));
 				//$("#total_euros").text(numeral(totalEuros).format('0,0'));
 				$("#total").text(total);
 				$("#total_euros").text(totalEuros);
-			}else if(idGroup == 4){  //Students
-				total += 300;
-				totalEuros += 20;
+			}else if(idGroup == 4 && 12){  //Students
+				total += 500;
+				totalEuros += 30;
 				//$("#total").text(numeral(total).format('0,0'));
 				//$("#total_euros").text(numeral(totalEuros).format('0,0'));
 				$("#total").text(total);
 				$("#total_euros").text(totalEuros);
+			//}else if(idGroup == 12){  //Students  tec Leon
+			//	total += 150;
+			//	totalEuros += 7;
+				//$("#total").text(numeral(total).format('0,0'));
+				//$("#total_euros").text(numeral(totalEuros).format('0,0'));
+			//	$("#total").text(total);
+			//	$("#total_euros").text(totalEuros);
 			}else if(idGroup == "2"){  //Author
-				total += 5500;
-				totalEuros += 285;
+				total += 6900;
+				totalEuros += 340;
 						//$("#total").text(numeral(total).format('0,0'));
               				        //$("#total_euros").text(numeral(totalEuros).format('0,0'));
               				        $("#total").text(total);
               				        $("#total_euros").text(totalEuros);
 			}else if(idGroup == "5"){  //Companies/Enterprise not sponsors
-				total += 1500;
-				totalEuros += 80;
+				total += 750;
+				totalEuros += 38;
 						//$("#total").text(numeral(total).format('0,0'));
               				        //$("#total_euros").text(numeral(totalEuros).format('0,0'));
               				        $("#total").text(total);
               				        $("#total_euros").text(totalEuros);
-					}else if(idGroup == "11"){  //Poster
-						total += 700;
-						totalEuros += 50;
+					}//else if(idGroup == "11"){  //Poster
+					//	total += 700;
+					//	totalEuros += 50;
 						//$("#total").text(numeral(total).format('0,0'));
               				        //$("#total_euros").text(numeral(totalEuros).format('0,0'));
-              				        $("#total").text(total);
-              				        $("#total_euros").text(totalEuros);
-              				    }
+              				//        $("#total").text(total);
+              				//        $("#total_euros").text(totalEuros);
+              				//    }
 
 
               				    var spinner = $( ".spinner" ).spinner({
@@ -692,41 +753,48 @@
               				    		}
 
 				    if(idGroup == "3"){  //General Public
-				    	total += 700;
-				    	totalEuros += 40;
+				    	total += 900;
+				    	totalEuros += 42;
 						//$("#total").text(numeral(total).format('0,0'));
               				        //$("#total_euros").text(numeral(totalEuros).format('0,0'));
               				        $("#total").text(total);
               				        $("#total_euros").text(totalEuros);
-					}else if(idGroup == "4"){  //Students
-						total += 300;
-						totalEuros += 20;
+					}else if(idGroup == "4" && "12"){  //Students
+						total += 500;
+						totalEuros += 30;
 						//$("#total").text(numeral(total).format('0,0'));
               				        //$("#total_euros").text(numeral(totalEuros).format('0,0'));
               				        $("#total").text(total);
               				        $("#total_euros").text(totalEuros);
+              				}else if(idGroup == "11"){  // Professors
+						total += 800;
+						totalEuros += 38;
+						//$("#total").text(numeral(total).format('0,0'));
+						//$("#total_euros").text(numeral(totalEuros).format('0,0'));
+						$("#total").text(total);
+						$("#total_euros").text(totalEuros);
 					}else if(idGroup == "2"){  //Author
-						total += 5500;
-						totalEuros += 285;
+						total += 6900;
+						totalEuros += 340;
 						//$("#total").text(numeral(total).format('0,0'));
               				        //$("#total_euros").text(numeral(totalEuros).format('0,0'));
               				        $("#total").text(total);
               				        $("#total_euros").text(totalEuros);
 					}else if(idGroup == "5"){  //Companies/Enterprise not sponsors
-						total += 1500;
-						totalEuros += 80;
+						total += 750;
+						totalEuros += 38;
 						//$("#total").text(numeral(total).format('0,0'));
               				        //$("#total_euros").text(numeral(totalEuros).format('0,0'));
               				        $("#total").text(total);
               				        $("#total_euros").text(totalEuros);
-					}else if(idGroup == "11"){  //Poster
-						total += 700;
-						totalEuros += 50;
+					}else if(idGroup == "13"){  //Asistente virtual
+						total += 300;
+						totalEuros += 20;
 						//$("#total").text(numeral(total).format('0,0'));
               				        //$("#total_euros").text(numeral(totalEuros).format('0,0'));
-              				        $("#total").text(total);
-              				        $("#total_euros").text(totalEuros);
-              				    }
+						$("#total").text(total);
+						$("#total_euros").text(totalEuros);
+              		}
               				    $(".spinner").numeric({ negative: false }, function() { alert("No negative values"); this.value = ""; this.focus(); });
               				    var spinner = $( ".spinner" ).spinner({
               				    	change: function( event, ui ) {
@@ -756,6 +824,7 @@
             			});
               				    changeCheckbox();
               				    changeInput();
+								//$( "input[name='cb1']" ).wrap( "<strong></strong>" );
               				});
 	});
 
@@ -769,36 +838,87 @@
 	  		servicio = services[$(this).val()]
 
 	  		if(this.checked){
-	  			if(servicio.onlyone){
-	  				total += servicio.cost;
-	  				totalEuros += servicio.euro;
+				if (servicio.cost == 0.16) {
+						iva= true;
+						total = total * 1.16;
+						totalEuros = totalEuros * 1.16;
+				}else{
+					if(servicio.onlyone){
+						if (iva){
+							total = total / 1.16;
+							totalEuros = totalEuros / 1.16;
+							total += servicio.cost;
+							totalEuros += servicio.euro;
+							total = total * 1.16;
+							totalEuros = totalEuros * 1.16;
+						}else{
+							total += servicio.cost;
+							totalEuros += servicio.euro;
+						}
+					}else{
+						if (iva){
+							total = total / 1.16;
+							totalEuros = totalEuros / 1.16;
+							num = $("#s_" + $(this).val()).val();
+							s[$(this).val()] = num;
+							total += servicio.cost * num;
+							totalEuros += servicio.euro * num;
+							total = total * 1.16;
+							totalEuros = totalEuros * 1.16;
+						}else{
+							num = $("#s_" + $(this).val()).val();
+							s[$(this).val()] = num;
+							total += servicio.cost * num;
+							totalEuros += servicio.euro * num;
+						}
+					}	
 
-	  			}else{
-	  				num = $("#s_" + $(this).val()).val();
-
-	  				s[$(this).val()] = num;
-	  				total += servicio.cost * num;
-	  				totalEuros += servicio.euro * num;
-	  			}	
-
+				} 			
 	  		}else{
-	  			if(servicio.onlyone){
-	  				total -= servicio.cost;
-	  				totalEuros -= servicio.euro;
-	  			}else{
-	  				ns = s[$(this).val()];
-	  				total -= servicio.cost * ns;
-	  				totalEuros -= servicio.euro * ns;
-	  				s[$(this).val()] = -1;
-	  			}
+				if (servicio.cost == 0.16) {
+						iva = false;
+						total = total / 1.16;
+						totalEuros = totalEuros / 1.16;
+				}else{
+					if(servicio.onlyone){
+						if (iva){
+							total = total / 1.16;
+							totalEuros = totalEuros / 1.16;
+							total -= servicio.cost;
+							totalEuros -= servicio.euro;
+							total = total * 1.16;
+							totalEuros = totalEuros * 1.16;
+						}else{
+							total -= servicio.cost;
+							totalEuros -= servicio.euro;
+						}	
+					}else{
+						if (iva){
+							total = total / 1.16;
+							totalEuros = totalEuros / 1.16;
+							ns = s[$(this).val()];
+							total -= servicio.cost * ns;
+							totalEuros -= servicio.euro * ns;
+							s[$(this).val()] = -1;
+							total = total * 1.16;
+							totalEuros = totalEuros * 1.16;
+						}else{
+							ns = s[$(this).val()];
+							total -= servicio.cost * ns;
+							totalEuros -= servicio.euro * ns;
+							s[$(this).val()] = -1;
+						}
+	  				}
+				}
 	  		}
 
-				//($("#total").text(numeral(total).format('0,0'));
-           		        //$("#total_euros").text(numeral(totalEuros).format('0,0'));
-           		        $("#total").text(total);
-           		        $("#total_euros").text(totalEuros);
+				$("#total").text(numeral(total).format('0,0'));
+           		$("#total_euros").text(numeral(totalEuros).format('0,0'));
+           		        //$("#total").text(total);
+           		        //$("#total_euros").text(totalEuros);
            		    });
 	  }
+
 
 
 
@@ -827,8 +947,59 @@
 			});
 	  }
 
+	function checkEmail() {
+		var emailC = document.getElementById('EmailC');
+		var emailFB = document.getElementById('EmailFB');
+		var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
+		if (!filter.test(emailC.value)) {
+			alert('Please provide a valid email address');
+			emailC.focus;
+			return false;
+		}
+		if (!filter.test(emailFB.value)) {
+			alert('Please provide a valid email address');
+			emailFB.focus;
+			return false;
+		}
 
+		if (emailC.value.toLowerCase() !== emailFB.value.toLowerCase()) {
+			alert('Please provide the equal email address');
+			emailFB.focus;
+			return false;
+		}
+	}
+
+	let myInput = document.getElementById('EmailC');
+	
+	myInput.addEventListener('blur', () => {
+		//console.log("entre...")
+		//clearTimeout(typingTimer);
+		if(myInput.value) {
+			//typingTimer = setTimeout(doneTyping, doneTypingInterval);
+			//doneTyping();
+			checkEmail();
+		}
 	});
+
+
+	
+	$("#paper_id2").hide();
+	$("#paper_title2").hide();
+	
+	//$("input[name='cb2']").live("click", function() {
+	$(document).on("click","input[name='cb2']", function() {
+		let isChecked = $("input[name='cb2']").is(':checked')
+		if(isChecked) {
+			$("#paper_id2").show();
+			$("#paper_title2").show();
+		}else{
+			$("#paper_id2").hide();
+			$("#paper_title2").hide();
+		}
+	});
+
+
+});
 
 </script>

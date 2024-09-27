@@ -7,7 +7,7 @@
 | The API key for your postageapp.com project
 |
 */
-$config['api_key'] = 'jOQOcO9zylWfCLDN9my9KvGjvyzMDyW4';
+$config['api_key'] = 'TKxQ3zBKWAw0ZHiIMC4RNb7QT4pG1SvQ';
 
 /*
 | -------------------------------------------------------------------------

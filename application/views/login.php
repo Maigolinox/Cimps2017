@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-md-6">
-		<a href="http://cimps.cimat.mx/#"><img src="<?php echo base_url() ?>assets/img/logo2017.png"/></a>
+		<a href="http://cimps.cimat.mx/#"><img src="http://cimps.cimat.mx/wp-content/uploads/2024/04/LOGO_CIMPS2024_Merida.png" width="345" height="300"/></a>
 		<br><br>	
 	</div>
 	<div class="col-md-6">

@@ -95,20 +95,39 @@ class Descargas extends CI_Controller {
 	
 		$user = $this->ion_auth->user()->row();
 		
-		if(!$this->order_model->paid($user->id)){
-			redirect('descargas');
+		//if(!$this->order_model->paid($user->id)){
+		//	redirect('descargas');
+		//}
+		
+		
+		
+		$url_font = "./application/controllers/assets/font/gothic_bold.ttf";
+		
+		$result = array();		
+		try {
+			$query = $this->db->query("SELECT id,name FROM users  where id=1 "); //gaffete = 1 and accept = 1");
+			foreach ($query->result() as $row)
+			{
+				$url_new = "./application/controllers/assets/image/c".$row->id."2017.jpg";
+				$url_img = "C:\Users\Unity/Downloads/template.jpg";
+				$this->load->library("image_moo");
+				//$result = getimagesize($url_img);
+				//$result = @imagecreatefromjpeg($url_img);
+				$row->name = strtoupper($row->name);
+				//$this->image_moo
+				//->load($url_img)
+				//->make_watermark_text($row->name, $url_font, 72, "#000000")
+				//->watermark(5)
+				//->save($url_new, true);
+	        	array_push($result,array($row->id,$row->name));
+			}
+		//	$result = $this->image_moo->display_errors();
+		} catch (Exception $e) {
+		    $result = "Excepción capturada: ";//.$e->getMessage();
 		}
 		
-		$this->load->library("image_moo");
-		
-		$this->image_moo
-		->load('/home1/ingsofti/public_html/cimps/registration_system/assets/img/CIMPS2016cc.jpg')
-		->make_watermark_text($user->name, "/home1/ingsofti/public_html/cimps/registration_system/assets/fonts/timesbd.ttf", 32, "#600314")
-		->watermark(5)
-		->save("/home1/ingsofti/public_html/cimps/registration_system/assets/img/c".$user->id."2016.jpg");
-		
 		$this->load->library('PDF');
-		$program = $this->load->view('constancia', array('id' => $user->id), true);
+		$program = $this->load->view('constancia', array('id' => $user->id, 'result'=>$result), true);
 		$this->pdf->generatePDF2($program);
 	}
 	

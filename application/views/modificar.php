@@ -6,28 +6,39 @@
             <img  src="<?php echo base_url() ?>assets/img/logo_home.png" style="width:30px;height:30px; margin: -30px -30px -30px -30px;">
         </a>
     </li>
+
+   <!-- <?php if(isset($admin) && $admin) { ?>
+   <li><a href="http://srcimps.cimat.mx:8080/cimatcimps/web/index.php?correo=<?php echo set_value('email', $user->email) ?>&key=<?php echo md5('GiUt@*q564h85m&'.set_value('email', $user->email)) ?>"target="_blank">INSCRIPCIÓN A CONFERENCIAS, 
+        SESIONES Y TALLERES</a></li>
+    <?php } ?>-->
+
+<?php if($user_group != 13 && $accepted || $user->email == "admin@cimat.mx") { ?>
+   <li><a href="http://srcimps.cimat.mx:8080/cimatcimps/web/index.php?correo=<?php echo set_value('email', $user->email) ?>&key=<?php echo md5('GiUt@*q564h85m&'.set_value('email', $user->email)) ?>"target="_blank">
+   INSCRIPCIÓN A CONFERENCIAS</a></li>
+    <?php }?>
+    <?php if($user_group == 13 && $accepted || $user->email == "admin@cimat.mx") { ?>
+        <li><a href="http://srcimps.cimat.mx:8080/cimatcimps/web/index.php?r=programa-virtual&correo=<?php echo set_value('email', $user->email) ?>&key=<?php echo md5('GiUt@*q564h85m&'.set_value('email', $user->email)) ?>"target="_blank">
+   INSCRIPCIÓN A CONFERENCIAS (Virtual)</a></li>
+    <?php } ?>
+
+    <li></li>
     <!--<li><a href="http://cimps.cimat.mx/registration_system/index.php/user/"><?php echo lang("cimps_MenuHome"); ?></a></li>-->
     <li class="active" ><a href="<?php echo site_url('user/information'.$url_crud_id) ?>"><?php echo lang("cimps_MenuUpdate"); ?></a></li>
+    <?php if($user->gaffete==1 && $user->accept==1) { ?>
+      <!-- <li><a href="<?php echo site_url('descargas/constanciaPDF'); ?>">Download your constance!</a></li>-->
+    <?php } ?>
+    <!--<?php if($user->gaffete==1) { ?>-->
+      <!--<li><a href="http://srcimps.cimat.mx:8080/cimatcimps/web/index.php?correo=<?php echo set_value('email', $user->email) ?>&key=<?php echo md5('GiUt@*q564h85m&'.set_value('email', $user->email)) ?>"target="_blank">INSCRIPCIÓN A CONFERENCIAS, 
+SESIONES Y TALLERES</a></li>-->
+    <!--<?php } ?>-->
+    
     <li><a href="<?php if (isset($admin) && $admin)
         echo site_url('payment/index'.$url_crud_id);
         else 
             echo site_url('payment'); ?>"><?php echo lang("cimps_MenuAdd"); ?></a></li>
 
         <!--REGISTRO DE CURSO-->
-            <?php if(isset($user) && !empty($user)){ ?>
-                <?php if (isset($admin)){ ?>
-                <?php } else { ?> 
-                <?php if($accepted) { ?>
-                <li>
-                <a href="http://sistemas.ita.mx/fieat/registro/?id=<?php echo $user->id ?>&title=<?php echo $user->tittle ?>&name=<?php echo $user->name ?>&university=<?php echo $user->afiliation_name ?>&email=<?php echo $user->email ?>"><?php echo lang("cimps_add_course");?></a>
-                 </li>
-            <?php } } } ?>
-       <!--/REGISTRO DE CURSO-->
-
-      
-
-
-        <li><a href="http://cimps.cimat.mx/contact-information/" target="_blank"><?php echo lang("cimps_MenuContact"); ?>
+	<li><a href="http://cimps.cimat.mx/contact-information/" target="_blank"><?php echo lang("cimps_MenuContact"); ?>
             
         </a></li>
         <!--<li><a href="<?php echo site_url('auth/logout') ?>"><?php echo lang("cimps_MenuLogout"); ?></a></li>-->
@@ -87,7 +98,7 @@ else
  <label for="inputName" style="margin-left: 120px;"><?php echo lang("cimps_Gender"); ?></label>
 
  <div>
-  <input  value="<?php echo set_value('email', $user->email) ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email" style="width: 300px;"> <!-- caja de texto de el correro electronico-->
+  <input  value="<?php echo set_value('email', $user->email) ?>" type="email" name="email" class="round" id="inputEmail1" placeholder="Email" style="width: 300px;" > <!-- caja de texto de el correro electronico-->
  <!-- <?php echo form_dropdown('shirt_size', $sizes, set_value('shirt_size', $user->shirt_size), 'class="round" style="margin-left: 60px;"   id="size"'); ?>lista depegable de el tamanio de camisa-->
   <label style="margin-left: 70px;">
    <input type="radio" name="gender" id="optionsRadios1" value="female" <?php if(set_value('gender', $user->gender) == "female") echo "checked" ?>>
@@ -99,6 +110,11 @@ else
    <?php echo lang("cimps_Male"); ?>
 </label>        															
 </div>
+<?php if($user->gaffete==1 && $user->accept==1) { ?>
+<div>
+  <label>Clave de descuento: CIMPS</label>
+</div>
+<?php } ?>
 </div>        								
 </div>
 <!--/informacion personal del usuario -->
@@ -185,7 +201,7 @@ else
 
                          </a>
                      </div>
-                     <div class="col-md-3">
+		 <div class="col-md-3">
                        <!-- <a href="<?php echo site_url('qrcode/index/'.$user->id); ?>" class="btn btn-primary btn-md btn-block"><?php echo lang("cimps_qr_code"); ?></a>-->
                     </div>
                 </div> 

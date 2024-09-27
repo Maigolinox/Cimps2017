@@ -38,6 +38,7 @@ $lang['cimps_city']="Ciudad)";
 $lang['cimps_Countrytag']="País*";
 $lang['cimps_country']="País";
 $lang['cimps_Email_add']="Correo Electrónico*";
+$lang['cimps_Confirm_Email_add'] = "Confirmacion de Correo Electronico*";
 $lang['cimps_RegVenue']="ITA - Instituto Tecnológico de Aguascalientes";
 $lang['cimps_RegOtherVenue']="Otra institución";
 $lang['cimps_Afiliationtag']="Afiliación (Universidad/Compañía)";
@@ -45,6 +46,7 @@ $lang['cimps_afiliation']="Afiliacion";
 $lang['cimps_AfiliationAddresstag']="Dirección de organismo de afiliación(Universidad/Compañía)";
 $lang['cimps_afiliationAddress']="Dirección de organización de procedencia";
 $lang['cimps_Register_Profile']="Perfil de Registro";
+$lang['cimps_back_Login']="Iniciar sesión";
 $lang['cimps_Author']="Autor";
 $lang['cimps_GenPublic']="Público General";
 $lang['cimps_Students']="Estudiante";
@@ -61,7 +63,7 @@ $lang['cimps_Paper_Id']="ID Artículo";
 $lang['cimps_Paper_Title']="Título";
 $lang['cimps_Control_Num']="Número de Control";
 $lang['cimps_Control_Numtag']="Número de Control*";
-$lang['cimps_Permission']="Si estás de acuerdo, tu información será utilizada por nuestros patrocinadores para enviarte información sobre próximos eventos de Ingeniería del Software, Tecnologías de la Información y otras actividades. Nuestros patrocinadores son:";
+$lang['cimps_Permission']="Autorizo por este medio y a partir de la fecha de firma, al Centro de Investigación en Mateá�ticas, A.C. En lo sucesivo el CIMAT, para hacer uso de mi voz e imagen en campañas y demás eventos publicitarios que determine convenientes, siempre que estos no sean contrarios a la ley Términos Y Condicione. Te recordamos que tu información será utilizada por nuestros patrocinadores para enviarte información sobre próximos eventos de Ingeniería del Software, Tecnologías de la Información y otras actividades. Nuestros patrocinadores son:";
 
 $lang['cimps_update_profile']="Perfil de Registro";
 
@@ -69,14 +71,21 @@ $lang['cimps_update_profile']="Perfil de Registro";
 $lang['cimps_Payment_Method']="Método de Pago";
 $lang['cimps_Barralateralpago']="Depósito bancario o transferencia. El pago se debe realizar a través de un depósito bancario, los datos para el depósito son: 
 
-A nombre de: CENTRO DE INVESTIGACIÓN EN MATEMÁTICAS, A.C. 
-Banco: HSBC 
-Cuenta bancaria: 215003142-6 
-CLABE: 021210021500314264 
-ABA: 026003052 
-SWIFT: BIMEMXMM 
-Sucursal: 866 
-Plaza: 21 
+Account Name: CENTRO DE INVESTIGACION EN MATEMATICAS, A.C.
+Bank Name: BBVA Mexico S.A.
+Bank Account: 0120559571
+CLABE: 012225001205595713
+SWIFT: BCMRMXMMPYM
+Sucursal: 0714 Banca de Gobierno de Guanajuato
+Plaza: LEON, GUANAJUATO
+
+Bank Address:
+Address: Pedro Moreno 101, Col. Centro<br/>
+City: Leon
+State/Province: Guanajuato
+Post/Zip code: 37000
+Country: México
+
 
 El comprobante de pago debe ser enviado, dando click sobre el botón Agregar Pago indicando el nombre completo del participante. Si requiere factura, los datos fiscales deberán ser enviados para procesar la factura
 
@@ -196,7 +205,8 @@ $lang['cimps_deposit_detail'] = "Depósito / Transferencia Bancaria";
 $lang['cimps_add_course'] = "Inscribirse a curso";
 $lang['cimps_personal_info'] = "Información personal";
 $lang['cimps_personal_location'] = "Localización";
-$lang['cimps_personal_work'] = "Información laboral";
+$lang['cimps_personal_work'] = "Afiliacion";
+$lang['cimps_personal_setting'] = "Perfil de Registro";
 $lang['cimps_Sign_up'] = "Registrate";
 $lang['cimps_Sign_FB'] = "Continuar con Facebook";
 $lang['cimps_Sign_G'] = "Continuar con Google";

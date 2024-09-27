@@ -1,9 +1,9 @@
 <?php
 	
-	// This file is intented to update the field 'gaffete' of an assistant, which indicates that the CIMPS kit has been given to the assistant at the moment of the registration.
+	// This file is intented to update the field 'gaffete' of an attendant, which indicates that the CIMPS kit has been given
+	// to the attendant at the moment of the registration.
 
 	// First, the data is retrieved, a SQL query is created and performed
-
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		$id = $_POST['id'];
 		$name = $_POST['name'];

@@ -49,8 +49,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';  //'ingsofti_CIMPS';
-$db['default']['password'] = ''; //'';
+$db['default']['username'] = 'root';
+$db['default']['password'] = 'CiMP5';
 $db['default']['database'] = 'ingsofti_CIMPS3';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

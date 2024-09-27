@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
  <head>
     
@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="<?php echo base_url() ?>ico/favicon.png">
     <link rel="shortcut icon" href="<?php echo base_url() ?>ico/favicon.png">
 
-    <title>CIMPS 2017</title>
+    <title>CIMPS 2022</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url() ?>/assets/css/estilos.css" rel="stylesheet">
@@ -21,7 +21,7 @@
     <link href="<?php echo base_url() ?>assets/css/justified-nav.css" rel="stylesheet">
   <link href="<?php echo base_url() ?>assets/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/estilos.css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>assets/css/csslogin2017.css" rel="stylesheet">
+    
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -59,7 +59,7 @@
         <div class="row">
 			  <div class="col-xs-12 col-sm-6 col-md-8">
 			     <!-- div class="masthead" -->
-				<a href="http://cimps.cimat.mx/"><img src="<?php echo base_url() ?>assets/img/logo2017.png"/></a>
+				<a href="http://cimps.cimat.mx/"><img src="<?php echo base_url() ?>assets/img/logo2018.png" width="355" height="280"/></a>
 			     <!-- /div -->
 			  </div>
 			  <div class="col-xs-6 col-sm-6 col-md-4">
@@ -97,18 +97,19 @@
               			<?php if (isset($admin)){ ?>
               				<li class="divider"></li>
               				<li><a href="<?php echo site_url('admin') ?>">User Mngmt.</a></li>
-              				<li><a href="<?php echo site_url('program/admin')?>">Program Mngmt.</a></li>
-              				<li><a href="<?php echo site_url('programWork/admin')?>">Program Workshop Mngmt.</a></li>	  
+              				<!--<li><a href="<?php echo site_url('program/admin')?>">Program Mngmt.</a></li>
+              				<li><a href="<?php echo site_url('programWork/admin')?>">Program Workshop Mngmt.</a></li>-->	  
                       
                                         
 						          <?php }?> 
                			<!--/Opciones Adminstrativas-->
-
+					<li class="divider"></li>
+		                    <li><a href="http://srcimps.cimat.mx:8080/cimatcimps/web/index.php?correo=<?php echo set_value('email', $user->email) ?>&key=<?php echo md5('GiUt@*q564h85m&'.set_value('email', $user->email)) ?>"/>Inscribirse a curso</a></li>
+                			
                			<li class="divider"></li>
-               			<li><a href="<?php echo site_url('auth/change_password')?>">Cambiar Contraceña</a></li>
+               			<li><a href="<?php echo site_url('auth/change_password')?>">Cambiar Contraseña</a></li>
                			<li class="divider"></li>
                			<li><a href="<?php echo site_url('auth/logout') ?>">Salir</a></li>
-                    
 
             		</ul>
          		</div>

@@ -49,6 +49,7 @@ if ( ! function_exists('set_cookie'))
 		// Set the config file options
 		$CI =& get_instance();
 		$CI->input->set_cookie($name, $value, $expire, $domain, $path, $prefix, $secure);
+		$CI->input->set_cookie($name, $value, $expire, '/', $patch, $prefix, $secure);
 	}
 }
 

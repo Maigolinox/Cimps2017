@@ -14,15 +14,11 @@
             echo site_url('payment'); ?>"><?php echo lang("cimps_MenuAdd"); ?></a></li>
 
         <!--REGISTRO DE CURSO-->
-            <?php if(isset($user) && !empty($user)){ ?>
-                <?php if (isset($admin)){ ?>
-                <?php } else { ?> 
-                <?php if($accepted) { ?>
-                <li>
-                <a href="http://sistemas.ita.mx/fieat/registro/?id=<?php echo $user->id ?>&title=<?php echo $user->tittle ?>&name=<?php echo $user->name ?>&university=<?php echo $user->afiliation_name ?>&email=<?php echo $user->email ?>"><?php echo lang("cimps_add_course");?></a>
-                 </li>
-            <?php } } } ?>
-       <!--/REGISTRO DE CURSO-->
+	<?php if($accepted) { ?>
+                    <li class="divider"></li>
+                    <li><a href="http://srcimps.cimat.mx:8080/cimatcimps/web/index.php?correo=<?php echo set_value('email', $user->email) ?>&key=<?php echo md5('GiUt@*q564h85m&'.set_value('email', $user->email)) ?>"/>Inscribirse a curso</a></li>
+                    <?php } ?>
+        <!--/REGISTRO DE CURSO-->
 
       
 
@@ -57,19 +53,33 @@
                      <td style="padding-right:3em"><b><?php echo lang("cimps_PagAmountPesos"); ?></b></td>
                      <td><b><?php echo lang("cimps_PagAmountEuros"); ?></b></td>
                   <tr>
-                     <?php $total = 0; $totalEuro = 0; ?>
+                     <?php $total = 0; $totalEuro = 0; $iva = 0?>
                      <?php foreach($costs as $cost): ?>
                      <?php $total += $cost->total; $totalEuro += $cost->euro;?>
                   <tr>
                      <td><?php echo $cost->name ?></td>
-                     <td>$<span class="cost"><?php echo $cost->total ?></span></td>
-                     <td><span class="cost"><?php echo $cost->euro ?></span>€</td>
+                     <?php if(intval($cost->total) == 0){ ?>
+                        <?php $iva = 1 ?>
+								<td><span class="cost"><?php echo '0.16 %' ?></span></td>
+                        <td><span class="cost"><?php echo '0.16 %' ?></span></td>
+							<?php }else{ ?>
+								<td>$<span class="cost"><?php echo $cost->total ?></span></td>
+                        <td><span class="cost"><?php echo $cost->euro ?></span>€</td>
+							<?php } ?>
+
+                                         
                   </tr>
                   <?php endforeach; ?>
                   <tr>
                      <td><b>Total</b></td>
-                     <td><b>$<span class="cost"><?php echo $total ?></span></b></td>
-                     <td><b><span class="cost"><?php echo $totalEuro  ?></span>€</b></td>
+                     <?php if($iva == 1){ ?>
+                        <td><b><span class="cost"><?php echo round($total=$total * 1.16) ?></span></b></td>
+                        <td><b><span class="cost"><?php echo round($totalEuro = $totalEuro * 1.16)  ?></span>€</b></td>
+                     <?php }else{ ?>
+                        <td><b>$<span class="cost"><?php echo $total ?></span></b></td>
+                        <td><b><span class="cost"><?php echo $totalEuro  ?></span>€</b></td>
+                     <?php } ?>
+                     
                   </tr>
                   <?php if ($discounts->discount != 0  ||  $discounts->discount_euros != 0) :?>
                   <tr>
@@ -116,9 +126,9 @@
                <form action='https://www.paypal.com/cgi-bin/webscr' target="_blank" method='post' name='form' style="margin-right: 20px;">
                   <input type='hidden' name='business' value='admeventos@cimat.mx'>
                   <input type='hidden' name='cmd' value='_xclick'> 
-                  <input type='hidden' name='item_name' value='Pago para CIMPS 2017'>
+                  <input type='hidden' name='item_name' value='Pago para CIMPS 2019'>
                   <input type='hidden' name='item_number' value='1'>
-                  <input type='hidden' name='amount' value='<?php echo $total ?>'>
+                  <input type='hidden' name='amount' value='<?php echo $total - $discounts->discount?>'>
                   <input type='hidden' name='no_shipping' value='1'>
                   <input type='hidden' name='currency_code' value='MXN'>
                   <input type='hidden' name='cancel_return' value='http://cancel.com'>
@@ -132,9 +142,9 @@
                <form action='https://www.paypal.com/cgi-bin/webscr' target="_blank" method='post' name='form' style="">
                   <input type='hidden' name='business' value='admeventos@cimat.mx'>
                   <input type='hidden' name='cmd' value='_xclick'> 
-                  <input type='hidden' name='item_name' value='Pay to CIMPS 2017'>
+                  <input type='hidden' name='item_name' value='Pay to CIMPS 2019'>
                   <input type='hidden' name='item_number' value='1'>
-                  <input type='hidden' name='amount' value='<?php echo $totalEuro ?>'>
+                  <input type='hidden' name='amount' value='<?php echo $totalEuro - $discounts->discount_euros ?>'>
                   <input type='hidden' name='no_shipping' value='1'>
                   <input type='hidden' name='currency_code' value='EUR'>
                   <input type='hidden' name='cancel_return' value='http://cancel.com'>

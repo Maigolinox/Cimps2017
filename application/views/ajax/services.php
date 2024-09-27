@@ -1,7 +1,7 @@
 <tr>
-						<td style="padding-right:3em"><b>Registration</b></td>
-						<td style="padding-right:3em"><b>Amount(Mexican Pesos $)</b></td>
-						<td><b>Amount(Euros )</b></td>
+						<td style="padding-right:3em"><b>Registration </b></td>
+						<td style="padding-right:3em"><b>Amount(Mexican Pesos $) </b></td>
+						<td><b>Amount(Euros ) </b></td>
 				   <tr>
 <?php foreach ($services as $service):?>
 				   <tr>
@@ -10,11 +10,12 @@
 								<label>
 									<?php if(!$service->marked){ ?>
 									<input name="cb<?php echo $service->id ?>" class="service" type="checkbox" value="<?php echo $service->id ?>" >
+									<?php echo $service->name ?>
 									<?php }else{ ?>
 									    <input class="service" type="checkbox" value="<?php echo $service->id ?>" checked disabled>
 										<?php echo '<input type="hidden" name="cb'.$service->id.'" value="'.$service->id.'" />' ?>
+										<b> <?php echo $service->name?> </b>
 									<?php } ?>
-									<?php echo $service->name ?>
 								</label>
 								<?php if(!$service->onlyone) echo '<input style="width:30px;" id="s_'.$service->id.'" name="'.$service->id.'" class="spinner" type="text" value="1">'  ?>
 							</div>

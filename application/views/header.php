@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="<?php echo base_url() ?>ico/favicon.png">
     <link rel="shortcut icon" href="<?php echo base_url() ?>ico/favicon.png">
 
-    <title>CIMPS 2017</title>
+    <title>CIMPS 2022</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url() ?>/assets/css/estilos.css" rel="stylesheet">
@@ -30,6 +30,7 @@
   <script src="<?php echo base_url() ?>assets/js/facebook.js"></script>
   <script src="<?php echo base_url() ?>assets/js/numeral.js"></script>
   <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -65,7 +66,7 @@
           <div class="col-xs-12 col-sm-6 col-md-8">
           <?php if(isset($user) && !empty($user)){ ?>
           <!--logo-->       
-            <a href="http://cimps.cimat.mx/"><img src="<?php echo base_url() ?>assets/img/logo2017.png"/></a>
+            <a href="http://cimps.cimat.mx/"><img src="<?php echo base_url() ?>assets/img/logo2020.png" width="355" height="280" /></a>
         <!--/logo-->
         <?php } ?>
         </div>
@@ -106,18 +107,24 @@
                     <?php if (isset($admin)){ ?>
                       <li class="divider"></li>
                       <li><a href="<?php echo site_url('admin') ?>">User Mngmt.</a></li>
-                      <li><a href="<?php echo site_url('program/admin')?>">Program Mngmt.</a></li>
-                      <li><a href="<?php echo site_url('programWork/admin')?>">Program Workshop Mngmt.</a></li>  
+                      <!--<li><a href="<?php echo site_url('program/admin')?>">Program Mngmt.</a></li>
+                      <li><a href="<?php echo site_url('programWork/admin')?>">Program Workshop Mngmt.</a></li>-->
                       <li class="divider"></li>
-                      <li><a href="<?php echo site_url('auth/change_password')?>">Cambiar Contraceña</a></li>
+                      <li><a href="<?php echo site_url('auth/change_password')?>">Cambiar Contraseña</a></li>
                       <li class="divider"></li>
                       <li><a href="<?php echo site_url('auth/logout') ?>">Salir</a></li>
                       <?php } else {?> 
                     <!--/Opciones Adminstrativas-->
+                    
+                    <?php if($accepted) { ?>
+                      <li class="divider"></li>
+                      <li><a href="http://srcimps.cimat.mx:8080/cimatcimps/web/index.php?correo=<?php echo set_value('email', $user->email) ?>&key=<?php echo md5('GiUt@*q564h85m&'.set_value('email', $user->email)) ?>"target="_blank">Inscribirse a curso</a></li>
+                    <?php } ?>
 
                     <li class="divider"></li>
                     <li><a href="<?php echo site_url('auth/change_password')?>"><?php echo lang("cimps_MenuChange");?></a></li>
-                    <li class="divider"></li>
+			
+	       	    <li class="divider"></li>
                     <li><a href="<?php echo site_url('auth/logout') ?>"><?php echo lang("cimps_logout"); ?></a></li>
                     <?php }?>
                 </ul>

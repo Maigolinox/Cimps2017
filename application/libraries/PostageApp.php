@@ -312,8 +312,10 @@ class PostageApp {
    */
   function _request($function,$payload)
   {
-	$protocol = $this->secure ? 'https' : 'http';
-    $ch = curl_init($protocol.'://'.$this->host.'/v.1.0/'.$function);
+    //$protocol = $this->secure ? 'https' : 'http';
+    $protocol = 'https';
+    //$ch = curl_init($protocol.'://'.$this->host.'/v.1.0/'.$function);
+    $ch = curl_init($protocol.'://'.$this->host.'/v.1.1/'.$function);
     curl_setopt($ch, CURLOPT_POSTFIELDS,  json_encode($payload));
     curl_setopt($ch, CURLOPT_HEADER, false);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

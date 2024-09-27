@@ -10,6 +10,29 @@ foreach($css_files as $file): ?>
 <!--  fin de los estilos de la tabla -->
 
 <script>
+	function updateGaffete(cb)
+	{
+		url = "<?php echo site_url("admin/ajax_update_gaffete/")?>" + "/" + cb.value + "/"+ (cb.checked ? "1" : "0");  
+		$.get( url, function( data ) {
+				color = cb.checked ? "rgba(0, 255, 0, 0.33)" : "rgba(255, 0, 0, 0.33)";
+				cb.parentNode.style.backgroundColor = color;
+			});
+	}
+
+	function sendEmailById($id_user)
+	{
+		$.ajax({
+           		type: "POST",
+          		url: "<?php echo site_url("admin/mandarEmail")?>",
+           		data : {id_user : $id_user},
+           		success:function(result) {
+             			alert('Correo enviado exitosamente.');
+           		},
+           		failure:function(result){
+             			alert('Error al enviar correo.');
+           		}
+	     	});
+	}
 	function updateOrderPayment(cb)
 	{
 		url = "<?php echo site_url("admin/ajax_update_order/")?>" + "/" + cb.value + "/"+ (cb.checked ? "1" : "0");  

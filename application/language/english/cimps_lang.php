@@ -37,7 +37,8 @@ $lang['cimps_Citytag']="City* &nbsp &nbsp";
 $lang['cimps_city']="City)";
 $lang['cimps_Countrytag']="Country*";
 $lang['cimps_country']="Country";
-$lang['cimps_Email_add']="Email address* &nbsp &nbsp &nbsp";
+$lang['cimps_Email_add']="Email address*";
+$lang['cimps_Confirm_Email_add'] = "Email address confirmation*";
 $lang['cimps_RegVenue']="ITA - Technological Institute of Aguascalientes";
 $lang['cimps_RegOtherVenue']="Other institution";
 $lang['cimps_Afiliationtag']="Afiliation Name (University/Company)";
@@ -45,6 +46,7 @@ $lang['cimps_afiliation']="Afiliation name";
 $lang['cimps_AfiliationAddresstag']="Afiliation Address (University/Company)";
 $lang['cimps_afiliation']="Afiliation Address";
 $lang['cimps_Register_Profile']="Register Profile";
+$lang['cimps_back_Login']="Sign In";
 $lang['cimps_Author']="Author";
 $lang['cimps_GenPublic']="General Public";
 $lang['cimps_Students']="Student";
@@ -61,7 +63,7 @@ $lang['cimps_Paper_Id']="Paper ID";
 $lang['cimps_Paper_Title']="Title";
 $lang['cimps_Control_Num']="Control Number";
 $lang['cimps_Control_Numtag']="Control Number*";
-$lang['cimps_Permission']="If you agree, your information will be used by our sponsors to send advices about upcomming SE and IT events and other information. Our sponsors are: ";
+$lang['cimps_Permission']="I agree using this mean and from this date, to Centro de Investigacion en Matematicas, A.C. Also known as CIMAT, for using my voice and image for campaigns and other advertisement events that CIMAT considers as convenient, as long as they aren't against the law. Terms and conditions. We remember you, that your information will be used by our sponsors by sending you information about upcoming Software Engineering and TI events and other activities. Our sponsors are:";
 
 $lang['cimps_update_profile']="Register Profile";
 
@@ -72,13 +74,19 @@ Payment must be through a bank deposit as follows:
 
 Receiver Bank information: 
 Account Name: CENTRO DE INVESTIGACION EN MATEMATICAS, A.C.
-Bank Name: HSBC 
-Bank Account: 215003142-6 
-CLABE: 021210021500314264 
-ABA: 026003052 
-SWIFT: BIMEMXMM 
-Sucursal: 866 
-Plaza: 21
+Bank Name: BBVA Mexico S.A.
+Bank Account: 0120559571
+CLABE: 012225001205595713
+SWIFT: BCMRMXMMPYM
+Sucursal: 0714 Banca de Gobierno de Guanajuato
+Plaza: LEON, GUANAJUATO
+
+Bank Address:
+Address: Pedro Moreno 101, Col. Centro<br/>
+City: Leon
+State/Province: Guanajuato
+Post/Zip code: 37000
+Country: México
 
 Scanned payment receipt must be sent here  by clicking the Add Payment button indicating full name of the participant. If an invoice is required, fiscal data must be sent for processing. 
 
@@ -197,7 +205,8 @@ $lang['cimps_deposit_detail'] = "Deposit / Bank transfer";
 $lang['cimps_add_course'] = "Register for course";
 $lang['cimps_personal_info'] = "Personal information";
 $lang['cimps_personal_location'] = "Location";
-$lang['cimps_personal_work'] = "Work information";
+$lang['cimps_personal_work'] = "Affiliation";
+$lang['cimps_personal_setting'] = "Registration setting";
 $lang['cimps_Sign_up'] = "Sign up";
 $lang['cimps_Sign_FB'] = "Continue with Facebook";
 $lang['cimps_Sign_G'] = "Continue with Google";

@@ -91,14 +91,23 @@
 									<?php if(!$service->onlyone) echo '<input style="width:30px;" id="s_'.$service->id.'" name="'.$service->id.'" class="spinner" type="text" value="'.$service->quantity.'">'  ?>
 								</div>
 							</td>
-							<td style="padding-right:3em">$<span class="cost"><?php echo $service->cost ?></span></td>
-							<td><span class="cost"><?php echo $service->euro ?></span>€</td>
+							<?php if($service->id == "11"){ ?>
+								<td style="padding-right:3em"><span class="cost"><?php echo $service->cost ?></span>%</td>
+							<?php }else{ ?>
+								<td style="padding-right:3em">$<span class="cost"><?php echo $service->cost ?></span></td>
+							<?php } ?>
+							<?php if($service->id == "11"){ ?>
+								<td><span class="cost"><?php echo $service->euro ?></span>%</td>
+							<?php }else{ ?>
+								<td><span class="cost"><?php echo $service->euro ?></span>€</td>
+							<?php } ?>
 					    <tr>
 				   <?php endforeach;?>
 				   <tr <?php if ($discounts->discount == 0  &&  $discounts->discount_euros == 0) echo 'class="success"' ?>>
 						<td style="padding-right:3em"><b>Total</b></td>
-						<td style="padding-right:3em">$<b id="total"><?php echo $total ?></b></td>
-						<td><b id="total_euros"><?php echo $totalEuro ?></b>€</td>
+						
+						<td style="padding-right:3em">$<b id="total"><?php echo intval($total) ?></b></td>
+						<td><b id="total_euros"><?php echo intval($totalEuro) ?></b>€</td>
 				   </tr>
 				   <tr id='row_discount' <?php if ($discounts->discount == 0  &&  $discounts->discount_euros == 0) echo "style='display:none'"?>>
 				   		<td style="padding-right:3em"><b>Discount</b></td>
@@ -147,6 +156,7 @@
 		$(document).ready(function() {
 			
 			var total = <?php echo $total ?>;
+			var iva = false;
 			var totalEuros = <?php echo $totalEuro ?>;
 			var descuento = <?php echo $discounts->discount ?>;
 			var descuentoEuros = <?php echo $discounts->discount_euros ?>;
@@ -192,8 +202,8 @@
 							s[id] = act;
 						
 					}
-				$("#total").text(total);
-				$("#total_euros").text(totalEuros);
+					$("#total").text(numeral(total).format('0,0'));
+           			$("#total_euros").text(numeral(totalEuros).format('0,0'))
 				},  min: 1
 				
 				
@@ -211,7 +221,7 @@
 					total = 0;
 					totalEuros = 0;
 					idGroup = $("#group").val();
-
+					
 					if(idGroup != 2){
 						$("#paper").hide();
 					}else{
@@ -226,22 +236,27 @@
 					}
 					
 					if(idGroup == "3"){    //General Public
-						total += 700;
-						totalEuros += 40;
+						total += 900;
+						totalEuros += 42;
 						setTotals("#total", total, "#total_euros", totalEuros);
 						$("#contenedor_codigo").hide();
 					}else if(idGroup == "4"){   //Students
-						total += 300;
-						totalEuros += 20;
+						total += 600;
+						totalEuros += 28;
+						setTotals("#total", total, "#total_euros", totalEuros);
+						$("#contenedor_matricula").show();
+					}else if(idGroup == "11"){   // Professors
+						total += 800;
+						totalEuros += 38;
 						setTotals("#total", total, "#total_euros", totalEuros);
 						$("#contenedor_matricula").show();
 					}else if(idGroup == "2"){   //Author
-						total += 5500;
-						totalEuros += 285;
+						total += 6900;
+						totalEuros += 340;
 						setTotals("#total", total, "#total_euros", totalEuros);
 					}else if(idGroup == "5"){   //Companies not sponsors
-						total += 1500;
-						totalEuros += 80;
+						total += 750;
+						totalEuros += 38;
 						setTotals("#total", total, "#total_euros", totalEuros);
 						$("#contenedor_codigo").hide();
 					}
@@ -257,7 +272,6 @@
 					if(idGroup == 10){
 						$("#contenedor_codigo").hide();
 					}
-					
 				  $(".spinner").numeric({ negative: false }, function() { alert("No negative values"); this.value = ""; this.focus(); });
 				  var spinner = $( ".spinner" ).spinner({
 				change: function( event, ui ) {
@@ -277,7 +291,8 @@
 							s[id] = act;
 						
 					}
-					setTotals("#total", total, "#total_euros", totalEuros);
+					$("#total").text(numeral(total).format('0,0'));
+           			$("#total_euros").text(numeral(totalEuros).format('0,0'))
 				},  min: 1
 				
 				
@@ -296,32 +311,83 @@
 			
 				servicio = services[$(this).val()]
 			
-				if(this.checked){
-				  if(servicio.onlyone){
-					 total += servicio.cost;
-					 totalEuros += servicio.euro;
-					 
-				  }else{
-				     num = $("#s_" + $(this).val()).val();
-					 
-					 s[$(this).val()] = num;
-					 total += servicio.cost * num;
-					 totalEuros += servicio.euro * num;
-				  }	
-					
+if(this.checked){
+				if (servicio.cost == 0.16) {
+						iva= true;
+						total = total * 1.16;
+						totalEuros = totalEuros * 1.16;
 				}else{
-				  if(servicio.onlyone){
-				    total -= servicio.cost;
-					totalEuros -= servicio.euro;
-				  }else{
-				    ns = s[$(this).val()];
-					total -= servicio.cost * ns;
-					totalEuros -= servicio.euro * ns;
-					s[$(this).val()] = -1;
-				  }
-				}
+					if(servicio.onlyone){ 
+						if (iva){
+							total = total / 1.16;
+							totalEuros = totalEuros / 1.16;
+							total += servicio.cost;
+							totalEuros += servicio.euro;
+							total = total * 1.16;
+							totalEuros = totalEuros * 1.16;
+						}else{
+							total += servicio.cost;
+							totalEuros += servicio.euro;
+						}
+					}else{
+						if (iva){
+							total = total / 1.16;
+							totalEuros = totalEuros / 1.16;
+							num = $("#s_" + $(this).val()).val();
+							s[$(this).val()] = num;
+							total += servicio.cost * num;
+							totalEuros += servicio.euro * num;
+							total = total * 1.16;
+							totalEuros = totalEuros * 1.16;
+						}else{
+							num = $("#s_" + $(this).val()).val();
+							s[$(this).val()] = num;
+							total += servicio.cost * num;
+							totalEuros += servicio.euro * num;
+						}
+					}	
+				}  
+	  		}else{
+				if (servicio.cost == 0.16) {
+						iva = false;
+						total = total / 1.16;
+						totalEuros = totalEuros / 1.16;
+				}else{
+					if(servicio.onlyone){
+						if (iva){
+							total = total / 1.16;
+							totalEuros = totalEuros / 1.16;
+							total -= servicio.cost;
+							totalEuros -= servicio.euro;
+							total = total * 1.16;
+							totalEuros = totalEuros * 1.16;
+						}else{
+							total -= servicio.cost;
+							totalEuros -= servicio.euro;
+						}			
+					}else{
+						if (iva){
+							total = total / 1.16;
+							totalEuros = totalEuros / 1.16;
+							ns = s[$(this).val()];
+							total -= servicio.cost * ns;
+							totalEuros -= servicio.euro * ns;
+							s[$(this).val()] = -1;
+							total = total * 1.16;
+							totalEuros = totalEuros * 1.16;
+						}else{
+							ns = s[$(this).val()];
+							total -= servicio.cost * ns;
+							totalEuros -= servicio.euro * ns;
+							s[$(this).val()] = -1;
+						}
+					}
+				}   
+	  			
+	  		}
 
-				setTotals("#total", total, "#total_euros", totalEuros);
+			  	$("#total").text(numeral(total).format('0,0'));
+           		$("#total_euros").text(numeral(totalEuros).format('0,0'))
 				
 			});
 			}

@@ -123,6 +123,7 @@ class P extends CI_Controller {
 				$conference_dinner = $this->input->post("cb4", 0);
 				$social_program = $this->input->post("cb5", 0);
 				$additional_documentation = $this->input->post("cb6", 0);
+				$IVA = $this->input->post("cb11", 0);
 
 				if($normal_paper){
 						$this->Service_model->add_user_service($normal_paper, 1, $order_id  );
@@ -177,12 +178,16 @@ class P extends CI_Controller {
 						$this->session->set_flashdata('message', "Saved");
 					
 				}
+				if($IVA){
+					$this->Service_model->add_user_service($IVA, 1, $order_id  );
+				}
 
 		// si es publico en general
 		}else if($registre_porfile == "3"){
 				$conference_dinner = $this->input->post("cb4", 0);
 				$social_program = $this->input->post("cb5", 0);
 				$additional_documentation = $this->input->post("cb6", 0);
+				$IVA = $this->input->post("cb11", 0);
 
 				//Agregamos por defaul el pago de publico general
 				$this->Service_model->add_user_service("7", 1, $order_id  );
@@ -199,12 +204,16 @@ class P extends CI_Controller {
 						$additional_documentation_num = $this->input->post("6", 0);
 						$this->Service_model->add_user_service($additional_documentation, $additional_documentation_num, $order_id  );
 				}
+				if($IVA){
+					$this->Service_model->add_user_service($IVA, 1, $order_id  );
+				}
 
 		//si es estudiante
 		}else if($registre_porfile == "4"){
 				$conference_dinner = $this->input->post("cb4", 0);
 				$social_program = $this->input->post("cb5", 0);
 				$additional_documentation = $this->input->post("cb6", 0);
+				$IVA = $this->input->post("cb11", 0);
 
 				//Agregamos por defaul el pago de publico general
 				$this->Service_model->add_user_service( "8", 1, $order_id  );
@@ -220,6 +229,35 @@ class P extends CI_Controller {
 				if($additional_documentation){
 						$additional_documentation_num = $this->input->post("6", 0);
 						$this->Service_model->add_user_service($additional_documentation, $additional_documentation_num, $order_id  );
+				}
+				if($IVA){
+					$this->Service_model->add_user_service($IVA, 1, $order_id  );
+				}
+
+		//si es estudiante TecNM
+		}else if($registre_porfile == "11"){
+				$conference_dinner = $this->input->post("cb4", 0);
+				$social_program = $this->input->post("cb5", 0);
+				$additional_documentation = $this->input->post("cb6", 0);
+				$IVA = $this->input->post("cb11", 0);
+
+				//Agregamos por defaul el pago de publico general
+				$this->Service_model->add_user_service( "10", 1, $order_id  );
+
+				if($conference_dinner){
+						$this->Service_model->add_user_service($conference_dinner, 1, $order_id  );
+				}
+
+				if($social_program){
+						$this->Service_model->add_user_service( $social_program, 1, $order_id  );
+				}
+
+				if($additional_documentation){
+						$additional_documentation_num = $this->input->post("6", 0);
+						$this->Service_model->add_user_service($additional_documentation, $additional_documentation_num, $order_id  );
+				}
+				if($IVA){
+					$this->Service_model->add_user_service($IVA, 1, $order_id  );
 				}
 
 		//si es compañia
